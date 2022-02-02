@@ -1,3 +1,6 @@
+const P_number_theory = require('number-theory');
+const P_numbers = require('numbers');
+
 const isPrimePower = (n) => {
     // https://en.wikipedia.org/wiki/Prime_power
     // Every prime power (except powers of 2) has a primitive root
@@ -5,8 +8,8 @@ const isPrimePower = (n) => {
 
     for (let c = 1; c <= Math.sqrt(n); c++) {
         let root = Math.pow(n, 1 / c);
-        if (this.isInt(root)) {
-            if (this.isPrime(root)) {
+        if (P_numbers.basic.isInt(root)) {
+            if (P_number_theory.isPrime(root)) {
                 return true;
             }
         }
@@ -20,7 +23,7 @@ const hasIntRoot = (n) => {
 
     for (let c = 3; c <= Math.sqrt(n); c++) {
         let root = Math.pow(n, 1 / c);
-        if (this.isInt(root)) {
+        if (P_numbers.basic.isInt(root)) {
             return true;
         }
     }
@@ -28,7 +31,7 @@ const hasIntRoot = (n) => {
 }
 
 const isUnusual = (n) => {
-    const primeFactors = this.primeFactors(n);
+    const primeFactors = P_number_theory.primeFactors(n);
     if (Math.max(...primeFactors) > Math.sqrt(n)) {
         return true;
     }
@@ -60,12 +63,12 @@ const isPractical = (n) => {
     if (isPowerOf2(n)) return true;
 
     // Every even perfect number is also a practical number
-    if (this.isPerfect(n)) return true;
+    if (P_number_theory.isPerfect(n)) return true;
 
     if (n % 4 === 0 || n % 6 === 0) {
         // Every practical number is divisible by 4 or 6 (or both).
-        const divisors = this.divisors(n);
-        for (var i = 1; i < N; i++) {
+        const divisors = P_number_theory.divisors(n);
+        for (var i = 1; i < n; i++) {
             if (!isSubsetSum(divisors, divisors.length, i)) {
                 return false;
             }
@@ -115,20 +118,24 @@ function isSubsetSum(set, n, sum) {
 }
 
 const isSemiperfect = (n) => {
+    if (n <= 1) return false;
+
     if (isPractical(n) && !isPowerOf2(n)) {
         return true;
     }
 
-    if (this.isPerfect(n) || this.isAbundant(n)) {
+    if (P_number_theory.isPerfect(n) || P_number_theory.isAbundant(n)) {
         return SemiperfectTest(n)
     }
+    return false;
 }
 
 function SemiperfectTest(n) {
+    if (n === 0) return false;
     let v = [];
 
     // find the divisors
-    v = this.divisors(n);
+    v = P_number_theory.divisors(n);
 
     // sorting the vector
     v.sort(function (a, b) { return a - b; });
@@ -224,11 +231,6 @@ const isPolite = (n) => {
     return false;
 }
 
-const isHarshad = (n, b) => {
-    // In mathematics, a harshad number (or Niven number) in a given number base is an integer that is divisible by the sum of its digits when written in that base. Harshad numbers in base n are also known as n-harshad (or n-Niven) numbers. Harshad numbers were defined by D. R. Kaprekar, a mathematician from India.[1] The word "harshad" comes from the Sanskrit harṣa (joy) + da (give), meaning joy-giver. The term "Niven number" arose from a paper delivered by Ivan M. Niven at a conference on number theory in 1977. 
-    // This is a bit too much for me to work out right now.
-}
-
 const isEvil = (n) => {
     let bits = 0;
     for (const bit of parseInt(n).toString(2)) {
@@ -236,7 +238,7 @@ const isEvil = (n) => {
             bits++;
         }
     }
-    return bits > 0 && bits & 0b1 === 1;
+    return bits > 0 && (bits & 0b1) === 1;
 }
 
 const isOdious = (n) => {
@@ -244,46 +246,51 @@ const isOdious = (n) => {
 }
 
 const isPowerOf2 = (n) => {
-    return n & n - 1 === 0;
+    return (n & n - 1) === 0;
 }
 
 const isMersennePrime = (n) => {
-    if (this.isPrime(n) && isPowerOf2(n + 1)) {
+    if (P_number_theory.isPrime(n) && isPowerOf2(n + 1)) {
         return true;
     }
     return false;
 }
 
 const isSophieGermainPrime = (n) => {
-    if (this.isPrime(n) && this.isPrime(2 * n + 1)) {
+    if (P_number_theory.isPrime(n) && P_number_theory.isPrime(2 * n + 1)) {
         return true;
     }
     return false;
 }
 
 const isSafePrime = (n) => {
-    if (this.isPrime(n) && this.isPrime(0.5 * n - 1)) {
+    if (P_number_theory.isPrime(n) && P_number_theory.isPrime(0.5 * n - 1)) {
         return true;
     }
     return false;
 }
 
 const isWeird = (n) => {
-    if (this.isAbundant(n) && !isSemiperfect(n)) {
+    if (n <= 0) return false;
+    if (P_number_theory.isAbundant(n) && !isSemiperfect(n)) {
         return true;
     }
     return false;
 }
 
 const isArithmetic = (n) => {
-    if (this.isInt(this.statistic.mean(this.divisors(n)))) {
+    if (n === 0) return false;
+    if (n === 1) return true;
+
+    // Can't get divisors of 0
+    if (P_numbers.basic.isInt(P_numbers.statistic.mean(P_number_theory.divisors(n)))) {
         return true;
     }
     return false;
 }
 
 const isCompositeOfXPrimes = (n, count) => {
-    const factors = this.factors(n);
+    const factors = P_number_theory.factor(n);
     if (count === factors.length) {
         return true;
     }
@@ -318,7 +325,7 @@ const isMoreRound = (n1, n2, base1 = 10, base2 = 10) => {
 }
 
 const isSmooth = (n, N) => {
-    const primeFactors = this.primeFactors(n);
+    const primeFactors = P_number_theory.primeFactors(n);
     if (primeFactors.filter((value) => value > N).length === 0) {
         return true;
     }
@@ -326,7 +333,7 @@ const isSmooth = (n, N) => {
 }
 
 const isPowerSmooth = (n, N) => {
-    const factors = this.factor(n).map((value) => Math.pow(value.prime, value.power));
+    const factors = P_number_theory.factor(n).map((value) => Math.pow(value.prime, value.power));
     if (factors.filter((v) => v > N).length === 0) {
         return true;
     }
@@ -340,9 +347,9 @@ const isRough = (n, k) => {
     }
 
     // Every positive integer is 2-rough, since all its prime factors, being prime numbers, exceed 1.
-    if (N === 2 && n > 0) return true;
+    if (k === 2 && n > 0) return true;
 
-    const primeFactors = this.primeFactors(n);
+    const primeFactors = P_number_theory.primeFactors(n);
     if (primeFactors.filter((value) => value <= k).length === 0) {
         return true;
     }
@@ -354,7 +361,10 @@ const isKRough = (n, k) => {
 }
 
 const isNatural = (n) => {
-    if (n > 0 && this.isInt(n)) {
+    // https://en.wikipedia.org/wiki/ISO_80000-2
+    // ISO80000 makes 0 an natural number
+
+    if (P_numbers.basic.isInt(n)) {
         return true;
     }
     return false;
@@ -427,15 +437,18 @@ const isSelf = (n, base = 10) => {
 }
 
 const isSelfPrime = (n) => {
-    if (this.isPrime(n) && isSelf(n)) {
+    if (P_number_theory.isPrime(n) && isSelf(n)) {
         return true;
     }
     return false;
 }
 
 const isSphenic = (n) => {
-    if (this.divisors(n).length === 8) {
-        if (this.primeFactors(n).length === 3) {
+    if (n <= 0) return false;
+    if (n === 1) return false;
+
+    if (P_number_theory.divisors(n).length === 8) {
+        if (P_number_theory.primeFactors(n).length === 3) {
             return true;
         }
     }
@@ -443,7 +456,7 @@ const isSphenic = (n) => {
 }
 
 const isProductOfXPrimes = (n, x) => {
-    if (this.primeFactors(n).length === x) {
+    if (P_number_theory.primeFactors(n).length === x) {
         return true;
     }
     return false;
@@ -494,52 +507,40 @@ const getStar = (n) => {
     return 6 * n * (n - 1) + 1;
 }
 
-const isTetrahedral = (n) => {
-    let c = 1;
-    while (true) {
-        let nth = getCenteredHexagonal(c);
-        if (n === nth) return true;
-        if (n < nth) return false;
-        // if (n > nth) continue;
-        c++;
-    }
-}
-
-export {
-    isCenteredHexagonal,
-    isStar,
-    getStar,
+module.exports = {
     getCenteredHexagonal,
-    getTetrahedral,
-    isTetrahedral,
-    isProductOfXPrimes,
-    isSphenic,
-    isSelfPrime,
-    isSelf,
-    isNatural,
-    isRough,
-    isKRough,
-    isSmooth,
-    isPowerSmooth,
-    isMoreRound,
-    isRound,
-    isCompositeOfXPrimes,
-    isArithmetic,
-    isWeird,
-    isSophieGermainPrime,
-    isSafePrime,
-    isMersennePrime,
-    isPowerOf2,
-    isPrimePower,
-    hasIntRoot,
-    isUnusual,
-    isUntouchable,
-    isPractical,
-    isPronic,
-    isSemiperfect,
     getPoliteness,
-    isPolite,
-    isHarshad,
+    getStar,
+    getTetrahedral,
+    hasIntRoot,
+    isArithmetic,
+    isCenteredHexagonal,
+    isCompositeOfXPrimes,
     isEvil,
+    isKRough,
+    isMersennePrime,
+    isMoreRound,
+    isNatural,
     isOdious,
+    isPolite,
+    isPowerOf2,
+    isPowerSmooth,
+    isPractical,
+    isPrimePower,
+    isProductOfXPrimes,
+    isPronic,
+    isRough,
+    isRound,
+    isSafePrime,
+    isSelf,
+    isSelfPrime,
+    isSemiperfect,
+    isSmooth,
+    isSophieGermainPrime,
+    isSphenic,
+    isStar,
+    isTetrahedral,
+    isUntouchable,
+    isUnusual,
+    isWeird,
 }

@@ -4,7 +4,7 @@ const P_numbers = require('numbers');
 const P_happyNumber = require('happy-number');
 const ownCode = require('./ownCode');
 
-class NumberTools {
+const NumberTools = {
     /*
     Things I would like the package to support
 
@@ -17,113 +17,115 @@ class NumberTools {
     */
 
     // Mine
-    boolean = {
-        getCenteredHexagonal: ownCode.getCenteredHexagonal.bind(this),
-        getStar: ownCode.getStar.bind(this),
-        getTetrahedral: ownCode.getTetrahedral.bind(this),
+    bools: {
+        getCenteredHexagonal: ownCode.getCenteredHexagonal,
+        getStar: ownCode.getStar,
+        getTetrahedral: ownCode.getTetrahedral,
 
-        hasIntRoot: ownCode.hasIntRoot.bind(this),
+        hasIntRoot: ownCode.hasIntRoot,
 
         isAbundant: this.isAbundant,
-        isArithmetic: ownCode.isArithmetic.bind(this),
-        isCenteredHexagonal: ownCode.isCenteredHexagonal.bind(this),
+        isArithmetic: ownCode.isArithmetic,
+        isCenteredHexagonal: ownCode.isCenteredHexagonal,
         isColumnDD: this.isColumnDD,
-        isCompositeOfXPrimes: ownCode.isCompositeOfXPrimes.bind(this),
+        isCompositeOfXPrimes: ownCode.isCompositeOfXPrimes,
         isDeficient: this.isDeficient,
-        isEvil: ownCode.isEvil.bind(this),
-        isFriable: ownCode.isSmooth.bind(this),
+        isEvil: ownCode.isEvil,
+        isFriable: ownCode.isSmooth,
         isHeptagonal: this.isHeptagonal,
         isHexagonal: this.isHexagonal,
         isInt: this.isInt,
-        isKRough: ownCode.isKRough.bind(this),
+        isKRough: ownCode.isKRough,
         isLowerBand: this.isLowerBand,
-        isMersennePrime: ownCode.isMersennePrime.bind(this),
-        isNatural: ownCode.isNatural.bind(this),
+        isMersennePrime: ownCode.isMersennePrime,
+        isNatural: ownCode.isNatural,
         isOctagonal: this.isOctagonal,
-        isPanarithmic: ownCode.isPractical.bind(this),
+        isOdious: ownCode.isOdious,
+        isPanarithmic: ownCode.isPractical,
         isPentagonal: this.isPentagonal,
         isPerfect: this.isPerfect,
-        isPolite: ownCode.isPolite.bind(this),
-        isPowerOf2: ownCode.isPowerOf2.bind(this),
-        isPowerSmooth: ownCode.isPowerSmooth.bind(this),
-        isPractical: ownCode.isPractical.bind(this),
+        isPolite: ownCode.isPolite,
+        isPowerOf2: ownCode.isPowerOf2,
+        isPowerSmooth: ownCode.isPowerSmooth,
+        isPractical: ownCode.isPractical,
         isPrime: this.isPrime,
-        isPrimePower: ownCode.isPrimePower.bind(this),
+        isPrimePower: ownCode.isPrimePower,
         isProbablyPrime: this.isProbablyPrime,
-        isProductOfXPrime: ownCode.isProductOfXPrime.bind(this),
-        isPronic: ownCode.isPronic.bind(this),
-        isRectangular: ownCode.isPronic.bind(this),
-        isRough: ownCode.isRough.bind(this),
-        isRound: ownCode.isRound.bind(this),
+        isProductOfXPrime: ownCode.isProductOfXPrime,
+        isPronic: ownCode.isPronic,
+        isRectangular: ownCode.isPronic,
+        isRough: ownCode.isRough,
+        isRound: ownCode.isRound,
         isRowDD: this.isRowDD,
-        isSafePrime: ownCode.isSafePrime.bind(this),
-        isSelf: ownCode.isSelf.bind(this),
-        isSelfPrime: ownCode.isSelfPrime.bind(this),
-        isSemiperfect: ownCode.isSemiperfect.bind(this),
-        isSmooth: ownCode.isSmooth.bind(this),
-        isSophieGermainPrime: ownCode.isSophieGermainPrime.bind(this),
-        isSphenic: ownCode.isSphenic.bind(this),
+        isSafePrime: ownCode.isSafePrime,
+        isSelf: ownCode.isSelf,
+        isSelfPrime: ownCode.isSelfPrime,
+        isSemiperfect: ownCode.isSemiperfect,
+        isSmooth: ownCode.isSmooth,
+        isSophieGermainPrime: ownCode.isSophieGermainPrime,
+        isSphenic: ownCode.isSphenic,
         isSquare: this.isSquare,
-        isStar: ownCode.isStar.bind(this),
+        isStar: ownCode.isStar,
         isStrictlyColumnDD: this.isStrictlyColumnDD,
         isStrictlyRowDD: this.isStrictlyRowDD,
-        isTetrahedral: ownCode.isTetrahedral.bind(this),
+        isTetrahedral: ownCode.isTetrahedral,
         isTriangular: this.isTriangular,
-        isUntouchable: ownCode.isUntouchable.bind(this),
-        isUnusual: ownCode.isUnusual.bind(this),
+        isUntouchable: ownCode.isUntouchable,
+        isUnusual: ownCode.isUnusual,
         isUpperBand: this.isUpperBand,
-        isWeird: ownCode.isWeird.bind(this),
-    }
+        isWeird: ownCode.isWeird,
+        isProductOfXPrimes: ownCode.isProductOfXPrimes,
+    },
 
-    comparison = {
-        isMoreRound: ownCode.isMoreRound.bind(this)
-    }
+    comparison: {
+        isMoreRound: ownCode.isMoreRound
+    },
 
     getPoliteness(n) {
-        return ownCode.getPoliteness(n).bind(this);
-    }
+        return ownCode.getPoliteness(n);
+    },
 
     // - from P_happyNumber
 
-    happy(n) { return P_happyNumber(n); }
+    happy(n) { return P_happyNumber(n); },
 
     // - from P_number_theory
-    divisors(n) { return P_number_theory.divisors(n); }
-    eulerPhi(n) { return P_number_theory.eulerPhi(n); }
-    factor(n) { return P_number_theory.factor(n); }
-    findDivisor(n) { return P_number_theory.findDivisor(n); }
-    gcd(a, b) { return P_number_theory.gcd(a, b); }
-    incMixed(tuple, bases) { return P_number_theory.incMixed(tuple, bases); }
-    inverseMod(a, b) { return P_number_theory.inverseMod(a, b); }
-    isAbundant(n) { return P_number_theory.isAbundant(n); }
-    isDeficient(n) { return P_number_theory.isDeficient(n); }
-    isHeptagonal(n) { return P_number_theory.isHeptagonal(n); }
-    isHexagonal(n) { return P_number_theory.isHexagonal(n); }
-    isOctagonal(n) { return P_number_theory.isOctagonal(n); }
-    isPentagonal(n) { return P_number_theory.isPentagonal(n); }
-    isPerfect(n) { return P_number_theory.isPerfect(n); }
-    isPrime(n) { return P_number_theory.isPrime(n); }
-    isProbablyPrime(n) { return P_number_theory.isProbablyPrime(n); }
-    isSquare(n) { return P_number_theory.isSquare(n); }
-    isTriangular(n) { return P_number_theory.isTriangular(n); }
-    jacobiSymbol(a, b) { return P_number_theory.jacobiSymbol(a, b); }
-    logMod(a, b, m) { return P_number_theory.logMod(a, b, m); }
-    miller(n) { { return P_number_theory.miller(n); } }
-    multiplyMod(a, b, m) { return P_number_theory.multiplyMod(a, b, m); }
-    powerMod(base, exponent, mod) { return P_number_theory.powerMod(base, exponent, mod); }
-    primeFactors(n) { return P_number_theory.primeFactors(n); }
-    primitiveRoot(m) { return P_number_theory.primitiveRoot(m); }
-    quadraticNonresidue(p) { return P_number_theory.quadraticNonresidue(p); }
-    randomPrimitiveRoot(m) { return P_number_theory.randomPrimitiveRoot(m); }
-    sieve(n) { return P_number_theory.sieve(n); }
-    squareRootMod(n, m) { return P_number_theory.squareRootMod(n, m); }
-    squareRootModPrime(n, p) { return P_number_theory.squareRootModPrime(n, p); }
-    totient(n) { return P_number_theory.totient(n); }
+    divisors(n) { return P_number_theory.divisors(n); },
+    eulerPhi(n) { return P_number_theory.eulerPhi(n); },
+    factor(n) { return P_number_theory.factor(n); },
+    findDivisor(n) { return P_number_theory.findDivisor(n); },
+    gcd(a, b) { return P_number_theory.gcd(a, b); },
+    incMixed(tuple, bases) { return P_number_theory.incMixed(tuple, bases); },
+    inverseMod(a, b) { return P_number_theory.inverseMod(a, b); },
+    isAbundant(n) { return P_number_theory.isAbundant(n); },
+    isDeficient(n) { return P_number_theory.isDeficient(n); },
+    isHeptagonal(n) { return P_number_theory.isHeptagonal(n); },
+    isHexagonal(n) { return P_number_theory.isHexagonal(n); },
+    isOctagonal(n) { return P_number_theory.isOctagonal(n); },
+    isPentagonal(n) { return P_number_theory.isPentagonal(n); },
+    isPerfect(n) { return P_number_theory.isPerfect(n); },
+    isPrime(n) { return P_number_theory.isPrime(n); },
+    isProbablyPrime(n) { return P_number_theory.isProbablyPrime(n); },
+    isSquare(n) { return P_number_theory.isSquare(n); },
+    isTriangular(n) { return P_number_theory.isTriangular(n); },
+    jacobiSymbol(a, b) { return P_number_theory.jacobiSymbol(a, b); },
+    logMod(a, b, m) { return P_number_theory.logMod(a, b, m); },
+    miller(n) { { return P_number_theory.miller(n); } },
+    multiplyMod(a, b, m) { return P_number_theory.multiplyMod(a, b, m); },
+    powerMod(base, exponent, mod) { return P_number_theory.powerMod(base, exponent, mod); },
+    primeFactors(n) { return P_number_theory.primeFactors(n); },
+    primitiveRoot(m) { return P_number_theory.primitiveRoot(m); },
+    quadraticNonresidue(p) { return P_number_theory.quadraticNonresidue(p); },
+    randomPrimitiveRoot(m) { return P_number_theory.randomPrimitiveRoot(m); },
+    sieve(n) { return P_number_theory.sieve(n); },
+    squareRootMod(n, m) { return P_number_theory.squareRootMod(n, m); },
+    squareRootModPrime(n, p) { return P_number_theory.squareRootModPrime(n, p); },
+    totient(n) { return P_number_theory.totient(n); },
 
 
     // - from P_numbers
 
-    basic = {
+    basic: {
         binomial(n, k) { return P_numbers.basic.binomial(n, k) },
         divMod(a, b) { return P_numbers.basic.divMod(a, b) },
         egcd(a, b) { return P_numbers.basic.egcd(a, b) },
@@ -144,10 +146,10 @@ class NumberTools {
         shuffle(array) { return P_numbers.basic.shuffle(array) },
         square(num) { return P_numbers.basic.square(num) },
         subtraction(arr) { return P_numbers.basic.subtraction(arr) },
-        sum(arr) { return P_numbers.basic.sum(arr) }
-    }
+        sum(arr) { return P_numbers.basic.sum(arr) },
+    },
 
-    calculus = {
+    calculus: {
         adaptiveSimpson(func, a, b, eps) { return P_numbers.calculus.adaptiveSimpson(func, a, b, eps) },
         LanczosGamma(num) { return P_numbers.calculus.LanczosGamma(num) },
         limit(func, point, approach) { return P_numbers.calculus.limit(func, point, approach) },
@@ -155,19 +157,19 @@ class NumberTools {
         pointDiff(func, point) { return P_numbers.calculus.pointDiff(func, point) },
         Riemann(func, start, finish, n, sampler) { return P_numbers.calculus.Riemann(func, start, finish, n, sampler) },
         StirlingGamma(num) { return P_numbers.calculus.StirlingGamma(num) },
-    }
+    },
 
-    dsp = {
+    dsp: {
         fft(x) { return P_numbers.dsp.fft(x) },
         segment(arr, start, step) { return P_numbers.dsp.segment(arr, start, step) }
-    }
+    },
 
-    generate = {
+    generate: {
         collatz(n, result) { return P_numbers.generate.collatz(n, result) },
         fibonacci(n) { return P_numbers.generate.fibonacci(n) }
-    }
+    },
 
-    matrix = {
+    matrix: {
         _check2DVector(point) { return P_numbers.matrix._check2DVector(point) },
         addition(arrA, arrB) { return P_numbers.matrix.addition(arrA, arrB) },
         affine(point, tx, ty) { return P_numbers.matrix.affine(point, tx, ty) },
@@ -205,9 +207,9 @@ class NumberTools {
         vectorNorm(v, p) { return P_numbers.matrix.vectorNorm(v, p) },
         zeros(n, m) { return P_numbers.matrix.zeros(n, m) },
         zigzag(n, point, dir) { return P_numbers.matrix.zigzag(n, point, dir) }
-    }
+    },
 
-    prime = {
+    prime: {
         coprime(a, b) { return P_numbers.prime.coprime(a, b) },
         factorization(num) { return P_numbers.prime.factorization(num) },
         getPerfectPower(n) { return P_numbers.prime.getPerfectPower(n) },
@@ -215,9 +217,9 @@ class NumberTools {
         millerRabin(n, k) { return P_numbers.prime.millerRabin(n, k) },
         sieve(n) { return P_numbers.prime.sieve(n) },
         simple(n) { return P_numbers.prime.simple(n) }
-    }
+    },
 
-    random = {
+    random: {
         bates(n, b, a) { return P_numbers.random.bates(n, b, a) },
         boxMullerTransform(mu, sigma) { return P_numbers.random.boxMullerTransform(mu, sigma) },
         irwinHall(n, sub) { return P_numbers.random.irwinHall(n, sub) },
@@ -231,9 +233,9 @@ class NumberTools {
             logNormal(n, mu, sigma) { return P_numbers.random.distribution.logNormal(n, mu, sigma) },
             normal(n, mu, sigma) { return P_numbers.random.distribution.normal(n, mu, sigma) }
         }
-    }
+    },
 
-    statistic = {
+    statistic: {
         correlation(arrX, arrY) { return P_numbers.statistic.correlation(arrX, arrY) },
         covariance(set1, set2) { return P_numbers.statistic.covariance(set1, set2) },
         exponentialRegression(arrY) { return P_numbers.statistic.exponentialRegression(arrY) },
@@ -245,109 +247,108 @@ class NumberTools {
         report(array) { return P_numbers.statistic.report(array) },
         rSquared(source, regression) { return P_numbers.statistic.rSquared(source, regression) },
         standardDev(arr) { return P_numbers.statistic.standardDev(arr) }
-    }
+    },
 
-    sum(arr) { return this.basic.sum(arr) }
-    subtraction(arr) { return this.basic.subtraction(arr) }
-    product(arr) { return this.basic.product(arr) }
-    square(num) { return this.basic.square(num) }
-    binomial(n, k) { return this.basic.binomial(n, k) }
-    factorial(num) { return this.basic.factorial(num) }
-    gcd(a, b) { return this.basic.gcd(a, b) }
-    lcm(num1, num2) { return this.basic.lcm(num1, num2) }
-    random(arr, quant, allowDuplicates) { return this.basic.random(arr, quant, allowDuplicates) }
-    shuffle(array) { return this.basic.shuffle(array) }
-    max(arr) { return this.basic.max(arr) }
-    min(arr) { return this.basic.min(arr) }
-    range(start, stop, step) { return this.basic.range(start, stop, step) }
-    isInt(n) { return this.basic.isInt(n) }
-    divMod(a, b) { return this.basic.divMod(a, b) }
-    powerMod(a, b, m) { return this.basic.powerMod(a, b, m) }
-    egcd(a, b) { return this.basic.egcd(a, b) }
-    modInverse(a, m) { return this.basic.modInverse(a, m) }
-    numbersEqual(first, second, epsilon) { return this.basic.numbersEqual(first, second, epsilon) }
-    fallingFactorial(n, k) { return this.basic.fallingFactorial(n, k) }
-    permutation(n, k) { return this.basic.permutation(n, k) }
-    pointDiff(func, point) { return this.calculus.pointDiff(func, point) }
-    Riemann(func, start, finish, n, sampler) { return this.calculus.Riemann(func, start, finish, n, sampler) }
-    adaptiveSimpson(func, a, b, eps) { return this.calculus.adaptiveSimpson(func, a, b, eps) }
-    limit(func, point, approach) { return this.calculus.limit(func, point, approach) }
-    StirlingGamma(num) { return this.calculus.StirlingGamma(num) }
-    LanczosGamma(num) { return this.calculus.LanczosGamma(num) }
-    MonteCarlo(func, N) { return this.calculus.MonteCarlo(func, N) }
-    segment(arr, start, step) { return this.dsp.segment(arr, start, step) }
-    fft(x) { return this.dsp.fft(x) }
-    fibonacci(n) { return this.generate.fibonacci(n) }
-    collatz(n, result) { return this.generate.collatz(n, result) }
-    _check2DVector(point) { return this.matrix._check2DVector(point) }
-    deepCopy(arr) { return this.matrix.deepCopy(arr) }
-    isSquare(arr) { return this.matrix.isSquare(arr) }
-    addition(arrA, arrB) { return this.matrix.addition(arrA, arrB) }
-    subtraction(arrA, arrB) { return this.matrix.subtraction(arrA, arrB) }
-    scalar(arr, val) { return this.matrix.scalar(arr, val) }
-    transpose(arr) { return this.matrix.transpose(arr) }
-    identity(n) { return this.matrix.identity(n) }
-    dotproduct(vectorA, vectorB) { return this.matrix.dotproduct(vectorA, vectorB) }
-    multiply(arrA, arrB) { return this.matrix.multiply(arrA, arrB) }
-    determinant(m) { return this.matrix.determinant(m) }
-    lupDecomposition(arr) { return this.matrix.lupDecomposition(arr) }
-    rotate(point, degree, direction) { return this.matrix.rotate(point, degree, direction) }
-    scale(point, sx, sy) { return this.matrix.scale(point, sx, sy) }
-    shear(point, k, direction) { return this.matrix.shear(point, k, direction) }
-    affine(point, tx, ty) { return this.matrix.affine(point, tx, ty) }
-    rowScale(m, row, scale) { return this.matrix.rowScale(m, row, scale) }
-    rowSwitch(m, row1, row2) { return this.matrix.rowSwitch(m, row1, row2) }
-    rowAddMultiple(m, from, to, scale) { return this.matrix.rowAddMultiple(m, from, to, scale) }
-    GaussJordanEliminate(m, epsilon) { return this.matrix.GaussJordanEliminate(m, epsilon) }
-    rowReduce(m, epsilon) { return this.matrix.rowReduce(m, epsilon) }
-    inverse(m) { return this.matrix.inverse(m) }
-    getCol(M, n) { return this.matrix.getCol(M, n) }
-    reorderRows(M, L) { return this.matrix.reorderRows(M, L) }
-    reorderCols(M, L) { return this.matrix.reorderCols(M, L) }
-    reverseRows(M) { return this.matrix.reverseRows(M) }
-    reverseCols(M) { return this.matrix.reverseCols(M) }
-    zeros(n, m) { return this.matrix.zeros(n, m) }
-    zigzag(n, point, dir) { return this.matrix.zigzag(n, point, dir) }
-    vectorNorm(v, p) { return this.matrix.vectorNorm(v, p) }
-    matrixNorm(M, p) { return this.matrix.matrixNorm(M, p) }
-    isUpperBand(M, q) { return this.matrix.isUpperBand(M, q) }
-    isLowerBand(M, p) { return this.matrix.isLowerBand(M, p) }
-    isRowDD(M) { return this.matrix.isRowDD(M) }
-    isStrictlyRowDD(M) { return this.matrix.isStrictlyRowDD(M) }
-    isColumnDD(M) { return this.matrix.isColumnDD(M) }
-    isStrictlyColumnDD(M) { return this.matrix.isStrictlyColumnDD(M) }
-    simple(n) { return this.prime.simple(n) }
-    factorization(num) { return this.prime.factorization(num) }
-    millerRabin(n, k) { return this.prime.millerRabin(n, k) }
-    sieve(n) { return this.prime.sieve(n) }
-    coprime(a, b) { return this.prime.coprime(a, b) }
-    getPerfectPower(n) { return this.prime.getPerfectPower(n) }
-    getPrimePower(n) { return this.prime.getPrimePower(n) }
-    setGenerator(fn) { return this.random.setGenerator(fn) }
-    sample(lower, upper, n) { return this.random.sample(lower, upper, n) }
-    boxMullerTransform(mu, sigma) { return this.random.boxMullerTransform(mu, sigma) }
-    irwinHall(n, sub) { return this.random.irwinHall(n, sub) }
-    bates(n, b, a) { return this.random.bates(n, b, a) }
-    normal(n, mu, sigma) { return this.random.distribution.normal(n, mu, sigma) }
-    logNormal(n, mu, sigma) { return this.random.distribution.logNormal(n, mu, sigma) }
-    boxMuller(n, mu, sigma, rc) { return this.random.distribution.boxMuller(n, mu, sigma, rc) }
-    irwinHall(n, m, sub) { return this.random.distribution.irwinHall(n, m, sub) }
-    irwinHallNormal(n) { return this.random.distribution.irwinHallNormal(n) }
-    bates(n, b, a) { return this.random.distribution.bates(n, b, a) }
-    mean(arr) { return this.statistic.mean(arr) }
-    median(arr) { return this.statistic.median(arr) }
-    mode(arr) { return this.statistic.mode(arr) }
-    quantile(arr, k, q) { return this.statistic.quantile(arr, k, q) }
-    report(array) { return this.statistic.report(array) }
-    standardDev(arr) { return this.statistic.standardDev(arr) }
-    correlation(arrX, arrY) { return this.statistic.correlation(arrX, arrY) }
-    rSquared(source, regression) { return this.statistic.rSquared(source, regression) }
-    exponentialRegression(arrY) { return this.statistic.exponentialRegression(arrY) }
-    linearRegression(arrX, arrY) { return this.statistic.linearRegression(arrX, arrY) }
+    sum(arr) { return this.basic.sum(arr) },
+    subtraction(arr) { return this.basic.subtraction(arr) },
+    product(arr) { return this.basic.product(arr) },
+    square(num) { return this.basic.square(num) },
+    binomial(n, k) { return this.basic.binomial(n, k) },
+    factorial(num) { return this.basic.factorial(num) },
+    gcd(a, b) { return this.basic.gcd(a, b) },
+    lcm(num1, num2) { return this.basic.lcm(num1, num2) },
+    random(arr, quant, allowDuplicates) { return this.basic.random(arr, quant, allowDuplicates) },
+    shuffle(array) { return this.basic.shuffle(array) },
+    max(arr) { return this.basic.max(arr) },
+    min(arr) { return this.basic.min(arr) },
+    range(start, stop, step) { return this.basic.range(start, stop, step) },
+    isInt(n) { return this.basic.isInt(n) },
+    divMod(a, b) { return this.basic.divMod(a, b) },
+    powerMod(a, b, m) { return this.basic.powerMod(a, b, m) },
+    egcd(a, b) { return this.basic.egcd(a, b) },
+    modInverse(a, m) { return this.basic.modInverse(a, m) },
+    numbersEqual(first, second, epsilon) { return this.basic.numbersEqual(first, second, epsilon) },
+    fallingFactorial(n, k) { return this.basic.fallingFactorial(n, k) },
+    permutation(n, k) { return this.basic.permutation(n, k) },
+    pointDiff(func, point) { return this.calculus.pointDiff(func, point) },
+    Riemann(func, start, finish, n, sampler) { return this.calculus.Riemann(func, start, finish, n, sampler) },
+    adaptiveSimpson(func, a, b, eps) { return this.calculus.adaptiveSimpson(func, a, b, eps) },
+    limit(func, point, approach) { return this.calculus.limit(func, point, approach) },
+    StirlingGamma(num) { return this.calculus.StirlingGamma(num) },
+    LanczosGamma(num) { return this.calculus.LanczosGamma(num) },
+    MonteCarlo(func, N) { return this.calculus.MonteCarlo(func, N) },
+    segment(arr, start, step) { return this.dsp.segment(arr, start, step) },
+    fft(x) { return this.dsp.fft(x) },
+    fibonacci(n) { return this.generate.fibonacci(n) },
+    collatz(n, result) { return this.generate.collatz(n, result) },
+    _check2DVector(point) { return this.matrix._check2DVector(point) },
+    deepCopy(arr) { return this.matrix.deepCopy(arr) },
+    isSquare(arr) { return this.matrix.isSquare(arr) },
+    addition(arrA, arrB) { return this.matrix.addition(arrA, arrB) },
+    subtraction(arrA, arrB) { return this.matrix.subtraction(arrA, arrB) },
+    scalar(arr, val) { return this.matrix.scalar(arr, val) },
+    transpose(arr) { return this.matrix.transpose(arr) },
+    identity(n) { return this.matrix.identity(n) },
+    dotproduct(vectorA, vectorB) { return this.matrix.dotproduct(vectorA, vectorB) },
+    multiply(arrA, arrB) { return this.matrix.multiply(arrA, arrB) },
+    determinant(m) { return this.matrix.determinant(m) },
+    lupDecomposition(arr) { return this.matrix.lupDecomposition(arr) },
+    rotate(point, degree, direction) { return this.matrix.rotate(point, degree, direction) },
+    scale(point, sx, sy) { return this.matrix.scale(point, sx, sy) },
+    shear(point, k, direction) { return this.matrix.shear(point, k, direction) },
+    affine(point, tx, ty) { return this.matrix.affine(point, tx, ty) },
+    rowScale(m, row, scale) { return this.matrix.rowScale(m, row, scale) },
+    rowSwitch(m, row1, row2) { return this.matrix.rowSwitch(m, row1, row2) },
+    rowAddMultiple(m, from, to, scale) { return this.matrix.rowAddMultiple(m, from, to, scale) },
+    GaussJordanEliminate(m, epsilon) { return this.matrix.GaussJordanEliminate(m, epsilon) },
+    rowReduce(m, epsilon) { return this.matrix.rowReduce(m, epsilon) },
+    inverse(m) { return this.matrix.inverse(m) },
+    getCol(M, n) { return this.matrix.getCol(M, n) },
+    reorderRows(M, L) { return this.matrix.reorderRows(M, L) },
+    reorderCols(M, L) { return this.matrix.reorderCols(M, L) },
+    reverseRows(M) { return this.matrix.reverseRows(M) },
+    reverseCols(M) { return this.matrix.reverseCols(M) },
+    zeros(n, m) { return this.matrix.zeros(n, m) },
+    zigzag(n, point, dir) { return this.matrix.zigzag(n, point, dir) },
+    vectorNorm(v, p) { return this.matrix.vectorNorm(v, p) },
+    matrixNorm(M, p) { return this.matrix.matrixNorm(M, p) },
+    isUpperBand(M, q) { return this.matrix.isUpperBand(M, q) },
+    isLowerBand(M, p) { return this.matrix.isLowerBand(M, p) },
+    isRowDD(M) { return this.matrix.isRowDD(M) },
+    isStrictlyRowDD(M) { return this.matrix.isStrictlyRowDD(M) },
+    isColumnDD(M) { return this.matrix.isColumnDD(M) },
+    isStrictlyColumnDD(M) { return this.matrix.isStrictlyColumnDD(M) },
+    simple(n) { return this.prime.simple(n) },
+    factorization(num) { return this.prime.factorization(num) },
+    millerRabin(n, k) { return this.prime.millerRabin(n, k) },
+    sieve(n) { return this.prime.sieve(n) },
+    coprime(a, b) { return this.prime.coprime(a, b) },
+    getPerfectPower(n) { return this.prime.getPerfectPower(n) },
+    getPrimePower(n) { return this.prime.getPrimePower(n) },
+    setGenerator(fn) { return this.random.setGenerator(fn) },
+    sample(lower, upper, n) { return this.random.sample(lower, upper, n) },
+    boxMullerTransform(mu, sigma) { return this.random.boxMullerTransform(mu, sigma) },
+    irwinHall(n, sub) { return this.random.irwinHall(n, sub) },
+    bates(n, b, a) { return this.random.bates(n, b, a) },
+    normal(n, mu, sigma) { return this.random.distribution.normal(n, mu, sigma) },
+    logNormal(n, mu, sigma) { return this.random.distribution.logNormal(n, mu, sigma) },
+    boxMuller(n, mu, sigma, rc) { return this.random.distribution.boxMuller(n, mu, sigma, rc) },
+    irwinHall(n, m, sub) { return this.random.distribution.irwinHall(n, m, sub) },
+    irwinHallNormal(n) { return this.random.distribution.irwinHallNormal(n) },
+    bates(n, b, a) { return this.random.distribution.bates(n, b, a) },
+    mean(arr) { return this.statistic.mean(arr) },
+    median(arr) { return this.statistic.median(arr) },
+    mode(arr) { return this.statistic.mode(arr) },
+    quantile(arr, k, q) { return this.statistic.quantile(arr, k, q) },
+    report(array) { return this.statistic.report(array) },
+    standardDev(arr) { return this.statistic.standardDev(arr) },
+    correlation(arrX, arrY) { return this.statistic.correlation(arrX, arrY) },
+    rSquared(source, regression) { return this.statistic.rSquared(source, regression) },
+    exponentialRegression(arrY) { return this.statistic.exponentialRegression(arrY) },
+    linearRegression(arrX, arrY) { return this.statistic.linearRegression(arrX, arrY) },
     covariance(set1, set2) { return this.statistic.covariance(set1, set2) }
 }
 
-export default NumberTools;
-export {
+module.exports = {
     NumberTools
 }
