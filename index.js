@@ -8,11 +8,11 @@ let mobiusRange = require('./lib/mobius-range');
 const P_number_theory = TP_number_theory;
 
 const P_numbers = require('numbers');
-const happy = require('./lib/happy');
 
 // const P_mathTools = require('math-tools');
 // const P_numberjs = require('number.js');
 
+const happy = require('./lib/happy');
 const primes = require('./lib/primes');
 const geometric = require('./lib/geometric');
 const ownCode = require('./lib/ownCode');
@@ -39,42 +39,28 @@ const NumberTools = {
         isSelfPrime: primes.isSelfPrime,
         isSophieGermainPrime: primes.isSophieGermainPrime,
     
+        getCenteredHexagonal: geometric.getCenteredHexagonal,
         getStar: geometric.getStar,
         getTetrahedral: geometric.getTetrahedral,
-        getCenteredHexagonal: geometric.getCenteredHexagonal,
         isCenteredHexagonal: geometric.isCenteredHexagonal,
         isStar: geometric.isStar,
         isTetrahedral: geometric.isTetrahedral,
 
-
         getCenteredHexagonal: ownCode.getCenteredHexagonal,
         getStar: ownCode.getStar,
         getTetrahedral: ownCode.getTetrahedral,
-
         hasIntRoot: ownCode.hasIntRoot,
-
-        isHappy: happy,
-
-        isAbundant: P_number_theory.isAbundant,
         isArithmetic: ownCode.isArithmetic,
-        isDeficient: P_number_theory.isDeficient,
         isEvil: ownCode.isEvil,
         isFriable: ownCode.isSmooth,
-        isHeptagonal: P_number_theory.isHeptagonal,
-        isHexagonal: P_number_theory.isHexagonal,
         isKRough: ownCode.isKRough,
         isNatural: ownCode.isNatural,
-        isOctagonal: P_number_theory.isOctagonal,
         isOdious: ownCode.isOdious,
         isPanarithmic: ownCode.isPractical,
-        isPentagonal: P_number_theory.isPentagonal,
-        isPerfect: P_number_theory.isPerfect,
         isPolite: ownCode.isPolite,
         isPowerOf2: ownCode.isPowerOf2,
         isPowerSmooth: ownCode.isPowerSmooth,
         isPractical: ownCode.isPractical,
-        isPrime: P_number_theory.isPrime,
-        isProbablyPrime: P_number_theory.isProbablyPrime,
         isPronic: ownCode.isPronic,
         isRectangular: ownCode.isPronic,
         isRough: ownCode.isRough,
@@ -83,11 +69,23 @@ const NumberTools = {
         isSemiperfect: ownCode.isSemiperfect,
         isSmooth: ownCode.isSmooth,
         isSphenic: ownCode.isSphenic,
-        isSquare: P_number_theory.isSquare,
-        isTriangular: P_number_theory.isTriangular,
         isUntouchable: ownCode.isUntouchable,
         isUnusual: ownCode.isUnusual,
         isWeird: ownCode.isWeird,
+
+        isHappy: happy,
+
+        isAbundant: P_number_theory.isAbundant,
+        isDeficient: P_number_theory.isDeficient,
+        isHeptagonal: P_number_theory.isHeptagonal,
+        isHexagonal: P_number_theory.isHexagonal,
+        isOctagonal: P_number_theory.isOctagonal,
+        isPentagonal: P_number_theory.isPentagonal,
+        isPerfect: P_number_theory.isPerfect,
+        isPrime: P_number_theory.isPrime,
+        isProbablyPrime: P_number_theory.isProbablyPrime,
+        isSquare: P_number_theory.isSquare,
+        isTriangular: P_number_theory.isTriangular,
 
         isColumnDD: P_numbers.matrix.isColumnDD,
         isInt: P_numbers.basic.isInt,
@@ -102,6 +100,8 @@ const NumberTools = {
         isMoreRound: ownCode.isMoreRound
     },
 
+    mobius,
+    mobiusRange,
     getPoliteness: ownCode.getPoliteness,
 
     // - from P_number_theory
@@ -136,8 +136,6 @@ const NumberTools = {
     squareRootMod: P_number_theory.squareRootMod,
     squareRootModPrime: P_number_theory.squareRootModPrime,
     totient: P_number_theory.totient,
-    mobius,
-    mobiusRange,
 
     // - from P_numbers
 
