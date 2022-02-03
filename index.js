@@ -13,8 +13,8 @@ const happy = require('./lib/happy');
 // const P_mathTools = require('math-tools');
 // const P_numberjs = require('number.js');
 
-const primes = require('./primes');
-const geometric = require('./geometric');
+const primes = require('./lib/primes');
+const geometric = require('./lib/geometric');
 const ownCode = require('./lib/ownCode');
 
 const NumberTools = {
