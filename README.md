@@ -310,6 +310,55 @@ Uses the [Tonelli–Shanks algorithm](http://en.wikipedia.org/wiki/Tonelli%E2%80
 nl.squareRootModPrime(100, 19) // Returns 9
 ```
 
+## Functions needing documentation:
+
+```js
+// Prime tests
+isCompositeOfXPrimes
+isMersennePrime
+isPrimePower
+isProductOfXPrimes
+isSafePrime
+isSelfPrime
+isSophieGermainPrime
+
+// Geometric tests
+getCenteredHexagonal
+getStar
+getTetrahedral
+isCenteredHexagonal
+isStar
+isTetrahedral
+
+// Other functions
+getPoliteness
+hasIntRoot
+isArithmetic
+isEvil
+isFriable
+isHappy
+isKRough
+isMoreRound
+isNatural
+isOdious
+isPanarithmic
+isPolite
+isPowerOf2
+isPowerSmooth
+isPractical
+isPronic
+isRectangular
+isRough
+isRound
+isSelf
+isSemiperfect
+isSmooth
+isSphenic
+isUntouchable
+isUnusual
+isWeird
+```
+
 ## License
 
 [For the full license please read the full LICENSE.md ](https://github.com/TolMera/Numbers-Logic/blob/master/LICENSE.md)

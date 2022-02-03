@@ -46,9 +46,6 @@ const NumberTools = {
         isStar: geometric.isStar,
         isTetrahedral: geometric.isTetrahedral,
 
-        getCenteredHexagonal: ownCode.getCenteredHexagonal,
-        getStar: ownCode.getStar,
-        getTetrahedral: ownCode.getTetrahedral,
         hasIntRoot: ownCode.hasIntRoot,
         isArithmetic: ownCode.isArithmetic,
         isEvil: ownCode.isEvil,
