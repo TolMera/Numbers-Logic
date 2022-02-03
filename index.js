@@ -16,6 +16,8 @@ const happy = require('./lib/happy');
 // const P_mathTools = require('math-tools');
 // const P_numberjs = require('number.js');
 
+const primes = require('./primes');
+const geometric = require('./geometric');
 const ownCode = require('./lib/ownCode');
 
 const NumberTools = {
@@ -32,6 +34,22 @@ const NumberTools = {
 
     // Mine
     bools: {
+        isCompositeOfXPrimes: primes.isCompositeOfXPrimes,
+        isMersennePrime: primes.isMersennePrime,
+        isPrimePower: primes.isPrimePower,
+        isProductOfXPrimes: primes.isProductOfXPrimes,
+        isSafePrime: primes.isSafePrime,
+        isSelfPrime: primes.isSelfPrime,
+        isSophieGermainPrime: primes.isSophieGermainPrime,
+    
+        getStar: geometric.getStar,
+        getTetrahedral: geometric.getTetrahedral,
+        getCenteredHexagonal: geometric.getCenteredHexagonal,
+        isCenteredHexagonal: geometric.isCenteredHexagonal,
+        isStar: geometric.isStar,
+        isTetrahedral: geometric.isTetrahedral,
+
+
         getCenteredHexagonal: ownCode.getCenteredHexagonal,
         getStar: ownCode.getStar,
         getTetrahedral: ownCode.getTetrahedral,
@@ -42,15 +60,12 @@ const NumberTools = {
 
         isAbundant: P_number_theory.isAbundant,
         isArithmetic: ownCode.isArithmetic,
-        isCenteredHexagonal: ownCode.isCenteredHexagonal,
-        isCompositeOfXPrimes: ownCode.isCompositeOfXPrimes,
         isDeficient: P_number_theory.isDeficient,
         isEvil: ownCode.isEvil,
         isFriable: ownCode.isSmooth,
         isHeptagonal: P_number_theory.isHeptagonal,
         isHexagonal: P_number_theory.isHexagonal,
         isKRough: ownCode.isKRough,
-        isMersennePrime: ownCode.isMersennePrime,
         isNatural: ownCode.isNatural,
         isOctagonal: P_number_theory.isOctagonal,
         isOdious: ownCode.isOdious,
@@ -62,27 +77,20 @@ const NumberTools = {
         isPowerSmooth: ownCode.isPowerSmooth,
         isPractical: ownCode.isPractical,
         isPrime: P_number_theory.isPrime,
-        isPrimePower: ownCode.isPrimePower,
         isProbablyPrime: P_number_theory.isProbablyPrime,
         isPronic: ownCode.isPronic,
         isRectangular: ownCode.isPronic,
         isRough: ownCode.isRough,
         isRound: ownCode.isRound,
-        isSafePrime: ownCode.isSafePrime,
         isSelf: ownCode.isSelf,
-        isSelfPrime: ownCode.isSelfPrime,
         isSemiperfect: ownCode.isSemiperfect,
         isSmooth: ownCode.isSmooth,
-        isSophieGermainPrime: ownCode.isSophieGermainPrime,
         isSphenic: ownCode.isSphenic,
         isSquare: P_number_theory.isSquare,
-        isStar: ownCode.isStar,
-        isTetrahedral: ownCode.isTetrahedral,
         isTriangular: P_number_theory.isTriangular,
         isUntouchable: ownCode.isUntouchable,
         isUnusual: ownCode.isUnusual,
         isWeird: ownCode.isWeird,
-        isProductOfXPrimes: ownCode.isProductOfXPrimes,
 
         isColumnDD: P_numbers.matrix.isColumnDD,
         isInt: P_numbers.basic.isInt,
