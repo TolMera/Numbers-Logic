@@ -3,12 +3,9 @@
     I've copied a few files that have been updated on github, and put them in here.
 */
 let TP_number_theory = require('number-theory');
-let TF_mobius = require('./lib/mobius');
-let TF_mobius_range = require('./lib/mobius-range');
-TP_number_theory.mobius = TF_mobius;
-TP_number_theory.mobiusRange = TF_mobius_range;
+let mobius = require('./lib/mobius');
+let mobiusRange = require('./lib/mobius-range');
 const P_number_theory = TP_number_theory;
-delete (TP_number_theory, TF_mobius, TF_mobius_range);
 
 const P_numbers = require('numbers');
 const happy = require('./lib/happy');
@@ -139,8 +136,8 @@ const NumberTools = {
     squareRootMod: P_number_theory.squareRootMod,
     squareRootModPrime: P_number_theory.squareRootModPrime,
     totient: P_number_theory.totient,
-    mobius: P_number_theory.mobius,
-    mobiusRange: P_number_theory.mobiusRange,
+    mobius,
+    mobiusRange,
 
     // - from P_numbers
 
