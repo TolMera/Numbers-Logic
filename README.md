@@ -119,7 +119,7 @@ the given number. For more information see the Wikipedia entry for
 [Euler's Totient Function](http://en.wikipedia.org/wiki/Euler%27s_totient_function).
 
 ```js
-eulerPhi(26); // Returns 12
+nl.eulerPhi(26); // Returns 12
 ```
 
 ### factor(n)
@@ -218,7 +218,7 @@ Given an integer, returns a Boolean indicating whether it's an [octagonal number
 
 ```js
 nl.isOctagonal(65); // Returns true
-nl.isOctaongal(50); // Returns false
+nl.isOctagonal(50); // Returns false
 ```
 
 ### isPentagonal(n)
