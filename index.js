@@ -11,7 +11,6 @@ const P_number_theory = TP_number_theory;
 delete (TP_number_theory, TF_mobius, TF_mobius_range);
 
 const P_numbers = require('numbers');
-const P_happyNumber = require('happy-number');
 const happy = require('./lib/happy');
 
 // const P_mathTools = require('math-tools');
