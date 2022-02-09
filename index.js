@@ -12,7 +12,7 @@ const P_numbers = require('numbers');
 // const P_mathTools = require('math-tools');
 // const P_numberjs = require('number.js');
 
-const happy = require('./lib/happy');
+const happyOrSad = require('./lib/happyOrSad');
 const primes = require('./lib/primes');
 const geometric = require('./lib/geometric');
 const ownCode = require('./lib/ownCode');
@@ -54,8 +54,10 @@ const NumberTools = {
         isOdious: ownCode.isOdious,
         isPanarithmic: ownCode.isPractical,
         isPolite: ownCode.isPolite,
+        isImpolite: ownCode.isImpolite,
         isPowerOf2: ownCode.isPowerOf2,
         isPowerSmooth: ownCode.isPowerSmooth,
+        // TODO: Create function for ultrafriable - https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers
         isPractical: ownCode.isPractical,
         isPronic: ownCode.isPronic,
         isRectangular: ownCode.isPronic,
@@ -69,7 +71,8 @@ const NumberTools = {
         isUnusual: ownCode.isUnusual,
         isWeird: ownCode.isWeird,
 
-        isHappy: happy,
+        isHappy: happyOrSad.isHappy,
+        isSad: happyOrSad.isSad,
 
         isAbundant: P_number_theory.isAbundant,
         isDeficient: P_number_theory.isDeficient,
