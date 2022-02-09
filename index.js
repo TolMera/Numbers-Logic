@@ -31,7 +31,6 @@ const NumberTools = {
 
     // Mine
     bools: {
-        isCompositeOfXPrimes: primes.isCompositeOfXPrimes,
         isMersennePrime: primes.isMersennePrime,
         isPrimePower: primes.isPrimePower,
         isProductOfXPrimes: primes.isProductOfXPrimes,
