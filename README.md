@@ -29,10 +29,98 @@ In some functions precautions have been made to account for this, you can set an
 
 With node, simply require it:
 ```js
-var nl = require('numbers-logic');
+const nl = require('numbers-logic');
 ```
 
 ## Functions:
+
+Lets start wth some 'prime' examples
+
+### We can check if a number is prime:
+```js
+nl.prime.simple(number);
+```
+
+### millerRabin primality check
+```js
+nl.prime.millerRabin(number);
+```
+
+### isPrime(n)
+Determines if the given number is [prime](http://en.wikipedia.org/wiki/Prime_number). Note: this is a particularly slow method that uses full prime factorization to determine if the number is prime. For a faster method see the `miller` function below.
+```js
+nl.isPrime(7); // Returns true
+nl.isPrime(48); // Returns false
+```
+
+### miller(n), isProbablyPrime(n)
+Uses the determinisic [Miller-Rabin Primality Test](http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) to determine if the given number is prime. Works for all positive integers less than 341,550,071,728,321.
+```js
+nl.miller(17); // Returns true
+nl.miller(284); // Returns false
+```
+
+### factor(n)
+Determines the prime factorization for a given integer. For more information see Wikipedia's [Integer Factorization](http://en.wikipedia.org/wiki/Integer_factorization) entry.
+```js
+nl.factor(132);
+/*
+  Returns: [
+    {  prime: 2, power: 2 },
+    { prime: 3, power: 1 },
+    { prime: 11, power: 1 }
+  ]
+*/
+```
+
+### primeFactors(n)
+Computes a list of all prime factors for the given integer. Note: while this method fully computes the prime factorization of the integer, it only returns the primes and not the powers of the factorization. For full prime factorization please use `factor`.
+```js
+nl.primeFactors(18); // Returns [2, 3]
+```
+
+### [Mersenne Primes](https://en.wikipedia.org/wiki/Mersenne_prime)
+```js
+nl.isMersennePrime(number);
+```
+
+### [SophieGermainPrime](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)
+```js
+nl.isSophieGermainPrime(number);
+```
+
+### [Safe Prime](https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes)
+```js
+nl.isSafePrime(number);
+```
+
+### [Self Prime](https://en.wikipedia.org/wiki/Self_number#Self_primes)
+```js
+nl.isSelfPrime(number);
+```
+
+### [Prime Power](https://en.wikipedia.org/wiki/Prime_power)
+```js
+nl.isPrimePower(number);
+```
+
+### Is product of X Primes
+This returns a true/false if the total number of factors that make up said number, equals test.  Useful if you want to do a calculation like a Sphenic number with higher dimensions.
+```js
+nl.isProductOfXPrimes(number, test);
+```
+
+### eulerPhi(n), totient(n)
+Counts the positive integers less than a given number that are [co-prime](http://en.wikipedia.org/wiki/Coprime_integers) with the given number. For more information see the Wikipedia entry for [Euler's Totient Function](http://en.wikipedia.org/wiki/Euler%27s_totient_function).
+```js
+nl.eulerPhi(26); // Returns 12
+```
+
+### squareRootModPrime(n, p)
+Uses the [Tonelli–Shanks algorithm](http://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm) to determine a single square root in Z mod p.
+```js
+nl.squareRootModPrime(100, 19) // Returns 9
+```
 
 if we wanted to estimate the integral of sin(x) from -2 to 4, we could:
 Use Riemann integrals (with 200 subdivisions)
@@ -74,16 +162,6 @@ When working with vectors, treat them like single row matrices:
 var vector1 = [[1, 0, 0]];
 ```
 
-number-logic also includes some basic prime number analysis.  We can check if a number is prime:
-```js
-nl.prime.simple(number);
-```
-
-or do a millerRabin primality check
-```js
-nl.prime.millerRabin(number);
-```
-
 The statistics tools include mean, median, mode, standard deviation, random sample generator, correlation, confidence intervals, t-test, chi-square, and more.
 ```js
 nl.statistic.mean(array);
@@ -99,25 +177,6 @@ For further documentation, check out [numbers.github.io](http://numbers.github.i
 Determines all of the [divisors](http://en.wikipedia.org/wiki/Divisor) for a given number.
 ```js
 nl.divisors(6); // Returns [1, 2, 3, 6]
-```
-
-### eulerPhi(n), totient(n)
-Counts the positive integers less than a given number that are [co-prime](http://en.wikipedia.org/wiki/Coprime_integers) with the given number. For more information see the Wikipedia entry for [Euler's Totient Function](http://en.wikipedia.org/wiki/Euler%27s_totient_function).
-```js
-nl.eulerPhi(26); // Returns 12
-```
-
-### factor(n)
-Determines the prime factorization for a given integer. For more information see Wikipedia's [Integer Factorization](http://en.wikipedia.org/wiki/Integer_factorization) entry.
-```js
-nl.factor(132);
-/*
-  Returns: [
-    {  prime: 2, power: 2 },
-    { prime: 3, power: 1 },
-    { prime: 11, power: 1 }
-  ]
-*/
 ```
 
 ### findDivisor(n)
@@ -201,13 +260,6 @@ nl.isPerfect(496); // Returns true
 nl.isPerfect(200); // Returns false
 ```
 
-### isPrime(n)
-Determines if the given number is [prime](http://en.wikipedia.org/wiki/Prime_number). Note: this is a particularly slow method that uses full prime factorization to determine if the number is prime. For a faster method see the `miller` function below.
-```js
-nl.isPrime(7); // Returns true
-nl.isPrime(48); // Returns false
-```
-
 ### isSquare(n)
 Given an integer, returns a Boolean indicating whether it's a [square number](https://en.wikipedia.org/wiki/Square_number).
 ```js
@@ -252,13 +304,6 @@ Compute the value of the [Möbius function](https://en.wikipedia.org/wiki/M%C3%B
 nl.mobiusRange(1000000, 1000005); // Returns [0, 1, -1, -1, 0]
 ```
 
-### miller(n), isProbablyPrime(n)
-Uses the determinisic [Miller-Rabin Primality Test](http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) to determine if the given number is prime. Works for all positive integers less than 341,550,071,728,321.
-```js
-nl.miller(17); // Returns true
-nl.miller(284); // Returns false
-```
-
 ### multiplyMod(a, b, m)
 Multiplies the two given numbers mod the given modulus. See Wikipedia's entry on [Modular Arithmetic](http://en.wikipedia.org/wiki/Modular_arithmetic).
 ```js
@@ -269,12 +314,6 @@ nl.multiplyMod(928, 284, 18); // Returns 14
 Computes the power of a base mod the given modulus. For more information see Wikipedia's entry on [Modular Exponentiation](http://en.wikipedia.org/wiki/Modular_exponentiation).
 ```js
 nl.powerMod(567283, 2843, 776); // Returns 299
-```
-
-### primeFactors(n)
-Computes a list of all prime factors for the given integer. Note: while this method fully computes the prime factorization of the integer, it only returns the primes and not the powers of the factorization. For full prime factorization please use `factor`.
-```js
-nl.primeFactors(18); // Returns [2, 3]
 ```
 
 ### primitiveRoot(m)
@@ -304,59 +343,66 @@ Determines all square roots of a given number modulo the given modulus. For more
 nl.squareRootMod(1023, 77); // Returns [76, 1]
 ```
 
-### squareRootModPrime(n, p)
-Uses the [Tonelli–Shanks algorithm](http://en.wikipedia.org/wiki/Tonelli%E2%80%93Shanks_algorithm) to determine a single square root in Z mod p.
+### [Centered Hexagonal](https://en.wikipedia.org/wiki/Centered_hexagonal_number)
+In mathematics and combinatorics, a centered hexagonal number, or hex number,[1][2] is a centered figurate number that represents a hexagon with a dot in the center and all other dots surrounding the center dot in a hexagonal lattice. 
 ```js
-nl.squareRootModPrime(100, 19) // Returns 9
+// Is number in sequence of Centered Hexagonal numbers? True/False
+nl.isCenteredHexagonal(n);
+// Gets the n-th element from the sequence of Centered Hexagonal numbers
+nl.getCenteredHexagonal(1); // returns 1
+nl.getCenteredHexagonal(2); // returns 7
+nl.getCenteredHexagonal(3); // returns 19
 ```
 
-## Functions needing documentation:
-
+### [Star Number](https://en.wikipedia.org/wiki/Star_number)
+A star number is a centered figurate number a centered hexagram (six-pointed star), such as the Star of David, or the board Chinese checkers is played on. 
 ```js
-// Prime tests
-isCompositeOfXPrimes
-isMersennePrime
-isPrimePower
-isProductOfXPrimes
-isSafePrime
-isSelfPrime
-isSophieGermainPrime
+// Is number in sequence of star numbers? True/False
+nl.isStar(n); 
+// Gets the n-th element from the sequence of star numbers
+nl.getStar(1); // returns 1
+nl.getStar(2); // returns 13
+nl.getStar(3); // returns 37
+```
 
-// Geometric tests
-getCenteredHexagonal
-getStar
-getTetrahedral
-isCenteredHexagonal
-isStar
-isTetrahedral
+### [Tetrahedral Numbers](https://en.wikipedia.org/wiki/Tetrahedral_number)
+A tetrahedral number, or triangular pyramidal number, is a figurate number that represents a pyramid with a triangular base and three sides, called a tetrahedron.
+```js
+// Is number in squence of tetrahedral numbers? True/False
+nl.isTetrahedral(n);
+// Gets the n-th element from the sequence of tetrahedral numbers
+nl.getTetrahedral(1); // returns 1
+nl.getTetrahedral(2); // returns 4
+nl.getTetrahedral(3); // returns 10
+```
 
 // Other functions
-getPoliteness
-hasIntRoot
-isArithmetic
-isEvil
-isFriable
-isHappy
-isKRough
-isMoreRound
-isNatural
-isOdious
-isPanarithmic
-isPolite
-isPowerOf2
-isPowerSmooth
-isPractical
-isPronic
-isRectangular
-isRough
-isRound
-isSelf
-isSemiperfect
-isSmooth
-isSphenic
-isUntouchable
-isUnusual
-isWeird
+nl.getPoliteness
+nl.hasIntRoot
+nl.isArithmetic
+nl.isEvil
+nl.isFriable
+nl.isHappy
+nl.isKRough
+nl.isMoreRound
+nl.isNatural
+nl.isOdious
+nl.isPanarithmic
+nl.isPolite
+nl.isPowerOf2
+nl.isPowerSmooth
+nl.isPractical
+nl.isPronic
+nl.isRectangular
+nl.isRough
+nl.isRound
+nl.isSelf
+nl.isSemiperfect
+nl.isSmooth
+nl.isSphenic
+nl.isUntouchable
+nl.isUnusual
+nl.isWeird
 ```
 
 ## License
