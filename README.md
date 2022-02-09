@@ -46,21 +46,21 @@ nl.prime.simple(number);
 nl.prime.millerRabin(number);
 ```
 
-### isPrime(n)
+### isPrime(number)
 Determines if the given number is [prime](http://en.wikipedia.org/wiki/Prime_number). Note: this is a particularly slow method that uses full prime factorization to determine if the number is prime. For a faster method see the `miller` function below.
 ```js
 nl.isPrime(7); // Returns true
 nl.isPrime(48); // Returns false
 ```
 
-### miller(n), isProbablyPrime(n)
+### miller(number), isProbablyPrime(number)
 Uses the determinisic [Miller-Rabin Primality Test](http://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test) to determine if the given number is prime. Works for all positive integers less than 341,550,071,728,321.
 ```js
 nl.miller(17); // Returns true
 nl.miller(284); // Returns false
 ```
 
-### factor(n)
+### factor(number)
 Determines the prime factorization for a given integer. For more information see Wikipedia's [Integer Factorization](http://en.wikipedia.org/wiki/Integer_factorization) entry.
 ```js
 nl.factor(132);
@@ -73,7 +73,7 @@ nl.factor(132);
 */
 ```
 
-### primeFactors(n)
+### primeFactors(number)
 Computes a list of all prime factors for the given integer. Note: while this method fully computes the prime factorization of the integer, it only returns the primes and not the powers of the factorization. For full prime factorization please use `factor`.
 ```js
 nl.primeFactors(18); // Returns [2, 3]
@@ -110,7 +110,7 @@ This returns a true/false if the total number of factors that make up said numbe
 nl.isProductOfXPrimes(number, test);
 ```
 
-### eulerPhi(n), totient(n)
+### eulerPhi(number), totient(number)
 Counts the positive integers less than a given number that are [co-prime](http://en.wikipedia.org/wiki/Coprime_integers) with the given number. For more information see the Wikipedia entry for [Euler's Totient Function](http://en.wikipedia.org/wiki/Euler%27s_totient_function).
 ```js
 nl.eulerPhi(26); // Returns 12
@@ -173,13 +173,13 @@ nl.statistic.correlation(array1, array2);
 ```
 For further documentation, check out [numbers.github.io](http://numbers.github.io/)
 
-### divisors(n)
+### divisors(number)
 Determines all of the [divisors](http://en.wikipedia.org/wiki/Divisor) for a given number.
 ```js
 nl.divisors(6); // Returns [1, 2, 3, 6]
 ```
 
-### findDivisor(n)
+### findDivisor(number)
 Uses the [Pollard-Rho](http://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm) integer factorization algorithm to quickly find a small divisor of the given number. Note: the divisor found need not be prime (as Pollar-Rho is a general integer factorization algorithm).
 ```js
 nl.findDivisor(152); // Returns 8
@@ -211,63 +211,63 @@ Given an integer this function computes the [modular multiplicative inverse](htt
 nl.inverseMod(14, 17); // Returns 11
 ```
 
-### isAbundant(n)
+### isAbundant(number)
 Given an integer, returns a Boolean indicating whether it's an [abundant number](https://en.wikipedia.org/wiki/Abundant_number).
 ```js
 nl.isAbundant(36); // Returns true
 nl.isAbundant(35); // Returns false
 ```
 
-### isDeficient(n)
+### isDeficient(number)
 Given an integer, returns a Boolean indicating whether it's a [deficient number](https://en.wikipedia.org/wiki/Deficient_number).
 ```js
 nl.isDeficient(15); // Returns true
 nl.isDeficient(12); // Returns false
 ```
 
-### isHeptagonal(n)
+### isHeptagonal(number)
 Given an integer, returns a Boolean indicating whether it's a [heptagonal number](https://en.wikipedia.org/wiki/Heptagonal_number).
 ```js
 nl.isHeptagonal(112); // Returns true
 nl.isHeptagonal(175); // Returns false
 ```
 
-### isHexagonal(n)
+### isHexagonal(number)
 Given an integer, returns a Boolean indicating whether it's a [hexagonal number](https://en.wikipedia.org/wiki/Hexagonal_number).
 ```js
 nl.isHexagonal(190); // Returns true
 nl.isHexagonal(50); // Returns false
 ```
 
-### isOctagonal(n)
+### isOctagonal(number)
 Given an integer, returns a Boolean indicating whether it's an [octagonal number](https://en.wikipedia.org/wiki/Octagonal_number).
 ```js
 nl.isOctagonal(65); // Returns true
 nl.isOctagonal(50); // Returns false
 ```
 
-### isPentagonal(n)
+### isPentagonal(number)
 Given an integer, returns a Boolean indicating whether it's a [pentagonal number](https://en.wikipedia.org/wiki/Pentagonal_number).
 ```js
 nl.isPentagonal(92); // Returns true
 nl.isPentagona(50); // Returns false
 ```
 
-### isPerfect(n)
+### isPerfect(number)
 Given an integer, returns a Boolean indicating whether it's a [perfect number](https://en.wikipedia.org/wiki/Perfect_number).
 ```js
 nl.isPerfect(496); // Returns true
 nl.isPerfect(200); // Returns false
 ```
 
-### isSquare(n)
+### isSquare(number)
 Given an integer, returns a Boolean indicating whether it's a [square number](https://en.wikipedia.org/wiki/Square_number).
 ```js
 nl.isSquare(16); // Returns true
 nl.isSquare(55); // Returns false
 ```
 
-### isTriangular(n)
+### isTriangular(number)
 Given an integer, returns a Boolean indicating whether it's a [triangular number](https://en.wikipedia.org/wiki/Triangular_number).
 ```js
 nl.isTriangular(21); // Returns true
@@ -292,7 +292,7 @@ Solves a discrete logarithm. For more information see the following:
 * [Discrete Lograrithm](http://en.wikipedia.org/wiki/Discrete_logarithm)
 * [Baby-step Giant-step algorithm](http://en.wikipedia.org/wiki/Baby-step_giant-step)
 
-### mobius(n)
+### mobius(number)
 Compute the value of the [Möbius function](https://en.wikipedia.org/wiki/M%C3%B6bius_function) for n using naive factorization. The Möbius function is defined as 1 if n is a square-free integer with an even number of prime factors, -1 if square-free with an odd number of prime factors, and 0 if n has a squared prime factor.
 ```js
 nl.mobius(30); // Returns -1
@@ -331,7 +331,7 @@ nl.quadraticNonresidue(777); // Returns 5
 ### randomPrimitiveRoot(m)
 Find a random primitive root for Z mod n, meaning a multiplicative generator for the group of units of Z mod n. Unlike primitiveRoot, this function returns a random primitive root. For more information see Wikipedia's entry on [Primitive roots modulo n](http://en.wikipedia.org/wiki/Primitive_root_modulo_n).
 
-### sieve(n)
+### sieve(number)
 Determines a list of prime numbers up to the given bound by performing the [Sieve of Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 ```js
 nl.sieve(10); // Returns [ 2, 3, 5, 7 ]
@@ -347,7 +347,7 @@ nl.squareRootMod(1023, 77); // Returns [76, 1]
 In mathematics and combinatorics, a centered hexagonal number, or hex number,[1][2] is a centered figurate number that represents a hexagon with a dot in the center and all other dots surrounding the center dot in a hexagonal lattice. 
 ```js
 // Is number in sequence of Centered Hexagonal numbers? True/False
-nl.isCenteredHexagonal(n);
+nl.isCenteredHexagonal(number);
 // Gets the n-th element from the sequence of Centered Hexagonal numbers
 nl.getCenteredHexagonal(1); // returns 1
 nl.getCenteredHexagonal(2); // returns 7
@@ -358,7 +358,7 @@ nl.getCenteredHexagonal(3); // returns 19
 A star number is a centered figurate number a centered hexagram (six-pointed star), such as the Star of David, or the board Chinese checkers is played on. 
 ```js
 // Is number in sequence of star numbers? True/False
-nl.isStar(n); 
+nl.isStar(number); 
 // Gets the n-th element from the sequence of star numbers
 nl.getStar(1); // returns 1
 nl.getStar(2); // returns 13
@@ -369,41 +369,148 @@ nl.getStar(3); // returns 37
 A tetrahedral number, or triangular pyramidal number, is a figurate number that represents a pyramid with a triangular base and three sides, called a tetrahedron.
 ```js
 // Is number in squence of tetrahedral numbers? True/False
-nl.isTetrahedral(n);
+nl.isTetrahedral(number);
 // Gets the n-th element from the sequence of tetrahedral numbers
 nl.getTetrahedral(1); // returns 1
 nl.getTetrahedral(2); // returns 4
 nl.getTetrahedral(3); // returns 10
 ```
 
-// Other functions
-nl.getPoliteness
-nl.hasIntRoot
-nl.isArithmetic
-nl.isEvil
-nl.isFriable
-nl.isHappy
-nl.isKRough
-nl.isMoreRound
-nl.isNatural
-nl.isOdious
-nl.isPanarithmic
-nl.isPolite
-nl.isPowerOf2
-nl.isPowerSmooth
-nl.isPractical
-nl.isPronic
-nl.isRectangular
-nl.isRough
-nl.isRound
-nl.isSelf
-nl.isSemiperfect
-nl.isSmooth
-nl.isSphenic
-nl.isUntouchable
-nl.isUnusual
-nl.isWeird
+### [Polite, Impolite and Politeness](https://en.wikipedia.org/wiki/Polite_number)
+In number theory, a polite number is a positive integer that can be written as the sum of two or more consecutive positive integers. A positive integer which is not polite is called impolite.  The impolite numbers are exactly the powers of two, and the polite numbers are the natural numbers that are not powers of two.
+
+Polite numbers have also been called staircase numbers because the Young diagrams which represent graphically the partitions of a polite number into consecutive integers (in the French notation of drawing these diagrams) resemble staircases.
+```js
+nl.getPoliteness(number);
+nl.isPolite(number);
+nl.isImpolite(number)
 ```
+
+### (EVIL numbers)[https://en.wikipedia.org/wiki/Evil_number]
+In number theory, an evil number is a non-negative integer that has an even number of 1s in its binary expansion.  These numbers give the positions of the zero values in the Thue–Morse sequence, and for this reason they have also been called the Thue–Morse set.  Non-negative integers that are not evil are called odious numbers. 
+```js
+nl.isEvil(n);
+nl.isOdious(n);
+```
+
+### (Happy numbers)[https://en.wikipedia.org/wiki/Happy_number}
+A happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit.
+Sad numbers never reach 1, instead eventually entering a loop.
+```js
+nl.isHappy(n);
+nl.isSad(n);
+```
+
+### [Powers of 2](https://en.wikipedia.org/wiki/Power_of_two)
+Power of two is a number of the form 2n where n is an integer, that is, the result of exponentiation with number two as the base and integer n as the exponent. 
+```js
+nl.isPowerOf2(n);
+```
+
+### [Arithmetic numbers](https://en.wikipedia.org/wiki/Arithmetic_number)
+In number theory, an arithmetic number is an integer for which the average of its positive divisors is also an integer [...](https://en.wikipedia.org/wiki/Arithmetic_number)
+```js
+nl.isArithmetic
+```
+
+### [Natural Numbers](https://en.wikipedia.org/wiki/Natural_number)
+These are the numbers we use for counting, like 0, 1, 2, 3, 4...
+Some definitions, including the standard ISO 80000-2, begin the natural numbers with 0, corresponding to the non-negative integers 0, 1, 2, 3, ..., whereas others start with 1, corresponding to the positive integers 1, 2, 3...
+
+We have elected to follow ISO standards, and begin this range from 0.
+You can alternately use `isWhole` which begins from 1.
+```js
+nl.isNatural(n);
+nl.isWhole(n);
+```
+
+###  [Pronic numbers](https://en.wikipedia.org/wiki/Pronic_number)
+A pronic number is a number which is the product of two consecutive integers, that is, a number of the form n(n + 1).  The study of these numbers dates back to Aristotle. They are also called oblong numbers, heteromecic numbers, or rectangular numbers; however, the term "rectangular number" has also been applied to the composite numbers.
+```js
+nl.isPronic(n);
+nl.isRectangular(n);
+```
+
+### [Smooth or Friable numbers](https://en.wikipedia.org/wiki/Smooth_number)
+In number theory, an n-smooth (or n-friable) number is an integer whose prime factors are all less than or equal to n. For example, a 7-smooth number is a number whose every prime factor is at most 7, so 49 = 72 and 15750 = 2 × 32 × 53 × 7 are both 7-smooth, while 11 and 702 = 2 × 33 × 13 are not 7-smooth. The term seems to have been coined by Leonard Adleman. Smooth numbers are especially important in cryptography, which relies on factorization of integers. The 2-smooth numbers are just the powers of 2, while 5-smooth numbers are known as regular numbers. 
+```js
+nl.isFriable(n);
+nl.isSmooth(n);
+
+// https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers
+nl.isPowerSmooth(n);
+```
+
+### [Rough numbers](https://en.wikipedia.org/wiki/Rough_number)
+A k-rough number, as defined by Finch in 2001 and 2003, is a positive integer whose prime factors are all greater than or equal to k. k-roughness has alternately been defined as requiring all prime factors to strictly exceed k
+```js
+nl.isKRough(n);
+nl.isRough(n);
+```
+
+### [Round numbers](https://en.wikipedia.org/wiki/Round_number)
+A round number is an integer that ends with one or more "0"s (zero-digit) in a given base.[1] So, 590 is rounder than 592, but 590 is less round than 600.
+```js
+nl.isRound(n, base);
+
+// Want to know if one number is more smooth than another?
+// Want to compare if numbers are smoother in one base than another?
+nl.isMoreRound(n1, n2, base1, base2);
+```
+
+### [Sphenic numbers](https://en.wikipedia.org/wiki/Sphenic_number)
+In number theory, a sphenic number is a positive integer that is the product of three distinct prime numbers.
+```js
+nl.isSphenic(n);
+```
+
+### [Practical or Panarithmic numbers](https://en.wikipedia.org/wiki/Practical_number)
+In number theory, a practical number or panarithmic number is a positive integer n such that all smaller positive integers can be represented as sums of distinct divisors of n.
+```js
+nl.isPanarithmic(n)
+nl.isPractical(n)
+```
+
+### [Semiperfect numbers](https://en.wikipedia.org/wiki/Semiperfect_number)
+In number theory, a semiperfect number or pseudoperfect number is a natural number n that is equal to the sum of all or some of its proper divisors. A semiperfect number that is equal to the sum of all its proper divisors is a perfect number. 
+```js
+nl.isSemiperfect(n);
+```
+
+### [Self numbers](https://en.wikipedia.org/wiki/Self_number)
+A self number, Colombian number or Devlali number in a given number base b is a natural number that cannot be written as the sum of any other natural number n and the individual digits of n.
+```js
+nl.isSelf(n, base); // IMPORTANT: Currently only works in base 10
+```
+
+### [Untouchable Number](https://en.wikipedia.org/wiki/Untouchable_number)
+An untouchable number is a positive integer that cannot be expressed as the sum of all the proper divisors of any positive integer (including the untouchable number itself). That is, these numbers are not in the image of the aliquot sum function.
+```js
+nl.isUntouchable(n);
+```
+
+### [Weird numbers](https://en.wikipedia.org/wiki/Weird_number)
+The sum of the proper divisors (divisors including 1 but not itself) of the number is greater than the number, but no subset of those divisors sums to the number itself.
+```js
+nl.isWeird(n);
+```
+
+### [Unusual numbers](https://en.wikipedia.org/wiki/Unusual_number)
+Read the wiki article, it's foramtted to display this information  better than I can do here.
+All prime numbers are unusual.
+```js
+nl.isUnusual(n);
+```
+
+### Integer Root
+Tests if the number has a `degree` of root that returns a whole number result.
+For instance, { 9^(1/3) = 3 } || cuberoot(9)
+```js
+nl.hasIntRoot(n);  // returns if a number has a whole root true/false
+nl.getIntRoot(n); // returns the root `degree` that wholy roots the number
+nl.getIntRoot(n); // returns 3
+```
+
 
 ## License
 
