@@ -17,7 +17,7 @@ const primes = require('./lib/primes');
 const geometric = require('./lib/geometric');
 const ownCode = require('./lib/ownCode');
 
-const NumberTools = {
+module.exports = {
     /*
     Things I would like the package to support
 
@@ -360,8 +360,4 @@ const NumberTools = {
     vectorNorm: P_numbers.matrix.vectorNorm,
     zeros: P_numbers.matrix.zeros,
     zigzag: P_numbers.matrix.zigzag,
-}
-
-module.exports = {
-    NumberTools
 }
