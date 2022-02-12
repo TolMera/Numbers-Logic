@@ -118,7 +118,7 @@ module.exports = {
     isOctagonal: P_number_theory.isOctagonal,
     isPentagonal: P_number_theory.isPentagonal,
     isPerfect: P_number_theory.isPerfect,
-    isPrime: P_number_theory.isPrime,
+    isPrime: primes.isPrime,
     isProbablyPrime: P_number_theory.isProbablyPrime,
     isSquare: P_number_theory.isSquare,
     isTriangular: P_number_theory.isTriangular,

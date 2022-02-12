@@ -47,7 +47,9 @@ nl.prime.millerRabin(number);
 ```
 
 ### isPrime(number)
-Determines if the given number is [prime](http://en.wikipedia.org/wiki/Prime_number). Note: this is a particularly slow method that uses full prime factorization to determine if the number is prime. For a faster method see the `miller` function below.
+Determines if the given number is [prime](http://en.wikipedia.org/wiki/Prime_number).
+Uses a very efficient sieve function, and should be fast.
+Note: this full prime factorization to determine if the number is prime.  You might get a faster result using the `miller` function below.
 ```js
 nl.isPrime(7); // Returns true
 nl.isPrime(48); // Returns false
