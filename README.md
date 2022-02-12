@@ -332,7 +332,8 @@ nl.quadraticNonresidue(777); // Returns 5
 Find a random primitive root for Z mod n, meaning a multiplicative generator for the group of units of Z mod n. Unlike primitiveRoot, this function returns a random primitive root. For more information see Wikipedia's entry on [Primitive roots modulo n](http://en.wikipedia.org/wiki/Primitive_root_modulo_n).
 
 ### sieve(number)
-Determines a list of prime numbers up to the given bound by performing the [Sieve of Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+Determines a list of prime numbers up to the given number by performing the [Sieve of Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
+Supports: Very large numbers upto `Number.MAX_SAFE_INTEGER` (Function is able to go much further, but that's a limitation of JS native Number)
 ```js
 nl.sieve(10); // Returns [ 2, 3, 5, 7 ]
 ```
