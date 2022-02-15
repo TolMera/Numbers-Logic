@@ -13,9 +13,6 @@ const P_numbers = require('numbers');
 // const P_numberjs = require('number.js');
 
 const happyOrSad = require('./lib/happyOrSad');
-const primes = require('./lib/primes');
-const geometric = require('./lib/geometric');
-const ownCode = require('./lib/ownCode');
 const sieve = require('./lib/sieve');
 
 module.exports = {
@@ -31,46 +28,46 @@ module.exports = {
     */
 
     // Mine
-    getCenteredHexagonal: geometric.getCenteredHexagonal,
-    getStar: geometric.getStar,
-    getTetrahedral: geometric.getTetrahedral,
+    getCenteredHexagonal: require('./lib/getCenteredHexagonal').getCenteredHexagonal,
+    getStar: require('./lib/getStar').getStar,
+    getTetrahedral: require('./lib/getTetrahedral').getTetrahedral,
     bools: {
-        isMersennePrime: primes.isMersennePrime,
-        isPrimePower: primes.isPrimePower,
-        isProductOfXPrimes: primes.isProductOfXPrimes,
-        isSafePrime: primes.isSafePrime,
-        isSelfPrime: primes.isSelfPrime,
-        isSophieGermainPrime: primes.isSophieGermainPrime,
-    
-        isCenteredHexagonal: geometric.isCenteredHexagonal,
-        isStar: geometric.isStar,
-        isTetrahedral: geometric.isTetrahedral,
+        isMersennePrime: require('./lib/isMersennePrime').isMersennePrime,
+        isPrimePower: require('./lib/isPrimePower').isPrimePower,
+        isProductOfXPrimes: require('./lib/isProductOfXPrimes').isProductOfXPrimes,
+        isSafePrime: require('./lib/isSafePrime').isSafePrime,
+        isSelfPrime: require('./lib/isSelfPrime').isSelfPrime,
+        isSophieGermainPrime: require('./lib/isSophieGermainPrime').isSophieGermainPrime,
 
-        hasIntRoot: ownCode.hasIntRoot,
-        isArithmetic: ownCode.isArithmetic,
-        isEvil: ownCode.isEvil,
-        isFriable: ownCode.isSmooth,
-        isKRough: ownCode.isKRough,
-        isNatural: ownCode.isNatural,
-        isOdious: ownCode.isOdious,
-        isPanarithmic: ownCode.isPractical,
-        isPolite: ownCode.isPolite,
-        isImpolite: ownCode.isImpolite,
-        isPowerOf2: ownCode.isPowerOf2,
-        isPowerSmooth: ownCode.isPowerSmooth,
+        isCenteredHexagonal: require('./lib/isCenteredHexagonal').isCenteredHexagonal,
+        isStar: require('./lib/isStar').isStar,
+        isTetrahedral: require('./lib/isTetrahedral').isTetrahedral,
+
+        hasIntRoot: require('./lib/hasIntRoot').hasIntRoot,
+        isArithmetic: require('./lib/isArithmetic').isArithmetic,
+        isEvil: require('./lib/isEvil').isEvil,
+        isFriable: require('./lib/isSmooth').isSmooth,
+        isKRough: require('./lib/isKRough').isKRough,
+        isNatural: require('./lib/isNatural').isNatural,
+        isOdious: require('./lib/isOdious').isOdious,
+        isPanarithmic: require('./lib/isPractical').isPractical,
+        isPolite: require('./lib/isPolite').isPolite,
+        isImpolite: require('./lib/isImpolite').isImpolite,
+        isPowerOf2: require('./lib/isPowerOf2').isPowerOf2,
+        isPowerSmooth: require('./lib/isPowerSmooth').isPowerSmooth,
         // TODO: Create function for ultrafriable - https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers
-        isPractical: ownCode.isPractical,
-        isPronic: ownCode.isPronic,
-        isRectangular: ownCode.isPronic,
-        isRough: ownCode.isRough,
-        isRound: ownCode.isRound,
-        isSelf: ownCode.isSelf,
-        isSemiperfect: ownCode.isSemiperfect,
-        isSmooth: ownCode.isSmooth,
-        isSphenic: ownCode.isSphenic,
-        isUntouchable: ownCode.isUntouchable,
-        isUnusual: ownCode.isUnusual,
-        isWeird: ownCode.isWeird,
+        isPractical: require('./lib/isPractical').isPractical,
+        isPronic: require('./lib/isPronic').isPronic,
+        isRectangular: require('./lib/isPronic').isPronic,
+        isRough: require('./lib/isRough').isRough,
+        isRound: require('./lib/isRound').isRound,
+        isSelf: require('./lib/isSelf').isSelf,
+        isSemiperfect: require('./lib/isSemiperfect').isSemiperfect,
+        isSmooth: require('./lib/isSmooth').isSmooth,
+        isSphenic: require('./lib/isSphenic').isSphenic,
+        isUntouchable: require('./lib/isUntouchable').isUntouchable,
+        isUnusual: require('./lib/isUnusual').isUnusual,
+        isWeird: require('./lib/isWeird').isWeird,
 
         isHappy: happyOrSad.isHappy,
         isSad: happyOrSad.isSad,
@@ -82,7 +79,7 @@ module.exports = {
         isOctagonal: P_number_theory.isOctagonal,
         isPentagonal: P_number_theory.isPentagonal,
         isPerfect: P_number_theory.isPerfect,
-        isPrime: primes.isPrime,
+        isPrime: require('./lib/isPrime').isPrime,
         isProbablyPrime: P_number_theory.isProbablyPrime,
         isSquare: P_number_theory.isSquare,
         isTriangular: P_number_theory.isTriangular,
@@ -97,15 +94,15 @@ module.exports = {
     },
 
     comparison: {
-        isMoreRound: ownCode.isMoreRound
+        isMoreRound: require('./lib/isMoreRound').isMoreRound
     },
 
     mobius,
     mobiusRange,
-    getPoliteness: ownCode.getPoliteness,
+    getPoliteness: require('./lib/getPoliteness').getPoliteness,
 
     // - from P_number_theory
-    divisors: ownCode.divisors,
+    divisors: require('./lib/divisors').divisors,
     eulerPhi: P_number_theory.eulerPhi,
     factor: P_number_theory.factor,
     findDivisor: P_number_theory.findDivisor,
@@ -119,7 +116,7 @@ module.exports = {
     isOctagonal: P_number_theory.isOctagonal,
     isPentagonal: P_number_theory.isPentagonal,
     isPerfect: P_number_theory.isPerfect,
-    isPrime: primes.isPrime,
+    isPrime: require('./lib/isPrime').isPrime,
     isProbablyPrime: P_number_theory.isProbablyPrime,
     isSquare: P_number_theory.isSquare,
     isTriangular: P_number_theory.isTriangular,
