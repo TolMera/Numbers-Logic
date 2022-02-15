@@ -11,7 +11,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node testing/index.js"
   },
   "keywords": [
     "number",
@@ -185,5 +185,8 @@
   "dependencies": {
     "number-theory": "^1.1.0",
     "numbers": "^0.7.0"
+  },
+  "devDependencies": {
+    "advanced-testing-kit": "file:../atk22"
   }
 }

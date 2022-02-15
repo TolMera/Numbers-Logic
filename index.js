@@ -16,6 +16,7 @@ const happyOrSad = require('./lib/happyOrSad');
 const primes = require('./lib/primes');
 const geometric = require('./lib/geometric');
 const ownCode = require('./lib/ownCode');
+const sieve = require('./lib/sieve');
 
 module.exports = {
     /*
@@ -30,6 +31,9 @@ module.exports = {
     */
 
     // Mine
+    getCenteredHexagonal: geometric.getCenteredHexagonal,
+    getStar: geometric.getStar,
+    getTetrahedral: geometric.getTetrahedral,
     bools: {
         isMersennePrime: primes.isMersennePrime,
         isPrimePower: primes.isPrimePower,
@@ -38,9 +42,6 @@ module.exports = {
         isSelfPrime: primes.isSelfPrime,
         isSophieGermainPrime: primes.isSophieGermainPrime,
     
-        getCenteredHexagonal: geometric.getCenteredHexagonal,
-        getStar: geometric.getStar,
-        getTetrahedral: geometric.getTetrahedral,
         isCenteredHexagonal: geometric.isCenteredHexagonal,
         isStar: geometric.isStar,
         isTetrahedral: geometric.isTetrahedral,
@@ -104,7 +105,7 @@ module.exports = {
     getPoliteness: ownCode.getPoliteness,
 
     // - from P_number_theory
-    divisors: P_number_theory.divisors,
+    divisors: ownCode.divisors,
     eulerPhi: P_number_theory.eulerPhi,
     factor: P_number_theory.factor,
     findDivisor: P_number_theory.findDivisor,
@@ -131,7 +132,7 @@ module.exports = {
     primitiveRoot: P_number_theory.primitiveRoot,
     quadraticNonresidue: P_number_theory.quadraticNonresidue,
     randomPrimitiveRoot: P_number_theory.randomPrimitiveRoot,
-    sieve: primes.sieve,
+    sieve,
     squareRootMod: P_number_theory.squareRootMod,
     squareRootModPrime: P_number_theory.squareRootModPrime,
     totient: P_number_theory.totient,
@@ -228,7 +229,6 @@ module.exports = {
         getPerfectPower: P_numbers.prime.getPerfectPower,
         getPrimePower: P_numbers.prime.getPrimePower,
         millerRabin: P_numbers.prime.millerRabin,
-        // sieve: P_numbers.prime.sieve,
         simple: P_numbers.prime.simple,
     },
 
@@ -348,7 +348,6 @@ module.exports = {
     setGenerator: P_numbers.random.setGenerator,
     shear: P_numbers.matrix.shear,
     shuffle: P_numbers.basic.shuffle,
-    // sieve: P_numbers.prime.sieve,
     simple: P_numbers.prime.simple,
     square: P_numbers.basic.square,
     standardDev: P_numbers.statistic.standardDev,
