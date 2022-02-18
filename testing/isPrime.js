@@ -1,18 +1,21 @@
 const atk = require('advanced-testing-kit');
-const divisors = require('../lib/divisors');
 const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
+const isPrime = require('../lib/isPrime');
 
 index();
-process.exit();
-/* 
-
-*/
 function index() {
-    let test = atk.makeTests(divisors, {
+    let test = atk.makeTests(isPrime, {
         returns: [
-            [[10], [1, 2, 5, 10]],
-            [[600], [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 24, 25, 30, 40, 50, 60, 75, 100, 120, 150, 200, 300, 600]],
-            [[900], [1, 2, 3, 4, 5, 6, 9, 10, 12, 15, 18, 20, 25, 30, 36, 45, 50, 60, 75, 90, 100, 150, 180, 225, 300, 450, 900]],
+            [[10], false],
+            [[600], false],
+            [[900], false],
+            [[-10], false],
+            [[-600], false],
+            [[-900], false],
+            [[2], true],
+            [[3], true],
+            [[5], true],
+            [[7], true],
         ],
         inputs: [
             [{
@@ -27,3 +30,5 @@ function index() {
     });
     test();
 }
+
+module.exports = index;
