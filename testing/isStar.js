@@ -1,23 +1,17 @@
 const atk = require('advanced-testing-kit');
 const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isEven = require('../lib/isEven');
+const isStar = require('../lib/isStar');
 
 index();
 function index() {
-    let test = atk.makeTests(isEven, {
+    let test = atk.makeTests(isStar, {
         returns: [
-            [[10], true],
-            [[600], true],
-            [[900], true],
-            [[-10], true],
-            [[-600], true],
-            [[-900], true],
-            [[11], false],
-            [[601], false],
-            [[901], false],
-            [[-11], false],
-            [[-601], false],
-            [[-901], false],
+            [[541], true], [[541+1], !true],
+            [[2156401], true], [[2156401+1], !true],
+            [[4854601], true], [[4854601+1], !true],
+            [[661], true], [[661+1], !true],
+            [[2163601], true], [[2163601+1], !true],
+            [[4865401], true], [[4865401+1], !true],
         ],
         inputs: [
             [{
@@ -34,3 +28,5 @@ function index() {
 }
 
 module.exports = index;
+
+
