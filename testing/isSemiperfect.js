@@ -16,15 +16,18 @@ function index() {
             [[36], true], [[36 + 1], !true],
             [[40], true], [[40 + 1], !true],
         ],
+        advanced: {
+            itterations: 1
+        },
         inputs: [
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }]
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }]
         ]
     });
     test();
