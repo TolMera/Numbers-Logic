@@ -1,20 +1,17 @@
 const atk = require('advanced-testing-kit');
 const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isUntouchable = require('../lib/isUntouchable');
+const isWhole = require('../lib/isWhole');
 
 index();
 function index() {
-    let test = atk.makeTests(isUntouchable, {
+    let test = atk.makeTests(isWhole, {
         returns: [
-            [[2], true], [[2+1], false], 
-            [[5], true], [[5+1], false], 
-            [[52], true], [[52+1], false], 
-            [[88], true], [[88+1], false], 
-            [[96], true], [[96+1], false], 
-            [[120], true], [[120+1], false], 
-            [[124], true], [[124+1], false], 
-            [[146], true], [[146+1], false], 
-            [[162,], true], [[162+1,], false], 
+            [[1], true],
+            [[2], true],
+            [[3], true],
+            [[1.1], false],
+            [[1.2], false],
+            [[1.3], false],
         ],
         inputs: [
             [{
@@ -31,5 +28,3 @@ function index() {
 }
 
 module.exports = index;
-
-
