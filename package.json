@@ -11,7 +11,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "node testing/index.js"
+    "test": "for file in ./testing/*.js; do echo $file & time node $file; done;"
   },
   "keywords": [
     "number",
