@@ -36,6 +36,6 @@ function index() {
     test();
 }
 
-module.exports = index;
+
 
 
