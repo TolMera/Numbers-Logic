@@ -3,7 +3,7 @@
   "author": "Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://tolmera.com)",
   "license": "custom",
   "description": "Tools used to understand or work with numbers in Node.JS, Javascript and derivatives. ",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "homepage": "https://github.com/TolMera/Numbers-Logic",
   "repository": {
     "type": "git",

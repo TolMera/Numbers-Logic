@@ -12,7 +12,7 @@ const P_numbers = require('numbers');
 // const P_mathTools = require('math-tools');
 // const P_numberjs = require('number.js');
 
-const happyOrSad = require('./lib/happyOrSad');
+const happyOrSad = {isHappy: require('./lib/isHappy'), isSad: require('./lib/isSad')}
 const sieve = require('./lib/sieve');
 
 module.exports = {
