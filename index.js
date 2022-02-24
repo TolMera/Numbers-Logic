@@ -4,7 +4,7 @@
 */
 let TP_number_theory = require('number-theory');
 let mobius = require('./lib/mobius');
-let mobiusRange = require('./lib/mobius-range');
+let mobiusRange = require('./lib/mobiusRange');
 const P_number_theory = TP_number_theory;
 
 const P_numbers = require('numbers');
