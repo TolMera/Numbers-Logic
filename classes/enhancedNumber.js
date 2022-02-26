@@ -23,7 +23,6 @@ class EnhancedNumber {
         if (this._divisors === undefined) {
             const fn = require('../lib/divisors');
             this._divisors = fn(this);
-            return this._divisors;
         }
         return this._divisors;
     }
@@ -35,7 +34,6 @@ class EnhancedNumber {
         if (this._getStar === undefined) {
             const fn = require('../lib/getStar');
             this._getStar = fn(this);
-            return this._getStar;
         }
         return this._getStar;
     }
@@ -47,7 +45,6 @@ class EnhancedNumber {
         if (this._isEvil === undefined) {
             const fn = require('../lib/isEvil');
             this._isEvil = fn(this);
-            return this._isEvil;
         }
         return this._isEvil;
     }
@@ -59,7 +56,6 @@ class EnhancedNumber {
         if (this._isOdd === undefined) {
             const fn = require('../lib/isOdd');
             this._isOdd = fn(this);
-            return this._isOdd;
         }
         return this._isOdd;
     }
@@ -71,7 +67,6 @@ class EnhancedNumber {
         if (this._isPrime === undefined) {
             const fn = require('../lib/isPrime');
             this._isPrime = fn(this);
-            return this._isPrime;
         }
         return this._isPrime;
     }
@@ -83,7 +78,6 @@ class EnhancedNumber {
         if (this._isSafePrime === undefined) {
             const fn = require('../lib/isSafePrime');
             this._isSafePrime = fn(this);
-            return this._isSafePrime;
         }
         return this._isSafePrime;
     }
@@ -95,7 +89,6 @@ class EnhancedNumber {
         if (this._isStar === undefined) {
             const fn = require('../lib/isStar');
             this._isStar = fn(this);
-            return this._isStar;
         }
         return this._isStar;
     }
@@ -107,7 +100,6 @@ class EnhancedNumber {
         if (this._logX === undefined) {
             const fn = require('../lib/logX');
             this._logX = fn(this);
-            return this._logX;
         }
         return this._logX;
     }
@@ -119,7 +111,6 @@ class EnhancedNumber {
         if (this._factorsOf === undefined) {
             const fn = require('../lib/factorsOf');
             this._factorsOf = fn(this);
-            return this._factorsOf;
         }
         return this._factorsOf;
     }
@@ -131,7 +122,6 @@ class EnhancedNumber {
         if (this._getTetrahedral === undefined) {
             const fn = require('../lib/getTetrahedral');
             this._getTetrahedral = fn(this);
-            return this._getTetrahedral;
         }
         return this._getTetrahedral;
     }
@@ -143,7 +133,6 @@ class EnhancedNumber {
         if (this._isHappy === undefined) {
             const fn = require('../lib/isHappy');
             this._isHappy = fn(this);
-            return this._isHappy;
         }
         return this._isHappy;
     }
@@ -155,7 +144,6 @@ class EnhancedNumber {
         if (this._isOdious === undefined) {
             const fn = require('../lib/isOdious');
             this._isOdious = fn(this);
-            return this._isOdious;
         }
         return this._isOdious;
     }
@@ -167,7 +155,6 @@ class EnhancedNumber {
         if (this._isPrimePower === undefined) {
             const fn = require('../lib/isPrimePower');
             this._isPrimePower = fn(this);
-            return this._isPrimePower;
         }
         return this._isPrimePower;
     }
@@ -179,7 +166,6 @@ class EnhancedNumber {
         if (this._isSelf === undefined) {
             const fn = require('../lib/isSelf');
             this._isSelf = fn(this);
-            return this._isSelf;
         }
         return this._isSelf;
     }
@@ -191,7 +177,6 @@ class EnhancedNumber {
         if (this._isSubsetSum === undefined) {
             const fn = require('../lib/isSubsetSum');
             this._isSubsetSum = fn(this);
-            return this._isSubsetSum;
         }
         return this._isSubsetSum;
     }
@@ -203,7 +188,6 @@ class EnhancedNumber {
         if (this._mobius === undefined) {
             const fn = require('../lib/mobius');
             this._mobius = fn(this);
-            return this._mobius;
         }
         return this._mobius;
     }
@@ -215,7 +199,6 @@ class EnhancedNumber {
         if (this._getAliquotSum === undefined) {
             const fn = require('../lib/getAliquotSum');
             this._getAliquotSum = fn(this);
-            return this._getAliquotSum;
         }
         return this._getAliquotSum;
     }
@@ -227,7 +210,6 @@ class EnhancedNumber {
         if (this._hasIntRoot === undefined) {
             const fn = require('../lib/hasIntRoot');
             this._hasIntRoot = fn(this);
-            return this._hasIntRoot;
         }
         return this._hasIntRoot;
     }
@@ -239,7 +221,6 @@ class EnhancedNumber {
         if (this._isImpolite === undefined) {
             const fn = require('../lib/isImpolite');
             this._isImpolite = fn(this);
-            return this._isImpolite;
         }
         return this._isImpolite;
     }
@@ -251,7 +232,6 @@ class EnhancedNumber {
         if (this._isPerfect === undefined) {
             const fn = require('../lib/isPerfect');
             this._isPerfect = fn(this);
-            return this._isPerfect;
         }
         return this._isPerfect;
     }
@@ -263,7 +243,6 @@ class EnhancedNumber {
         if (this._isProductOfXPrimes === undefined) {
             const fn = require('../lib/isProductOfXPrimes');
             this._isProductOfXPrimes = fn(this);
-            return this._isProductOfXPrimes;
         }
         return this._isProductOfXPrimes;
     }
@@ -275,7 +254,6 @@ class EnhancedNumber {
         if (this._isSelfPrime === undefined) {
             const fn = require('../lib/isSelfPrime');
             this._isSelfPrime = fn(this);
-            return this._isSelfPrime;
         }
         return this._isSelfPrime;
     }
@@ -287,7 +265,6 @@ class EnhancedNumber {
         if (this._isTetrahedral === undefined) {
             const fn = require('../lib/isTetrahedral');
             this._isTetrahedral = fn(this);
-            return this._isTetrahedral;
         }
         return this._isTetrahedral;
     }
@@ -299,7 +276,6 @@ class EnhancedNumber {
         if (this._mobiusRange === undefined) {
             const fn = require('../lib/mobiusRange');
             this._mobiusRange = fn(this);
-            return this._mobiusRange;
         }
         return this._mobiusRange;
     }
@@ -311,7 +287,6 @@ class EnhancedNumber {
         if (this._getCenteredHexagonal === undefined) {
             const fn = require('../lib/getCenteredHexagonal');
             this._getCenteredHexagonal = fn(this);
-            return this._getCenteredHexagonal;
         }
         return this._getCenteredHexagonal;
     }
@@ -323,7 +298,6 @@ class EnhancedNumber {
         if (this._isAbundant === undefined) {
             const fn = require('../lib/isAbundant');
             this._isAbundant = fn(this);
-            return this._isAbundant;
         }
         return this._isAbundant;
     }
@@ -344,7 +318,6 @@ class EnhancedNumber {
         if (this._isPolite === undefined) {
             const fn = require('../lib/isPolite');
             this._isPolite = fn(this);
-            return this._isPolite;
         }
         return this._isPolite;
     }
@@ -356,7 +329,6 @@ class EnhancedNumber {
         if (this._isPronic === undefined) {
             const fn = require('../lib/isPronic');
             this._isPronic = fn(this);
-            return this._isPronic;
         }
         return this._isPronic;
     }
@@ -368,7 +340,6 @@ class EnhancedNumber {
         if (this._isSemiperfect === undefined) {
             const fn = require('../lib/isSemiperfect');
             this._isSemiperfect = fn(this);
-            return this._isSemiperfect;
         }
         return this._isSemiperfect;
     }
@@ -380,7 +351,6 @@ class EnhancedNumber {
         if (this._isUntouchable === undefined) {
             const fn = require('../lib/isUntouchable');
             this._isUntouchable = fn(this);
-            return this._isUntouchable;
         }
         return this._isUntouchable;
     }
@@ -392,7 +362,6 @@ class EnhancedNumber {
         if (this._getCountDivisors === undefined) {
             const fn = require('../lib/getCountDivisors');
             this._getCountDivisors = fn(this);
-            return this._getCountDivisors;
         }
         return this._getCountDivisors;
     }
@@ -404,7 +373,6 @@ class EnhancedNumber {
         if (this._isArithmetic === undefined) {
             const fn = require('../lib/isArithmetic');
             this._isArithmetic = fn(this);
-            return this._isArithmetic;
         }
         return this._isArithmetic;
     }
@@ -416,7 +384,6 @@ class EnhancedNumber {
         if (this._isMersennePrime === undefined) {
             const fn = require('../lib/isMersennePrime');
             this._isMersennePrime = fn(this);
-            return this._isMersennePrime;
         }
         return this._isMersennePrime;
     }
@@ -428,7 +395,6 @@ class EnhancedNumber {
         if (this._isPowerOf2 === undefined) {
             const fn = require('../lib/isPowerOf2');
             this._isPowerOf2 = fn(this);
-            return this._isPowerOf2;
         }
         return this._isPowerOf2;
     }
@@ -447,7 +413,6 @@ class EnhancedNumber {
         if (this._isSmooth === undefined) {
             const fn = require('../lib/isSmooth');
             this._isSmooth = fn(this);
-            return this._isSmooth;
         }
         return this._isSmooth;
     }
@@ -459,7 +424,6 @@ class EnhancedNumber {
         if (this._isUnusual === undefined) {
             const fn = require('../lib/isUnusual');
             this._isUnusual = fn(this);
-            return this._isUnusual;
         }
         return this._isUnusual;
     }
@@ -471,7 +435,6 @@ class EnhancedNumber {
         if (this._semiperfectTest === undefined) {
             const fn = require('../lib/semiperfectTest');
             this._semiperfectTest = fn(this);
-            return this._semiperfectTest;
         }
         return this._semiperfectTest;
     }
@@ -483,7 +446,6 @@ class EnhancedNumber {
         if (this._getIntRoot === undefined) {
             const fn = require('../lib/getIntRoot');
             this._getIntRoot = fn(this);
-            return this._getIntRoot;
         }
         return this._getIntRoot;
     }
@@ -495,7 +457,6 @@ class EnhancedNumber {
         if (this._isCenteredHexagonal === undefined) {
             const fn = require('../lib/isCenteredHexagonal');
             this._isCenteredHexagonal = fn(this);
-            return this._isCenteredHexagonal;
         }
         return this._isCenteredHexagonal;
     }
@@ -507,7 +468,6 @@ class EnhancedNumber {
         if (this._isMoreRound === undefined) {
             const fn = require('../lib/isMoreRound');
             this._isMoreRound = fn(this);
-            return this._isMoreRound;
         }
         return this._isMoreRound;
     }
@@ -519,7 +479,6 @@ class EnhancedNumber {
         if (this._isPowerSmooth === undefined) {
             const fn = require('../lib/isPowerSmooth');
             this._isPowerSmooth = fn(this);
-            return this._isPowerSmooth;
         }
         return this._isPowerSmooth;
     }
@@ -540,7 +499,6 @@ class EnhancedNumber {
         if (this._isSophieGermainPrime === undefined) {
             const fn = require('../lib/isSophieGermainPrime');
             this._isSophieGermainPrime = fn(this);
-            return this._isSophieGermainPrime;
         }
         return this._isSophieGermainPrime;
     }
@@ -552,7 +510,6 @@ class EnhancedNumber {
         if (this._isWeird === undefined) {
             const fn = require('../lib/isWeird');
             this._isWeird = fn(this);
-            return this._isWeird;
         }
         return this._isWeird;
     }
@@ -564,7 +521,6 @@ class EnhancedNumber {
         if (this._sieve === undefined) {
             const fn = require('../lib/sieve');
             this._sieve = fn(this);
-            return this._sieve;
         }
         return this._sieve;
     }
@@ -576,7 +532,6 @@ class EnhancedNumber {
         if (this._getPoliteness === undefined) {
             const fn = require('../lib/getPoliteness');
             this._getPoliteness = fn(this);
-            return this._getPoliteness;
         }
         return this._getPoliteness;
     }
@@ -588,7 +543,6 @@ class EnhancedNumber {
         if (this._isEven === undefined) {
             const fn = require('../lib/isEven');
             this._isEven = fn(this);
-            return this._isEven;
         }
         return this._isEven;
     }
@@ -600,7 +554,6 @@ class EnhancedNumber {
         if (this._isNatural === undefined) {
             const fn = require('../lib/isNatural');
             this._isNatural = fn(this);
-            return this._isNatural;
         }
         return this._isNatural;
     }
@@ -612,7 +565,6 @@ class EnhancedNumber {
         if (this._isPractical === undefined) {
             const fn = require('../lib/isPractical');
             this._isPractical = fn(this);
-            return this._isPractical;
         }
         return this._isPractical;
     }
@@ -624,7 +576,6 @@ class EnhancedNumber {
         if (this._isSad === undefined) {
             const fn = require('../lib/isSad');
             this._isSad = fn(this);
-            return this._isSad;
         }
         return this._isSad;
     }
@@ -636,7 +587,6 @@ class EnhancedNumber {
         if (this._isSphenic === undefined) {
             const fn = require('../lib/isSphenic');
             this._isSphenic = fn(this);
-            return this._isSphenic;
         }
         return this._isSphenic;
     }
@@ -648,7 +598,6 @@ class EnhancedNumber {
         if (this._isWhole === undefined) {
             const fn = require('../lib/isWhole');
             this._isWhole = fn(this);
-            return this._isWhole;
         }
         return this._isWhole;
     }
@@ -660,7 +609,6 @@ class EnhancedNumber {
         if (this._sum === undefined) {
             const fn = require('../lib/sum');
             this._sum = fn(this);
-            return this._sum;
         }
         return this._sum;
     }
