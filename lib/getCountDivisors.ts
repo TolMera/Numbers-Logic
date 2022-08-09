@@ -1,15 +1,17 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
-const factorsOf = require('./factorsOf');
+import type {EnhancedNumberType} from '../classes/enhancedNumber'
+
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {factorsOf} from './factorsOf';
 
 // Insperation derived from:
 // https://www2.math.upenn.edu/~deturck/m170/wk2/numdivisors.html
-function getCountDivisors(n) {
+function getCountDivisors(n: number | EnhancedNumberType): number {
     n = EnhancedNumber(n);
-    if (n._getCountDivisors) {
+    if (n.getCountDivisors) {
         return n.getCountDivisors;
     }
 
-    let factors;
+    let factors: number[];
     if (n.number > 0) {
         factors = factorsOf(n);
     } else {
@@ -28,4 +30,4 @@ function getCountDivisors(n) {
     return n.getCountDivisors;
 };
 
-module.exports = getCountDivisors;
+module.exports = {getCountDivisors};

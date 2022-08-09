@@ -1,8 +1,10 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
+import type {EnhancedNumberType} from '../classes/enhancedNumber'
+import {EnhancedNumber} from '../classes/enhancedNumber';
 
-function getCenteredHexagonal(n) {
+function getCenteredHexagonal(n: number | EnhancedNumberType): number {
     n = EnhancedNumber(n);
-    if (n._getCenteredHexagonal) {
+    
+    if (n.getCenteredHexagonal) {
         return n.getCenteredHexagonal;
     }
 
@@ -10,4 +12,4 @@ function getCenteredHexagonal(n) {
     return n.getCenteredHexagonal;
 };
 
-module.exports = getCenteredHexagonal;
+module.exports = {getCenteredHexagonal};
