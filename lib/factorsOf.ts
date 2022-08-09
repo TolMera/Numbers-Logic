@@ -1,17 +1,22 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
-const sieve = require("./sieve");
+import type { EnhancedNumberType } from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {sieve} from './sieve';
 
-function factorsOf(n) {
+function factorsOf(n: number | EnhancedNumberType): number[] {
     n = EnhancedNumber(n);
-    if (n._factorsOf) {
+    if (n.factorsOf) {
         return Array.from(n.factorsOf);
     }
     
-    let mutableN = Math.abs(n.number);
+    let mutableN: number = Math.abs(n.number);
     const primesToN = sieve(mutableN);
     
-    const factors = [];
-    for (var k = 0; k < primesToN.length && mutableN > 1; k++) {
+    const factors: number[] = [];
+    for (
+        let k = 0;
+        k < primesToN.length && mutableN > 1;
+        k++
+    ) {
         const prime = primesToN[k];
         if (mutableN % prime === 0) {
             const factor = { prime, power: 0 };
@@ -30,7 +35,7 @@ function factorsOf(n) {
     }
 
     if (n.number < 0) {
-        const negatives = [];
+        const negatives: number[] = [];
         for (const factor of factors) {
             negatives.push({ ...factor });
             negatives[negatives.length - 1].prime *= -1;
