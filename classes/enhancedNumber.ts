@@ -1,7 +1,66 @@
+interface EnhancedNumberType extends number {
+    readonly number: number;
+    divisors: number;
+    factorsOf: number[];
+    getAliquotSum: unknown;
+    getCenteredHexagonal: unknown;
+    getCountDivisors: unknown;
+    getIntRoot: unknown;
+    getPoliteness: unknown;
+    getStar: unknown;
+    getTetrahedral: unknown;
+    hasIntRoot: boolean;
+    isAbundant: boolean;
+    isArithmetic: boolean;
+    isCenteredHexagonal: boolean;
+    isEven: boolean;
+    isEvil: boolean;
+    isHappy: boolean;
+    isImpolite: boolean;
+    isKRough: boolean;
+    isMersennePrime: boolean;
+    isMoreRound: boolean;
+    isNatural: boolean;
+    isOdd: boolean;
+    isOdious: boolean;
+    isPerfect: boolean;
+    isPolite: boolean;
+    isPowerOf2: boolean;
+    isPowerSmooth: boolean;
+    isPractical: boolean;
+    isPrime: boolean;
+    isPrimePower: boolean;
+    isProductOfXPrimes: boolean;
+    isPronic: boolean;
+    isRough: boolean;
+    isRound: boolean;
+    isSad: boolean;
+    isSafePrime: boolean;
+    isSelf: boolean;
+    isSelfPrime: boolean;
+    isSemiperfect: boolean;
+    isSmooth: boolean;
+    isSophieGermainPrime: boolean;
+    isSphenic: boolean;
+    isStar: boolean;
+    isSubsetSum: boolean;
+    isTetrahedral: boolean;
+    isUntouchable: boolean;
+    isUnusual: boolean;
+    isWeird: boolean;
+    isWhole: boolean;
+    logX: unknown;
+    mobius: unknown;
+    mobiusRange: unknown;
+    semiperfectTest: unknown;
+    sieve: number[];
+    sum: number;
+}
 
-class EnhancedNumber {
-    /* number type Number */
-    constructor(n) {
+class EnhancedNumber extends number {
+    private _number: number;
+
+    constructor(n: number) {
         if (n instanceof EnhancedNumber) {
             return n;
         }
@@ -9,14 +68,23 @@ class EnhancedNumber {
         return this;
     }
 
-    set number(v) {
+    toString() {
+        return this.number.toString();
+    }
+
+    toNumber() {
+        return this.number.toNumber();
+    }
+
+    set number(v: never) {
         throw "base value of EnhancedNumber can not be changed, please instantiate a new instance of EnhancedNumber";
     }
     get number() {
         return this._number;
     }
 
-    set divisors(v) {
+    private _divisors: number;
+    set divisors(v: number[]) {
         this._divisors = v;
     }
     get divisors() {
@@ -28,7 +96,8 @@ class EnhancedNumber {
         return this._divisors;
     }
 
-    set getStar(v) {
+    private _getStar: number;
+    set getStar(v: number) {
         this._getStar = v;
     }
     get getStar() {
@@ -40,7 +109,8 @@ class EnhancedNumber {
         return this._getStar;
     }
 
-    set isEvil(v) {
+    private _isEvil: boolean;
+    set isEvil(v: boolean) {
         this._isEvil = v;
     }
     get isEvil() {
@@ -52,7 +122,8 @@ class EnhancedNumber {
         return this._isEvil;
     }
 
-    set isOdd(v) {
+    private _isOdd: boolean;
+    set isOdd(v: boolean) {
         this._isOdd = v;
     }
     get isOdd() {
@@ -64,7 +135,8 @@ class EnhancedNumber {
         return this._isOdd;
     }
 
-    set isPrime(v) {
+    private _isPrime: boolean;
+    set isPrime(v: boolean) {
         this._isPrime = v;
     }
     get isPrime() {
@@ -76,7 +148,8 @@ class EnhancedNumber {
         return this._isPrime;
     }
 
-    set isSafePrime(v) {
+    private _isSafePrime: boolean;
+    set isSafePrime(v: boolean) {
         this._isSafePrime = v;
     }
     get isSafePrime() {
@@ -88,7 +161,8 @@ class EnhancedNumber {
         return this._isSafePrime;
     }
 
-    set isStar(v) {
+    private _isStar: boolean;
+    set isStar(v: boolean) {
         this._isStar = v;
     }
     get isStar() {
@@ -100,6 +174,7 @@ class EnhancedNumber {
         return this._isStar;
     }
 
+    private _logX: unknown;
     set logX(v) {
         this._logX = v;
     }
@@ -112,7 +187,8 @@ class EnhancedNumber {
         return this._logX;
     }
 
-    set factorsOf(v) {
+    private _factorsOf: number[];
+    set factorsOf(v: number[]) {
         this._factorsOf = v;
     }
     get factorsOf() {
@@ -124,6 +200,7 @@ class EnhancedNumber {
         return this._factorsOf;
     }
 
+    private _getTetrahedral: unknown;
     set getTetrahedral(v) {
         this._getTetrahedral = v;
     }
@@ -136,7 +213,8 @@ class EnhancedNumber {
         return this._getTetrahedral;
     }
 
-    set isHappy(v) {
+    private _isHappy: boolean;
+    set isHappy(v: boolean) {
         this._isHappy = v;
     }
     get isHappy() {
@@ -148,7 +226,8 @@ class EnhancedNumber {
         return this._isHappy;
     }
 
-    set isOdious(v) {
+    private _isOdious: boolean;
+    set isOdious(v: boolean) {
         this._isOdious = v;
     }
     get isOdious() {
@@ -160,7 +239,8 @@ class EnhancedNumber {
         return this._isOdious;
     }
 
-    set isPrimePower(v) {
+    private _isPrimePower: boolean;
+    set isPrimePower(v: boolean) {
         this._isPrimePower = v;
     }
     get isPrimePower() {
@@ -172,7 +252,8 @@ class EnhancedNumber {
         return this._isPrimePower;
     }
 
-    set isSelf(v) {
+    private _isSelf: boolean;
+    set isSelf(v: boolean) {
         this._isSelf = v;
     }
     get isSelf() {
@@ -184,7 +265,8 @@ class EnhancedNumber {
         return this._isSelf;
     }
 
-    set isSubsetSum(v) {
+    private _isSubsetSum: boolean;
+    set isSubsetSum(v: boolean) {
         this._isSubsetSum = v;
     }
     get isSubsetSum() {
@@ -196,6 +278,7 @@ class EnhancedNumber {
         return this._isSubsetSum;
     }
 
+    private _mobius: unknown;
     set mobius(v) {
         this._mobius = v;
     }
@@ -208,6 +291,7 @@ class EnhancedNumber {
         return this._mobius;
     }
 
+    private _getAliquotSum: unknown;
     set getAliquotSum(v) {
         this._getAliquotSum = v;
     }
@@ -220,7 +304,8 @@ class EnhancedNumber {
         return this._getAliquotSum;
     }
 
-    set hasIntRoot(v) {
+    private _hasIntRoot: boolean;
+    set hasIntRoot(v: boolean) {
         this._hasIntRoot = v;
     }
     get hasIntRoot() {
@@ -232,7 +317,8 @@ class EnhancedNumber {
         return this._hasIntRoot;
     }
 
-    set isImpolite(v) {
+    private _isImpolite: boolean;
+    set isImpolite(v: boolean) {
         this._isImpolite = v;
     }
     get isImpolite() {
@@ -244,7 +330,8 @@ class EnhancedNumber {
         return this._isImpolite;
     }
 
-    set isPerfect(v) {
+    private _isPerfect: boolean;
+    set isPerfect(v: boolean) {
         this._isPerfect = v;
     }
     get isPerfect() {
@@ -256,6 +343,7 @@ class EnhancedNumber {
         return this._isPerfect;
     }
 
+    private _isProductOfXPrimes: unknown;
     set isProductOfXPrimes(v) {
         this._isProductOfXPrimes = v;
     }
@@ -268,7 +356,8 @@ class EnhancedNumber {
         return this._isProductOfXPrimes;
     }
 
-    set isSelfPrime(v) {
+    private _isSelfPrime: boolean;
+    set isSelfPrime(v: boolean) {
         this._isSelfPrime = v;
     }
     get isSelfPrime() {
@@ -280,7 +369,8 @@ class EnhancedNumber {
         return this._isSelfPrime;
     }
 
-    set isTetrahedral(v) {
+    private _isTetrahedral: boolean;
+    set isTetrahedral(v: boolean) {
         this._isTetrahedral = v;
     }
     get isTetrahedral() {
@@ -292,6 +382,7 @@ class EnhancedNumber {
         return this._isTetrahedral;
     }
 
+    private _mobiusRange: unknown;
     set mobiusRange(v) {
         this._mobiusRange = v;
     }
@@ -304,6 +395,7 @@ class EnhancedNumber {
         return this._mobiusRange;
     }
 
+    private _getCenteredHexagonal: unknown;
     set getCenteredHexagonal(v) {
         this._getCenteredHexagonal = v;
     }
@@ -316,7 +408,8 @@ class EnhancedNumber {
         return this._getCenteredHexagonal;
     }
 
-    set isAbundant(v) {
+    private _isAbundant: boolean;
+    set isAbundant(v: boolean) {
         this._isAbundant = v;
     }
     get isAbundant() {
@@ -328,16 +421,16 @@ class EnhancedNumber {
         return this._isAbundant;
     }
 
-    _isKRough = {};
-
-    set isKRough(v) {
+    private _isKRough: unknown;
+    set isKRough(v: boolean) {
         throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
     }
     get isKRough() {
         throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
     }
 
-    set isPolite(v) {
+    private _isPolite: boolean;
+    set isPolite(v: boolean) {
         this._isPolite = v;
     }
     get isPolite() {
@@ -349,7 +442,8 @@ class EnhancedNumber {
         return this._isPolite;
     }
 
-    set isPronic(v) {
+    private _isPronic: boolean;
+    set isPronic(v: boolean) {
         this._isPronic = v;
     }
     get isPronic() {
@@ -361,7 +455,8 @@ class EnhancedNumber {
         return this._isPronic;
     }
 
-    set isSemiperfect(v) {
+    private _isSemiperfect: boolean;
+    set isSemiperfect(v: boolean) {
         this._isSemiperfect = v;
     }
     get isSemiperfect() {
@@ -373,7 +468,8 @@ class EnhancedNumber {
         return this._isSemiperfect;
     }
 
-    set isUntouchable(v) {
+    private _isUntouchable: boolean;
+    set isUntouchable(v: boolean) {
         this._isUntouchable = v;
     }
     get isUntouchable() {
@@ -385,6 +481,7 @@ class EnhancedNumber {
         return this._isUntouchable;
     }
 
+    private _getCountDivisors: unknown;
     set getCountDivisors(v) {
         this._getCountDivisors = v;
     }
@@ -397,7 +494,8 @@ class EnhancedNumber {
         return this._getCountDivisors;
     }
 
-    set isArithmetic(v) {
+    private _isArithmetic: boolean;
+    set isArithmetic(v: boolean) {
         this._isArithmetic = v;
     }
     get isArithmetic() {
@@ -409,7 +507,8 @@ class EnhancedNumber {
         return this._isArithmetic;
     }
 
-    set isMersennePrime(v) {
+    private _isMersennePrime: boolean;
+    set isMersennePrime(v: boolean) {
         this._isMersennePrime = v;
     }
     get isMersennePrime() {
@@ -421,7 +520,8 @@ class EnhancedNumber {
         return this._isMersennePrime;
     }
 
-    set isPowerOf2(v) {
+    private _isPowerOf2: boolean;
+    set isPowerOf2(v: boolean) {
         this._isPowerOf2 = v;
     }
     get isPowerOf2() {
@@ -433,14 +533,16 @@ class EnhancedNumber {
         return this._isPowerOf2;
     }
 
-    set isRough(v) {
+
+    set isRough(v: boolean) {
         this.isKRough = v;
     }
     get isRough() {
         return this.isKRough;
     }
 
-    set isSmooth(v) {
+    private _isSmooth: boolean;
+    set isSmooth(v: boolean) {
         this._isSmooth = v;
     }
     get isSmooth() {
@@ -452,7 +554,8 @@ class EnhancedNumber {
         return this._isSmooth;
     }
 
-    set isUnusual(v) {
+    private _isUnusual: boolean;
+    set isUnusual(v: boolean) {
         this._isUnusual = v;
     }
     get isUnusual() {
@@ -464,7 +567,8 @@ class EnhancedNumber {
         return this._isUnusual;
     }
 
-    set semiperfectTest(v) {
+    private _semiperfectTest: boolean;
+    set semiperfectTest(v: boolean) {
         this._semiperfectTest = v;
     }
     get semiperfectTest() {
@@ -476,6 +580,7 @@ class EnhancedNumber {
         return this._semiperfectTest;
     }
 
+    private _getIntRoot: unknown;
     set getIntRoot(v) {
         this._getIntRoot = v;
     }
@@ -488,7 +593,8 @@ class EnhancedNumber {
         return this._getIntRoot;
     }
 
-    set isCenteredHexagonal(v) {
+    private isCenteredHexagonal: boolean;
+    set isCenteredHexagonal(v: boolean) {
         this._isCenteredHexagonal = v;
     }
     get isCenteredHexagonal() {
@@ -500,7 +606,8 @@ class EnhancedNumber {
         return this._isCenteredHexagonal;
     }
 
-    set isMoreRound(v) {
+    private _isMoreRound: unknown;
+    set isMoreRound(v: boolean) {
         this._isMoreRound = v;
     }
     get isMoreRound() {
@@ -512,7 +619,8 @@ class EnhancedNumber {
         return this._isMoreRound;
     }
 
-    set isPowerSmooth(v) {
+    private _isPowerSmooth: boolean;
+    set isPowerSmooth(v: boolean) {
         this._isPowerSmooth = v;
     }
     get isPowerSmooth() {
@@ -524,8 +632,6 @@ class EnhancedNumber {
         return this._isPowerSmooth;
     }
 
-    _isRound = {};
-
     set isRound(v) {
         throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
     }
@@ -533,7 +639,8 @@ class EnhancedNumber {
         throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
     }
 
-    set isSophieGermainPrime(v) {
+    private _isSophieGermainPrime: boolean;
+    set isSophieGermainPrime(v: boolean) {
         this._isSophieGermainPrime = v;
     }
     get isSophieGermainPrime() {
@@ -545,7 +652,8 @@ class EnhancedNumber {
         return this._isSophieGermainPrime;
     }
 
-    set isWeird(v) {
+    private _isWeird: boolean;
+    set isWeird(v: boolean) {
         this._isWeird = v;
     }
     get isWeird() {
@@ -557,6 +665,7 @@ class EnhancedNumber {
         return this._isWeird;
     }
 
+    private _sieve: unknown;
     set sieve(v) {
         this._sieve = v;
     }
@@ -569,7 +678,8 @@ class EnhancedNumber {
         return this._sieve;
     }
 
-    set getPoliteness(v) {
+    private _getPoliteness: number;
+    set getPoliteness(v: number) {
         this._getPoliteness = v;
     }
     get getPoliteness() {
@@ -581,7 +691,8 @@ class EnhancedNumber {
         return this._getPoliteness;
     }
 
-    set isEven(v) {
+    private isEven: boolean;
+    set isEven(v: boolean) {
         this._isEven = v;
     }
     get isEven() {
@@ -593,7 +704,8 @@ class EnhancedNumber {
         return this._isEven;
     }
 
-    set isNatural(v) {
+    private _isNatural: boolean;
+    set isNatural(v: boolean) {
         this._isNatural = v;
     }
     get isNatural() {
@@ -605,7 +717,8 @@ class EnhancedNumber {
         return this._isNatural;
     }
 
-    set isPractical(v) {
+    private _isPractical: boolean;
+    set isPractical(v: boolean) {
         this._isPractical = v;
     }
     get isPractical() {
@@ -617,7 +730,8 @@ class EnhancedNumber {
         return this._isPractical;
     }
 
-    set isSad(v) {
+    private _isSad: boolean;
+    set isSad(v: boolean) {
         this._isSad = v;
     }
     get isSad() {
@@ -629,7 +743,8 @@ class EnhancedNumber {
         return this._isSad;
     }
 
-    set isSphenic(v) {
+    private _isSphenic: boolean;
+    set isSphenic(v: boolean) {
         this._isSphenic = v;
     }
     get isSphenic() {
@@ -641,7 +756,8 @@ class EnhancedNumber {
         return this._isSphenic;
     }
 
-    set isWhole(v) {
+    private _isWhole: boolean;
+    set isWhole(v: boolean) {
         this._isWhole = v;
     }
     get isWhole() {
@@ -653,7 +769,9 @@ class EnhancedNumber {
         return this._isWhole;
     }
 
-    set sum(v) {
+    // This does not make sense, why would sum be a property of the enhanced number type?  The sum of the number is the number itself.
+    private _sum: number;
+    set sum(v: number) {
         this._sum = v;
     }
     get sum() {
@@ -666,11 +784,15 @@ class EnhancedNumber {
     }
 }
 
-module.exports = function (n) {
-    // TODO: If someone passes in an `n` that has been passed before, we should create a copy of the origional `n`
-    // with any meta that is known about that n, so any subsequent calls will be faster still.
+const instantiatedNumbers: { [k: string]: EnhancedNumberType | undefined } = {};
+
+module.exports = function (n: number | EnhancedNumberType) {
     if (n instanceof EnhancedNumber) {
         return n;
     }
-    return new EnhancedNumber(n);
+    else if (instantiatedNumbers[n.toString()]) {
+        return instantiatedNumbers[n.toString()];
+    }
+    instantiatedNumbers[n.toString()] = new EnhancedNumber(n);
+    return instantiatedNumbers[n.toString()];
 }

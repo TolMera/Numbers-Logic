@@ -6,13 +6,13 @@ const EnhancedNumber = require('../classes/enhancedNumber');
  * @module numbers-logic
  * @author Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://tolmera.com)
  */
-function sieve(n) {
+function sieve(n: number | EnhancedNumberType): number[] {
     n = EnhancedNumber(n);
-    if (n._sieve) {
+    if (n.sieve) {
         return n.sieve;
     }
 
-    var primes = [2];
+    var primes: number[] = [2];
     let c = 2;
     while (++c <= n.number) {
         let sqrtC = Math.sqrt(c);

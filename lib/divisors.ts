@@ -1,14 +1,16 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
-const factorsOf = require("./factorsOf");
-const getCountDivisors = require("./getCountDivisors");
+import type { EnhancedNumberType } from '../classes/enhancedNumber';
 
-function divisors(n) {
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import {factorsOf} from './factorsOf';
+import {getCountDivisors} from './getCountDivisors';
+
+function divisors(n: number | EnhancedNumberType): number[] {
     n = EnhancedNumber(n);
-    if (n._divisors) {
+    if (n.divisors) {
         return Array.from(n.divisors);
     }
 
-    let factors;
+    let factors: number[];
     if (n.number > 0) {
         factors = factorsOf(n);
     }
@@ -16,7 +18,7 @@ function divisors(n) {
         factors = factorsOf(Math.abs(n.number));
     }
 
-    const dimensions = [];
+    const dimensions: number[] = [];
     for (const index in factors) {
         dimensions.push([]);
         for (let x = 0; x <= factors[index].power; x++) {
@@ -42,13 +44,19 @@ function divisors(n) {
     return Array.from(n.divisors);
 }
 
-function again(dimensions, index, divs, sum) {
+function again(
+    dimensions: number[],
+    index: number,
+    divs: number[],
+    sum: number
+) {
     if (!dimensions[index]) {
         divs.add(sum);
-    } else {
-        dimensions[index].forEach(v => {
-            again(dimensions, index + 1, divs, sum * v);
-        });
+    }
+    else {
+        dimensions[index].forEach(
+            v => again(dimensions, index + 1, divs, sum * v)
+        );
     }
 }
 
