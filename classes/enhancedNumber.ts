@@ -1,11 +1,64 @@
-interface EnhancedNumberType extends number {
+import { divisors } from '../lib/divisors';
+import { factorsOf } from '../lib/factorsOf';
+import { getAliquotSum } from '../lib/getAliquotSum';
+import { getCenteredHexagonal } from '../lib/getCenteredHexagonal';
+import { getCountDivisors } from '../lib/getCountDivisors';
+import { getIntRoot } from '../lib/getIntRoot';
+import { getPoliteness } from '../lib/getPoliteness';
+import { getStar } from '../lib/getStar';
+import { getTetrahedral } from '../lib/getTetrahedral';
+import { hasIntRoot } from '../lib/hasIntRoot';
+import { isAbundant } from '../lib/isAbundant';
+import { isArithmetic } from '../lib/isArithmetic';
+import { isCenteredHexagonal } from '../lib/isCenteredHexagonal';
+import { isEven } from '../lib/isEven';
+import { isEvil } from '../lib/isEvil';
+import { isHappy } from '../lib/isHappy';
+import { isImpolite } from '../lib/isImpolite';
+import { isMersennePrime } from '../lib/isMersennePrime';
+import { isMoreRound } from '../lib/isMoreRound';
+import { isNatural } from '../lib/isNatural';
+import { isOdd } from '../lib/isOdd';
+import { isOdious } from '../lib/isOdious';
+import { isPerfect } from '../lib/isPerfect';
+import { isPolite } from '../lib/isPolite';
+import { isPowerOf2 } from '../lib/isPowerOf2';
+import { isPowerSmooth } from '../lib/isPowerSmooth';
+import { isPractical } from '../lib/isPractical';
+import { isPrime } from '../lib/isPrime';
+import { isPrimePower } from '../lib/isPrimePower';
+import { isProductOfXPrimes } from '../lib/isProductOfXPrimes';
+import { isPronic } from '../lib/isPronic';
+import { isSad } from '../lib/isSad';
+import { isSafePrime } from '../lib/isSafePrime';
+import { isSelf } from '../lib/isSelf';
+import { isSelfPrime } from '../lib/isSelfPrime';
+import { isSemiperfect } from '../lib/isSemiperfect';
+import { isSmooth } from '../lib/isSmooth';
+import { isSophieGermainPrime } from '../lib/isSophieGermainPrime';
+import { isSphenic } from '../lib/isSphenic';
+import { isStar } from '../lib/isStar';
+import { isSubsetSum } from '../lib/isSubsetSum';
+import { isTetrahedral } from '../lib/isTetrahedral';
+import { isUntouchable } from '../lib/isUntouchable';
+import { isUnusual } from '../lib/isUnusual';
+import { isWeird } from '../lib/isWeird';
+import { isWhole } from '../lib/isWhole';
+import { logX } from '../lib/logX';
+import { mobius } from '../lib/mobius';
+import { mobiusRange } from '../lib/mobiusRange';
+import { semiperfectTest } from '../lib/semiperfectTest';
+import { sieve } from '../lib/sieve';
+import { sum } from '../lib/sum';
+
+export interface EnhancedNumberType {
     readonly number: number;
     divisors: number;
     factorsOf: number[];
     getAliquotSum: unknown;
     getCenteredHexagonal: unknown;
     getCountDivisors: unknown;
-    getIntRoot: unknown;
+    getIntRoot: number | false;
     getPoliteness: unknown;
     getStar: unknown;
     getTetrahedral: unknown;
@@ -57,41 +110,43 @@ interface EnhancedNumberType extends number {
     sum: number;
 }
 
-class EnhancedNumber extends number {
+export class EnhancedNumber implements EnhancedNumberType {
     private _number: number;
 
-    constructor(n: number) {
+    constructor(n: number | EnhancedNumberType) {
         if (n instanceof EnhancedNumber) {
             return n;
         }
+        else if (instantiatedNumbers[n.toString()]) {
+            return instantiatedNumbers[n.toString()];
+        }
         this._number = n;
+        instantiatedNumbers[n.toString()] = this;
         return this;
     }
 
-    toString() {
+    toString(): string {
         return this.number.toString();
     }
 
-    toNumber() {
+    toNumber(): number {
         return this.number.toNumber();
     }
 
     set number(v: never) {
         throw "base value of EnhancedNumber can not be changed, please instantiate a new instance of EnhancedNumber";
     }
-    get number() {
+    get number(): number {
         return this._number;
     }
 
-    private _divisors: number;
+    private _divisors: number[];
     set divisors(v: number[]) {
         this._divisors = v;
     }
-    get divisors() {
+    get divisors(): number[] {
         if (this._divisors === undefined) {
-            const fn = require('../lib/divisors');
-            this._divisors = fn(this);
-            return this._divisors;
+            this._divisors = divisors(this);
         }
         return this._divisors;
     }
@@ -100,11 +155,9 @@ class EnhancedNumber extends number {
     set getStar(v: number) {
         this._getStar = v;
     }
-    get getStar() {
+    get getStar(): number {
         if (this._getStar === undefined) {
-            const fn = require('../lib/getStar');
-            this._getStar = fn(this);
-            return this._getStar;
+            this._getStar = getStar(this);
         }
         return this._getStar;
     }
@@ -113,11 +166,9 @@ class EnhancedNumber extends number {
     set isEvil(v: boolean) {
         this._isEvil = v;
     }
-    get isEvil() {
+    get isEvil(): boolean {
         if (this._isEvil === undefined) {
-            const fn = require('../lib/isEvil');
-            this._isEvil = fn(this);
-            return this._isEvil;
+            this._isEvil = isEvil(this);
         }
         return this._isEvil;
     }
@@ -126,11 +177,9 @@ class EnhancedNumber extends number {
     set isOdd(v: boolean) {
         this._isOdd = v;
     }
-    get isOdd() {
+    get isOdd(): boolean {
         if (this._isOdd === undefined) {
-            const fn = require('../lib/isOdd');
-            this._isOdd = fn(this);
-            return this._isOdd;
+            this._isOdd = isOdd(this);
         }
         return this._isOdd;
     }
@@ -139,11 +188,9 @@ class EnhancedNumber extends number {
     set isPrime(v: boolean) {
         this._isPrime = v;
     }
-    get isPrime() {
+    get isPrime(): boolean {
         if (this._isPrime === undefined) {
-            const fn = require('../lib/isPrime');
-            this._isPrime = fn(this);
-            return this._isPrime;
+            this._isPrime = isPrime(this);
         }
         return this._isPrime;
     }
@@ -152,11 +199,9 @@ class EnhancedNumber extends number {
     set isSafePrime(v: boolean) {
         this._isSafePrime = v;
     }
-    get isSafePrime() {
+    get isSafePrime(): boolean {
         if (this._isSafePrime === undefined) {
-            const fn = require('../lib/isSafePrime');
-            this._isSafePrime = fn(this);
-            return this._isSafePrime;
+            this._isSafePrime = isSafePrime(this);
         }
         return this._isSafePrime;
     }
@@ -165,11 +210,9 @@ class EnhancedNumber extends number {
     set isStar(v: boolean) {
         this._isStar = v;
     }
-    get isStar() {
+    get isStar(): boolean {
         if (this._isStar === undefined) {
-            const fn = require('../lib/isStar');
-            this._isStar = fn(this);
-            return this._isStar;
+            this._isStar = isStar(this);
         }
         return this._isStar;
     }
@@ -180,9 +223,7 @@ class EnhancedNumber extends number {
     }
     get logX() {
         if (this._logX === undefined) {
-            const fn = require('../lib/logX');
-            this._logX = fn(this);
-            return this._logX;
+            this._logX = logX(this);
         }
         return this._logX;
     }
@@ -191,24 +232,20 @@ class EnhancedNumber extends number {
     set factorsOf(v: number[]) {
         this._factorsOf = v;
     }
-    get factorsOf() {
+    get factorsOf(): number[] {
         if (this._factorsOf === undefined) {
-            const fn = require('../lib/factorsOf');
-            this._factorsOf = fn(this);
-            return this._factorsOf;
+            this._factorsOf = factorsOf(this);
         }
         return this._factorsOf;
     }
 
-    private _getTetrahedral: unknown;
-    set getTetrahedral(v) {
+    private _getTetrahedral: number;
+    set getTetrahedral(v:number) {
         this._getTetrahedral = v;
     }
-    get getTetrahedral() {
+    get getTetrahedral():number {
         if (this._getTetrahedral === undefined) {
-            const fn = require('../lib/getTetrahedral');
-            this._getTetrahedral = fn(this);
-            return this._getTetrahedral;
+            this._getTetrahedral = getTetrahedral(this);
         }
         return this._getTetrahedral;
     }
@@ -217,11 +254,9 @@ class EnhancedNumber extends number {
     set isHappy(v: boolean) {
         this._isHappy = v;
     }
-    get isHappy() {
+    get isHappy(): boolean {
         if (this._isHappy === undefined) {
-            const fn = require('../lib/isHappy');
-            this._isHappy = fn(this);
-            return this._isHappy;
+            this._isHappy = isHappy(this);
         }
         return this._isHappy;
     }
@@ -230,11 +265,9 @@ class EnhancedNumber extends number {
     set isOdious(v: boolean) {
         this._isOdious = v;
     }
-    get isOdious() {
+    get isOdious():boolean {
         if (this._isOdious === undefined) {
-            const fn = require('../lib/isOdious');
-            this._isOdious = fn(this);
-            return this._isOdious;
+            this._isOdious = isOdious(this);
         }
         return this._isOdious;
     }
@@ -243,11 +276,9 @@ class EnhancedNumber extends number {
     set isPrimePower(v: boolean) {
         this._isPrimePower = v;
     }
-    get isPrimePower() {
+    get isPrimePower():boolean {
         if (this._isPrimePower === undefined) {
-            const fn = require('../lib/isPrimePower');
-            this._isPrimePower = fn(this);
-            return this._isPrimePower;
+            this._isPrimePower = isPrimePower(this);
         }
         return this._isPrimePower;
     }
@@ -256,11 +287,9 @@ class EnhancedNumber extends number {
     set isSelf(v: boolean) {
         this._isSelf = v;
     }
-    get isSelf() {
+    get isSelf():boolean {
         if (this._isSelf === undefined) {
-            const fn = require('../lib/isSelf');
-            this._isSelf = fn(this);
-            return this._isSelf;
+            this._isSelf = isSelf(this);
         }
         return this._isSelf;
     }
@@ -269,11 +298,9 @@ class EnhancedNumber extends number {
     set isSubsetSum(v: boolean) {
         this._isSubsetSum = v;
     }
-    get isSubsetSum() {
+    get isSubsetSum():boolean {
         if (this._isSubsetSum === undefined) {
-            const fn = require('../lib/isSubsetSum');
-            this._isSubsetSum = fn(this);
-            return this._isSubsetSum;
+            this._isSubsetSum = isSubsetSum(this);
         }
         return this._isSubsetSum;
     }
@@ -284,9 +311,7 @@ class EnhancedNumber extends number {
     }
     get mobius() {
         if (this._mobius === undefined) {
-            const fn = require('../lib/mobius');
-            this._mobius = fn(this);
-            return this._mobius;
+            this._mobius = mobius(this);
         }
         return this._mobius;
     }
@@ -297,9 +322,7 @@ class EnhancedNumber extends number {
     }
     get getAliquotSum() {
         if (this._getAliquotSum === undefined) {
-            const fn = require('../lib/getAliquotSum');
-            this._getAliquotSum = fn(this);
-            return this._getAliquotSum;
+            this._getAliquotSum = getAliquotSum(this);
         }
         return this._getAliquotSum;
     }
@@ -308,11 +331,9 @@ class EnhancedNumber extends number {
     set hasIntRoot(v: boolean) {
         this._hasIntRoot = v;
     }
-    get hasIntRoot() {
+    get hasIntRoot():boolean {
         if (this._hasIntRoot === undefined) {
-            const fn = require('../lib/hasIntRoot');
-            this._hasIntRoot = fn(this);
-            return this._hasIntRoot;
+            this._hasIntRoot = hasIntRoot(this);
         }
         return this._hasIntRoot;
     }
@@ -321,11 +342,9 @@ class EnhancedNumber extends number {
     set isImpolite(v: boolean) {
         this._isImpolite = v;
     }
-    get isImpolite() {
+    get isImpolite():boolean {
         if (this._isImpolite === undefined) {
-            const fn = require('../lib/isImpolite');
-            this._isImpolite = fn(this);
-            return this._isImpolite;
+            this._isImpolite = isImpolite(this);
         }
         return this._isImpolite;
     }
@@ -334,24 +353,20 @@ class EnhancedNumber extends number {
     set isPerfect(v: boolean) {
         this._isPerfect = v;
     }
-    get isPerfect() {
+    get isPerfect():boolean {
         if (this._isPerfect === undefined) {
-            const fn = require('../lib/isPerfect');
-            this._isPerfect = fn(this);
-            return this._isPerfect;
+            this._isPerfect = isPerfect(this);
         }
         return this._isPerfect;
     }
 
-    private _isProductOfXPrimes: unknown;
-    set isProductOfXPrimes(v) {
+    private _isProductOfXPrimes: boolean;
+    set isProductOfXPrimes(v):boolean {
         this._isProductOfXPrimes = v;
     }
-    get isProductOfXPrimes() {
+    get isProductOfXPrimes():boolean {
         if (this._isProductOfXPrimes === undefined) {
-            const fn = require('../lib/isProductOfXPrimes');
-            this._isProductOfXPrimes = fn(this);
-            return this._isProductOfXPrimes;
+            this._isProductOfXPrimes = isProductOfXPrimes(this);
         }
         return this._isProductOfXPrimes;
     }
@@ -360,11 +375,9 @@ class EnhancedNumber extends number {
     set isSelfPrime(v: boolean) {
         this._isSelfPrime = v;
     }
-    get isSelfPrime() {
+    get isSelfPrime():boolean {
         if (this._isSelfPrime === undefined) {
-            const fn = require('../lib/isSelfPrime');
-            this._isSelfPrime = fn(this);
-            return this._isSelfPrime;
+            this._isSelfPrime = isSelfPrime(this);
         }
         return this._isSelfPrime;
     }
@@ -373,11 +386,9 @@ class EnhancedNumber extends number {
     set isTetrahedral(v: boolean) {
         this._isTetrahedral = v;
     }
-    get isTetrahedral() {
+    get isTetrahedral():boolean {
         if (this._isTetrahedral === undefined) {
-            const fn = require('../lib/isTetrahedral');
-            this._isTetrahedral = fn(this);
-            return this._isTetrahedral;
+            this._isTetrahedral = isTetrahedral(this);
         }
         return this._isTetrahedral;
     }
@@ -388,9 +399,7 @@ class EnhancedNumber extends number {
     }
     get mobiusRange() {
         if (this._mobiusRange === undefined) {
-            const fn = require('../lib/mobiusRange');
-            this._mobiusRange = fn(this);
-            return this._mobiusRange;
+            this._mobiusRange = mobiusRange(this);
         }
         return this._mobiusRange;
     }
@@ -401,9 +410,7 @@ class EnhancedNumber extends number {
     }
     get getCenteredHexagonal() {
         if (this._getCenteredHexagonal === undefined) {
-            const fn = require('../lib/getCenteredHexagonal');
-            this._getCenteredHexagonal = fn(this);
-            return this._getCenteredHexagonal;
+            this._getCenteredHexagonal = getCenteredHexagonal(this);
         }
         return this._getCenteredHexagonal;
     }
@@ -412,11 +419,9 @@ class EnhancedNumber extends number {
     set isAbundant(v: boolean) {
         this._isAbundant = v;
     }
-    get isAbundant() {
+    get isAbundant():boolean {
         if (this._isAbundant === undefined) {
-            const fn = require('../lib/isAbundant');
-            this._isAbundant = fn(this);
-            return this._isAbundant;
+            this._isAbundant = isAbundant(this);
         }
         return this._isAbundant;
     }
@@ -433,11 +438,9 @@ class EnhancedNumber extends number {
     set isPolite(v: boolean) {
         this._isPolite = v;
     }
-    get isPolite() {
+    get isPolite():boolean {
         if (this._isPolite === undefined) {
-            const fn = require('../lib/isPolite');
-            this._isPolite = fn(this);
-            return this._isPolite;
+            this._isPolite = isPolite(this);
         }
         return this._isPolite;
     }
@@ -446,11 +449,9 @@ class EnhancedNumber extends number {
     set isPronic(v: boolean) {
         this._isPronic = v;
     }
-    get isPronic() {
+    get isPronic():boolean {
         if (this._isPronic === undefined) {
-            const fn = require('../lib/isPronic');
-            this._isPronic = fn(this);
-            return this._isPronic;
+            this._isPronic = isPronic(this);
         }
         return this._isPronic;
     }
@@ -459,11 +460,9 @@ class EnhancedNumber extends number {
     set isSemiperfect(v: boolean) {
         this._isSemiperfect = v;
     }
-    get isSemiperfect() {
+    get isSemiperfect():boolean {
         if (this._isSemiperfect === undefined) {
-            const fn = require('../lib/isSemiperfect');
-            this._isSemiperfect = fn(this);
-            return this._isSemiperfect;
+            this._isSemiperfect = isSemiperfect(this);
         }
         return this._isSemiperfect;
     }
@@ -472,24 +471,20 @@ class EnhancedNumber extends number {
     set isUntouchable(v: boolean) {
         this._isUntouchable = v;
     }
-    get isUntouchable() {
+    get isUntouchable():boolean {
         if (this._isUntouchable === undefined) {
-            const fn = require('../lib/isUntouchable');
-            this._isUntouchable = fn(this);
-            return this._isUntouchable;
+            this._isUntouchable = isUntouchable(this);
         }
         return this._isUntouchable;
     }
 
-    private _getCountDivisors: unknown;
-    set getCountDivisors(v) {
+    private _getCountDivisors: number;
+    set getCountDivisors(v):number {
         this._getCountDivisors = v;
     }
-    get getCountDivisors() {
+    get getCountDivisors():number {
         if (this._getCountDivisors === undefined) {
-            const fn = require('../lib/getCountDivisors');
-            this._getCountDivisors = fn(this);
-            return this._getCountDivisors;
+            this._getCountDivisors = getCountDivisors(this);
         }
         return this._getCountDivisors;
     }
@@ -498,11 +493,9 @@ class EnhancedNumber extends number {
     set isArithmetic(v: boolean) {
         this._isArithmetic = v;
     }
-    get isArithmetic() {
+    get isArithmetic():boolean {
         if (this._isArithmetic === undefined) {
-            const fn = require('../lib/isArithmetic');
-            this._isArithmetic = fn(this);
-            return this._isArithmetic;
+            this._isArithmetic = isArithmetic(this);
         }
         return this._isArithmetic;
     }
@@ -511,11 +504,9 @@ class EnhancedNumber extends number {
     set isMersennePrime(v: boolean) {
         this._isMersennePrime = v;
     }
-    get isMersennePrime() {
+    get isMersennePrime():boolean {
         if (this._isMersennePrime === undefined) {
-            const fn = require('../lib/isMersennePrime');
-            this._isMersennePrime = fn(this);
-            return this._isMersennePrime;
+            this._isMersennePrime = isMersennePrime(this);
         }
         return this._isMersennePrime;
     }
@@ -524,32 +515,28 @@ class EnhancedNumber extends number {
     set isPowerOf2(v: boolean) {
         this._isPowerOf2 = v;
     }
-    get isPowerOf2() {
+    get isPowerOf2():boolean {
         if (this._isPowerOf2 === undefined) {
-            const fn = require('../lib/isPowerOf2');
-            this._isPowerOf2 = fn(this);
-            return this._isPowerOf2;
+            this._isPowerOf2 = isPowerOf2(this);
         }
         return this._isPowerOf2;
     }
 
-
+    private _isKRough: boolean;
     set isRough(v: boolean) {
-        this.isKRough = v;
+        this._isKRough = v;
     }
-    get isRough() {
-        return this.isKRough;
+    get isRough():boolean {
+        return this._isKRough;
     }
 
     private _isSmooth: boolean;
     set isSmooth(v: boolean) {
         this._isSmooth = v;
     }
-    get isSmooth() {
+    get isSmooth():boolean {
         if (this._isSmooth === undefined) {
-            const fn = require('../lib/isSmooth');
-            this._isSmooth = fn(this);
-            return this._isSmooth;
+            this._isSmooth = isSmooth(this);
         }
         return this._isSmooth;
     }
@@ -558,11 +545,9 @@ class EnhancedNumber extends number {
     set isUnusual(v: boolean) {
         this._isUnusual = v;
     }
-    get isUnusual() {
+    get isUnusual():boolean {
         if (this._isUnusual === undefined) {
-            const fn = require('../lib/isUnusual');
-            this._isUnusual = fn(this);
-            return this._isUnusual;
+            this._isUnusual = isUnusual(this);
         }
         return this._isUnusual;
     }
@@ -571,24 +556,20 @@ class EnhancedNumber extends number {
     set semiperfectTest(v: boolean) {
         this._semiperfectTest = v;
     }
-    get semiperfectTest() {
+    get semiperfectTest():boolean {
         if (this._semiperfectTest === undefined) {
-            const fn = require('../lib/semiperfectTest');
-            this._semiperfectTest = fn(this);
-            return this._semiperfectTest;
+            this._semiperfectTest = semiperfectTest(this);
         }
         return this._semiperfectTest;
     }
 
-    private _getIntRoot: unknown;
-    set getIntRoot(v) {
+    private _getIntRoot: number;
+    set getIntRoot(v): number {
         this._getIntRoot = v;
     }
-    get getIntRoot() {
+    get getIntRoot():number {
         if (this._getIntRoot === undefined) {
-            const fn = require('../lib/getIntRoot');
-            this._getIntRoot = fn(this);
-            return this._getIntRoot;
+            this._getIntRoot = getIntRoot(this);
         }
         return this._getIntRoot;
     }
@@ -597,24 +578,20 @@ class EnhancedNumber extends number {
     set isCenteredHexagonal(v: boolean) {
         this._isCenteredHexagonal = v;
     }
-    get isCenteredHexagonal() {
+    get isCenteredHexagonal():boolean {
         if (this._isCenteredHexagonal === undefined) {
-            const fn = require('../lib/isCenteredHexagonal');
-            this._isCenteredHexagonal = fn(this);
-            return this._isCenteredHexagonal;
+            this._isCenteredHexagonal = isCenteredHexagonal(this);
         }
         return this._isCenteredHexagonal;
     }
 
-    private _isMoreRound: unknown;
+    private _isMoreRound: boolean;
     set isMoreRound(v: boolean) {
         this._isMoreRound = v;
     }
-    get isMoreRound() {
+    get isMoreRound():boolean {
         if (this._isMoreRound === undefined) {
-            const fn = require('../lib/isMoreRound');
-            this._isMoreRound = fn(this);
-            return this._isMoreRound;
+            this._isMoreRound = isMoreRound(this);
         }
         return this._isMoreRound;
     }
@@ -623,19 +600,18 @@ class EnhancedNumber extends number {
     set isPowerSmooth(v: boolean) {
         this._isPowerSmooth = v;
     }
-    get isPowerSmooth() {
+    get isPowerSmooth():boolean {
         if (this._isPowerSmooth === undefined) {
-            const fn = require('../lib/isPowerSmooth');
-            this._isPowerSmooth = fn(this);
-            return this._isPowerSmooth;
+            this._isPowerSmooth = isPowerSmooth(this);
         }
         return this._isPowerSmooth;
     }
 
-    set isRound(v) {
+    private _isRound: boolean;
+    set isRound(v: boolean) {
         throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
     }
-    get isRound() {
+    get isRound():boolean {
         throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
     }
 
@@ -643,11 +619,9 @@ class EnhancedNumber extends number {
     set isSophieGermainPrime(v: boolean) {
         this._isSophieGermainPrime = v;
     }
-    get isSophieGermainPrime() {
+    get isSophieGermainPrime():boolean {
         if (this._isSophieGermainPrime === undefined) {
-            const fn = require('../lib/isSophieGermainPrime');
-            this._isSophieGermainPrime = fn(this);
-            return this._isSophieGermainPrime;
+            this._isSophieGermainPrime = isSophieGermainPrime(this);
         }
         return this._isSophieGermainPrime;
     }
@@ -656,24 +630,20 @@ class EnhancedNumber extends number {
     set isWeird(v: boolean) {
         this._isWeird = v;
     }
-    get isWeird() {
+    get isWeird():boolean {
         if (this._isWeird === undefined) {
-            const fn = require('../lib/isWeird');
-            this._isWeird = fn(this);
-            return this._isWeird;
+            this._isWeird = isWeird(this);
         }
         return this._isWeird;
     }
 
-    private _sieve: unknown;
-    set sieve(v) {
+    private _sieve: number[];
+    set sieve(v:number[]) {
         this._sieve = v;
     }
-    get sieve() {
+    get sieve():number[] {
         if (this._sieve === undefined) {
-            const fn = require('../lib/sieve');
-            this._sieve = fn(this);
-            return this._sieve;
+            this._sieve = sieve(this);
         }
         return this._sieve;
     }
@@ -682,11 +652,9 @@ class EnhancedNumber extends number {
     set getPoliteness(v: number) {
         this._getPoliteness = v;
     }
-    get getPoliteness() {
+    get getPoliteness():number {
         if (this._getPoliteness === undefined) {
-            const fn = require('../lib/getPoliteness');
-            this._getPoliteness = fn(this);
-            return this._getPoliteness;
+            this._getPoliteness = getPoliteness(this);
         }
         return this._getPoliteness;
     }
@@ -695,11 +663,9 @@ class EnhancedNumber extends number {
     set isEven(v: boolean) {
         this._isEven = v;
     }
-    get isEven() {
+    get isEven():boolean {
         if (this._isEven === undefined) {
-            const fn = require('../lib/isEven');
-            this._isEven = fn(this);
-            return this._isEven;
+            this._isEven = isEven(this);
         }
         return this._isEven;
     }
@@ -708,11 +674,9 @@ class EnhancedNumber extends number {
     set isNatural(v: boolean) {
         this._isNatural = v;
     }
-    get isNatural() {
+    get isNatural():boolean {
         if (this._isNatural === undefined) {
-            const fn = require('../lib/isNatural');
-            this._isNatural = fn(this);
-            return this._isNatural;
+            this._isNatural = isNatural(this);
         }
         return this._isNatural;
     }
@@ -721,11 +685,9 @@ class EnhancedNumber extends number {
     set isPractical(v: boolean) {
         this._isPractical = v;
     }
-    get isPractical() {
+    get isPractical():boolean {
         if (this._isPractical === undefined) {
-            const fn = require('../lib/isPractical');
-            this._isPractical = fn(this);
-            return this._isPractical;
+            this._isPractical = isPractical(this);
         }
         return this._isPractical;
     }
@@ -734,11 +696,9 @@ class EnhancedNumber extends number {
     set isSad(v: boolean) {
         this._isSad = v;
     }
-    get isSad() {
+    get isSad():boolean {
         if (this._isSad === undefined) {
-            const fn = require('../lib/isSad');
-            this._isSad = fn(this);
-            return this._isSad;
+            this._isSad = isSad(this);
         }
         return this._isSad;
     }
@@ -747,11 +707,9 @@ class EnhancedNumber extends number {
     set isSphenic(v: boolean) {
         this._isSphenic = v;
     }
-    get isSphenic() {
+    get isSphenic():boolean {
         if (this._isSphenic === undefined) {
-            const fn = require('../lib/isSphenic');
-            this._isSphenic = fn(this);
-            return this._isSphenic;
+            this._isSphenic = isSphenic(this);
         }
         return this._isSphenic;
     }
@@ -760,11 +718,9 @@ class EnhancedNumber extends number {
     set isWhole(v: boolean) {
         this._isWhole = v;
     }
-    get isWhole() {
+    get isWhole():boolean {
         if (this._isWhole === undefined) {
-            const fn = require('../lib/isWhole');
-            this._isWhole = fn(this);
-            return this._isWhole;
+            this._isWhole = isWhole(this);
         }
         return this._isWhole;
     }
@@ -774,25 +730,12 @@ class EnhancedNumber extends number {
     set sum(v: number) {
         this._sum = v;
     }
-    get sum() {
+    get sum():number {
         if (this._sum === undefined) {
-            const fn = require('../lib/sum');
-            this._sum = fn(this);
-            return this._sum;
+            this._sum = sum(this);
         }
         return this._sum;
     }
 }
 
-const instantiatedNumbers: { [k: string]: EnhancedNumberType | undefined } = {};
-
-module.exports = function (n: number | EnhancedNumberType) {
-    if (n instanceof EnhancedNumber) {
-        return n;
-    }
-    else if (instantiatedNumbers[n.toString()]) {
-        return instantiatedNumbers[n.toString()];
-    }
-    instantiatedNumbers[n.toString()] = new EnhancedNumber(n);
-    return instantiatedNumbers[n.toString()];
-}
+export const instantiatedNumbers: { [k: string]: EnhancedNumberType | undefined } = {};

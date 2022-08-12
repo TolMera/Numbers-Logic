@@ -1,10 +1,11 @@
-const isPrime = require("./isPrime");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import isPrime from "./isPrime";
 
 // https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes
-function isSafePrime(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isSafePrime) {
+export function isSafePrime(n: number | EnhancedNumberType) {
+    n = new EnhancedNumber(n);
+    if (n._isSafePrime !== undefined) {
         return n.isSafePrime;
     }
 
@@ -15,5 +16,3 @@ function isSafePrime(n) {
     n.isSafePrime = false;
     return n.isSafePrime;
 }
-
-module.exports = isSafePrime;

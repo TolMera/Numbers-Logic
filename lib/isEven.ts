@@ -1,13 +1,12 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
 
-function isEven(n) {
-    n = EnhancedNumber(n);
-    if (n._isEven) {
+export function isEven(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isEven !== undefined) {
         return n.isEven;
     }
 
     n.isEven = (n & 0b1) === 0;
     return n.isEven;
 };
-
-module.exports = isEven;

@@ -1,7 +1,9 @@
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+
 // for (let x = 0; x < 100; x++) { if (isSelf(x)) console.log(x); }
-function isSelf(n, base = 10) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function isSelf(n: number, base: number = 10) {
+    n = new EnhancedNumber(n);
 
     /*
     Nope, I don't get it.
@@ -50,7 +52,7 @@ function isSelf(n, base = 10) {
     return false;
     */
     //    I don't like that this is base 10 only
-    function getSum(n) {
+    function getSum(n: number): number {
         let sum = 0;
         while (n != 0) {
             sum = sum + n % 10;
@@ -65,5 +67,3 @@ function isSelf(n, base = 10) {
     }
     return true;
 };
-
-module.exports = isSelf;

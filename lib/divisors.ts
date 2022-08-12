@@ -1,22 +1,15 @@
 import type { EnhancedNumberType } from '../classes/enhancedNumber';
-
 import { EnhancedNumber } from '../classes/enhancedNumber';
-import {factorsOf} from './factorsOf';
-import {getCountDivisors} from './getCountDivisors';
+import { factorsOf } from './factorsOf';
+import { getCountDivisors } from './getCountDivisors';
 
-function divisors(n: number | EnhancedNumberType): number[] {
-    n = EnhancedNumber(n);
-    if (n.divisors) {
-        return Array.from(n.divisors);
+export function divisors(n: number | EnhancedNumberType): number[] {
+    n = new EnhancedNumber(n);
+    if (n._divisors !== undefined) {
+        return n.divisors;
     }
 
-    let factors: number[];
-    if (n.number > 0) {
-        factors = factorsOf(n);
-    }
-    else {
-        factors = factorsOf(Math.abs(n.number));
-    }
+    const factors: number[] = factorsOf(Math.abs(n.number));
 
     const dimensions: number[] = [];
     for (const index in factors) {
@@ -49,7 +42,7 @@ function again(
     index: number,
     divs: number[],
     sum: number
-) {
+): void {
     if (!dimensions[index]) {
         divs.add(sum);
     }
@@ -59,5 +52,3 @@ function again(
         );
     }
 }
-
-module.exports = divisors;

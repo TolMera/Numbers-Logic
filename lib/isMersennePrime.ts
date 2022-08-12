@@ -1,12 +1,12 @@
-const isPowerOf2 = require('./isPowerOf2');
-const isPrime = require('./isPrime');
-
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {isPowerOf2} from './isPowerOf2';
+import {isPrime} from './isPrime';
 
 // https://en.wikipedia.org/wiki/Mersenne_prime
-function isMersennePrime(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isMersennePrime) {
+export function isMersennePrime(n) {
+    n = new EnhancedNumber(n);
+    if (n._isMersennePrime !== undefined) {
         return n.isMersennePrime;
     }
 
@@ -17,5 +17,3 @@ function isMersennePrime(n) {
     n.isMersennePrime = false;
     return n.isMersennePrime;
 }
-
-module.exports = isMersennePrime;

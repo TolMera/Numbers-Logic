@@ -1,12 +1,9 @@
-const factorsOf = require('./factorsOf');
+import factorsOf from './factorsOf';
 
-function isPowerSmooth(n, k) {
-
+export function isPowerSmooth(n: number, k: number) {
     const factors = factorsOf(n).map((value) => Math.pow(value.prime, value.power));
     if (factors.filter((v) => v > k).length === 0) {
         return true;
     }
     return false;
 };
-
-module.exports = isPowerSmooth;

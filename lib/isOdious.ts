@@ -1,7 +1,5 @@
-const isEvil = require("./isEvil");
+import isEvil from "./isEvil";
 
-function isOdious (n) {
+export function isOdious (n: number | EnhancedNumberType): boolean {
     return !isEvil(n);
 };
-
-module.exports = isOdious;

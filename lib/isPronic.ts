@@ -1,9 +1,10 @@
-const isOdd = require('./isOdd');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {isOdd} from './isOdd';
 
-function isPronic(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isPronic) {
+export function isPronic(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isPronic !== undefined) {
         return n.isPronic;
     }
 
@@ -31,5 +32,3 @@ function isPronic(n) {
     n.isPronic = false;
     return n.isPronic;
 };
-
-module.exports = isPronic;

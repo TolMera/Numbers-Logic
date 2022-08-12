@@ -1,9 +1,10 @@
-const sum = require('./sum');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {sum} from './sum';
 
-function isHappy(n, base = 10) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isHappy) {
+export function isHappy(n, base = 10) {
+    n = new EnhancedNumber(n);
+    if (n._isHappy !== undefined) {
         return n.isHappy;
     }
 
@@ -27,5 +28,3 @@ function isHappy(n, base = 10) {
         }
     }
 }
-
-module.exports = isHappy;

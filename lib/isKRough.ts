@@ -1,9 +1,11 @@
+import type { EnhancedNumberType } from '../classes/enhancedNumber';
+import { EnhancedNumber } from '../classes/enhancedNumber';
 // const isSmooth = require('./isSmooth');
-const isRough = require('./isRough');
-function isKRough(n, k) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isKRough?.[k]) {
+import { isRough } from './isRough';
+
+export function isKRough(n, k) {
+    n = new EnhancedNumber(n);
+    if (n._isKRough?.[k] !== undefined) {
         return n._isKRough[k];
     }
 
@@ -32,5 +34,3 @@ function isKRough(n, k) {
     n._isKRough[k] = false;
     return n._isKRough[k];
 };
-
-module.exports = isKRough;

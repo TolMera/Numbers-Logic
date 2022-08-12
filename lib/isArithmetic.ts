@@ -1,10 +1,11 @@
-const EnhancedNumber = require("../classes/enhancedNumber");
-const divisors = require('./divisors');
-const sum = require('./sum');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {divisors} from './divisors';
+import {sum} from './sum';
 
-function isArithmetic(n) {
-    n = EnhancedNumber(n);
-    if (n._isArithmetic) {
+export function isArithmetic(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isArithmetic !== undefined) {
         return n.isArithmetic;
     }
 
@@ -26,5 +27,3 @@ function isArithmetic(n) {
     n.isArithmetic = false;
     return n.isArithmetic;
 };
-
-module.exports = isArithmetic;

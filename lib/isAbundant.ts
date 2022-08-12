@@ -1,10 +1,11 @@
-const EnhancedNumber = require("../classes/enhancedNumber");
-const divisors = require('./divisors');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import { EnhancedNumber} from "../classes/enhancedNumber";
+import { divisors } from './divisors';
 
 // https://en.wikipedia.org/wiki/Abundant_number
-function isAbundant(n) {
-    n = EnhancedNumber(n);
-    if (n._isAbundant) {
+export function isAbundant(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isAbundant !== undefined) {
         return n.isAbundant;
     }
 
@@ -13,14 +14,12 @@ function isAbundant(n) {
         n.isAbundant = false;
         return n.isAbundant;
     }
-    var divisorsOfNumber = divisors(n);
+    let divisorsOfNumber = divisors(n);
     // to remove n and leave the 'proper divisors'
     divisorsOfNumber.pop();
-    var sumOfDivisors = divisorsOfNumber.reduce(function (a, b) {
+    let sumOfDivisors = divisorsOfNumber.reduce(function (a, b) {
         return a + b;
     });
     n.isAbundant = n < sumOfDivisors;
     return n.isAbundant;
 };
-
-module.exports = isAbundant;

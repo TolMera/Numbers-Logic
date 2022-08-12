@@ -3,14 +3,14 @@
  * @module numbers-logic
  * @author Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://www.tolmera.com)
  */
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber'; 
+import {divisors} from './divisors';
+import {sum} from './sum';
 
-const divisors = require('./divisors');
-const sum = require('./sum');
-
-function isPerfect(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isPerfect) {
+export function isPerfect(n: number | EnhancedNumberType):boolean {
+    n = new EnhancedNumber(n);
+    if (n._isPerfect !== undefined) {
         return n.isPerfect;
     }
 
@@ -18,11 +18,12 @@ function isPerfect(n) {
         n.isPerfect = false;
         return n.isPerfect;
     }
-    var divisorsOfNumber = divisors(n);
+
+    const divisorsOfNumber = divisors(n);
     divisorsOfNumber.pop();
-    var sumOfDivisors = sum(divisorsOfNumber);
-    n.isPerfect = n === sumOfDivisors;
+
+    const sumOfDivisors = sum(divisorsOfNumber);
+    n.isPerfect = (n === sumOfDivisors);
+
     return n.isPerfect;
 };
-
-module.exports = isPerfect;

@@ -1,10 +1,11 @@
-const getCenteredHexagonal = require("./getCenteredHexagonal");
-const positiveOrNegativeSequence = require("./positiveOrNegativeSequence");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {getCenteredHexagonal} from "./getCenteredHexagonal";
+import {positiveOrNegativeSequence} from "./positiveOrNegativeSequence";
 
-function isCenteredHexagonal(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isCenteredHexagonal) {
+export function isCenteredHexagonal(n) {
+    n = new EnhancedNumber(n);
+    if (n._isCenteredHexagonal !== undefined) {
         return n.isCenteredHexagonal;
     }
 

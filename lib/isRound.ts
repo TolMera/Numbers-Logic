@@ -1,7 +1,9 @@
-function isRound(n, base = 10) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isRound?.[base]) {
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+
+export function isRound(n: number | EnhancedNumberType, base: number = 10) {
+    n = new EnhancedNumber(n);
+    if (n._isRound?.[base] !== undefined) {
         return n._isRound[base];
     }
 
@@ -13,5 +15,3 @@ function isRound(n, base = 10) {
     n._isRound[base] = false;
     return n._isRound[base];
 };
-
-module.exports = isRound;

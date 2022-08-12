@@ -1,15 +1,13 @@
 import type { EnhancedNumberType } from '../classes/enhancedNumber';
-
 import { EnhancedNumber } from '../classes/enhancedNumber';
 import { divisors } from './divisors';
 import { sum } from './sum';
 
-function getAliquotSum(n: number | EnhancedNumberType) {
-    n = EnhancedNumber(n);
+export function getAliquotSum(n: number | EnhancedNumberType): number {
+    n = new EnhancedNumber(n);
 
-    const getAliquotSum = n.getAliquotSum;
-    if (getAliquotSum) {
-        return getAliquotSum;
+    if (n._getAliquotSum !== undefined) {
+        return n.getAliquotSum;
     }
 
     const divs = divisors(n);
@@ -17,7 +15,3 @@ function getAliquotSum(n: number | EnhancedNumberType) {
     n.getAliquotSum = sum(divs);
     return n.getAliquotSum;
 }
-
-module.exports = {
-    getAliquotSum
-};
