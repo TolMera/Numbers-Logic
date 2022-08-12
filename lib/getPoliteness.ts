@@ -1,11 +1,13 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
-const isPowerOf2 = require('./isPowerOf2');
-const isEven = require('./isEven');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+
+import { isPowerOf2 } from './isPowerOf2';
+import { isEven } from './isEven';
 
 // https://en.wikipedia.org/wiki/Polite_number
-function getPoliteness(n) {
-    n = EnhancedNumber(n);
-    if (n._getPoliteness) {
+export function getPoliteness(n: number | EnhancedNumberType): number {
+    n = new EnhancedNumber(n);
+    if (n._getPoliteness !== undefined) {
         return n.getPoliteness;
     }
 
@@ -44,8 +46,8 @@ function getPoliteness(n) {
         result *= 2;
     }
 
-    n.getPoliteness = result - 1;
+    result--;
+
+    n.getPoliteness = result;
     return n.getPoliteness;
 };
-
-module.exports = getPoliteness;

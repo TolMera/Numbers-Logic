@@ -1,14 +1,13 @@
-const isPolite = require('./isPolite');
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {isPolite} from './isPolite';
 
-function isImpolite(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isImpolite) {
+export function isImpolite(n) {
+    n = new EnhancedNumber(n);
+    if (n._isImpolite !== undefined) {
         return n.isImpolite;
     }
     
     n.isImpolite = !isPolite(n);
     return n.isImpolite;
 };
-
-module.exports = isImpolite;

@@ -1,7 +1,5 @@
-const isHappy = require("./isHappy");
+import isHappy from "./isHappy";
 
-function isSad(n, base = 10) {
+export function isSad(n: number, base: number = 10) {
     return !isHappy(n, base);
 }
-
-module.exports = isSad;

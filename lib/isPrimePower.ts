@@ -1,5 +1,7 @@
-const logX = require("./logX");
-const sieve = require("./sieve");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {logX} from "./logX";
+import {sieve} from "./sieve";
 
 // https://en.wikipedia.org/wiki/Prime_power
 // Every prime power (except powers of 2) has a primitive root
@@ -7,10 +9,9 @@ const sieve = require("./sieve");
 // A prime power pn is an n-almost prime.
 // It is not known whether a prime power pn can be an amicable number.
 // If there is such a number, then pn must be greater than 101500 and n must be greater than 1400. 
-function isPrimePower(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isPrimePower) {
+export function isPrimePower(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isPrimePower !== undefined) {
         return n.isPrimePower;
     }
 
@@ -42,5 +43,3 @@ function isPrimePower(n) {
     n.isPrimePower = false;
     return n.isPrimePower;
 };
-
-module.exports = isPrimePower;

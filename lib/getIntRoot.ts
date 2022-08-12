@@ -1,8 +1,9 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
+import type { EnhancedNumberType } from '../classes/enhancedNumber';
+import { EnhancedNumber } from '../classes/enhancedNumber';
 
-function getIntRoot(n) {
-    n = EnhancedNumber(n);
-    if (n._getIntRoot) {
+export function getIntRoot(n: number | EnhancedNumberType): number | false {
+    n = new EnhancedNumber(n);
+    if (n._getIntRoot !== undefined) {
         return n.getIntRoot;
     }
 
@@ -16,5 +17,3 @@ function getIntRoot(n) {
     n.getIntRoot = false;
     return n.getIntRoot;
 };
-
-module.exports = getIntRoot;

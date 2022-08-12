@@ -1,10 +1,8 @@
-const factorsOf = require('./factorsOf');
+import {factorsOf} from './factorsOf';
 
-function isProductOfXPrimes(n, k) {
+export function isProductOfXPrimes(n: number, k: number): boolean {
     if (factorsOf(n).length === k) {
         return true;
     }
     return false;
 }
-
-module.exports = isProductOfXPrimes;

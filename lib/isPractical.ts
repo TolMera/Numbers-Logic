@@ -1,12 +1,13 @@
-const isPerfect = require('./isPerfect');
-const divisors = require('./divisors');
-const isPowerOf2 = require('./isPowerOf2');
-const isSubsetSum = require("./isSubsetSum");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {isPerfect} from './isPerfect';
+import {divisors} from './divisors';
+import {isPowerOf2} from './isPowerOf2';
+import {isSubsetSum} from "./isSubsetSum";
 
-function isPractical(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isPractical) {
+export function isPractical(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isPractical !== undefined) {
         return n.isPractical;
     }
 
@@ -34,7 +35,7 @@ function isPractical(n) {
     if (n % 4 === 0 || n % 6 === 0) {
         // Every practical number is divisible by 4 or 6 (or both).
         const divs = divisors(n);
-        for (var i = 1; i < n.number; i++) {
+        for (let i = 1; i < n.number; i++) {
             if (!isSubsetSum(divs, divs.length, i)) {
                 n.isPractical = false;
                 return n.isPractical;
@@ -47,5 +48,3 @@ function isPractical(n) {
     n.isPractical = false;
     return n.isPractical;
 };
-
-module.exports = isPractical;

@@ -1,9 +1,10 @@
-const isOdd = require("./isOdd");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import {isOdd} from "./isOdd";
 
-function isEvil(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isEvil) {
+export function isEvil(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isEvil !== undefined) {
         return n.isEvil;
     }
 
@@ -16,5 +17,3 @@ function isEvil(n) {
     n.isEvil = bits > 0 && isOdd(bits);
     return n.isEvil;
 };
-
-module.exports = isEvil;

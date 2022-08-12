@@ -1,8 +1,9 @@
-const EnhancedNumber = require("../classes/enhancedNumber");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from "../classes/enhancedNumber";
 // Has an integer as a root power, 9 should have 3^3
 
-function hasIntRoot(n) {
-    n = EnhancedNumber(n);
+export function hasIntRoot(n: number | EnhancedNumberType): boolean {
+    n = new EnhancedNumber(n);
     if (n._hasIntRoot) {
         return n.hasIntRoot;
     }
@@ -16,5 +17,3 @@ function hasIntRoot(n) {
     n.hasIntRoot = false;
     return n.hasIntRoot;
 };
-
-module.exports = hasIntRoot;

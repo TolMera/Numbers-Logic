@@ -1,9 +1,10 @@
-const factorsOf = require("./factorsOf");
+import type {EnhancedNumberType} from '../classes/enhancedNumber';
+import {EnhancedNumber} from '../classes/enhancedNumber';
+import { factorsOf } from "./factorsOf";
 
-function isPrime(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
-    if (n._isPrime) {
+export function isPrime(n: number| EnhanceNumberType): boolean {
+    n = new EnhancedNumber(n);
+    if (n._isPrime !== undefined) {
         return n.isPrime;
     }
 
@@ -18,5 +19,3 @@ function isPrime(n) {
     n.isPrime = false;
     return n.isPrime;
 }
-
-module.exports = isPrime;

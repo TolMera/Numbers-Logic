@@ -2,10 +2,10 @@ import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {sieve} from './sieve';
 
-function factorsOf(n: number | EnhancedNumberType): number[] {
-    n = EnhancedNumber(n);
-    if (n.factorsOf) {
-        return Array.from(n.factorsOf);
+export function factorsOf(n: number | EnhancedNumberType): number[] {
+    n = new EnhancedNumber(n);
+    if (n._factorsOf !== undefined) {
+        return n.factorsOf;
     }
     
     let mutableN: number = Math.abs(n.number);
@@ -44,7 +44,5 @@ function factorsOf(n: number | EnhancedNumberType): number[] {
     }
 
     n.factorsOf = factors;
-    return Array.from(n.factorsOf);
+    return n.factorsOf;
 };
-
-module.exports = factorsOf;

@@ -1,1 +1,1 @@
-module.exports = require('./isKRough');
+export import './isKRough';

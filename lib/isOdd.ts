@@ -1,7 +1,5 @@
-const isEven = require("./isEven");
+import isEven from "./isEven";
 
-function isOdd(n) {
+export function isOdd(n: number | EnhancedNumberType) {
     return !isEven(n);
 };
-
-module.exports = isOdd;
