@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isCenteredHexagonal = require('../lib/isCenteredHexagonal');
+import {atk} from 'advanced-testing-kit';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import {isCenteredHexagonal} from '../lib/isCenteredHexagonal';
 
 index();
 function index() {

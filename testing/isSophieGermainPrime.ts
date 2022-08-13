@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isSophieGermainPrime = require('../lib/isSophieGermainPrime');
+import {atk} from 'advanced-testing-kit';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import {isSophieGermainPrime} from '../lib/isSophieGermainPrime';
 
 index();
 function index() {

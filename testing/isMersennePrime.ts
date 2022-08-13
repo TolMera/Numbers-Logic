@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const isMersennePrime = require('../lib/isMersennePrime');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
+import {atk} from 'advanced-testing-kit';
+import {isMersennePrime} from '../lib/isMersennePrime';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
 
 index();
 process.exit();

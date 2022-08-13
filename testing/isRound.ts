@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isRound = require('../lib/isRound');
+import {atk} from 'advanced-testing-kit';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import {isRound} from '../lib/isRound';
 
 index();
 function index() {

@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isOdd = require('../lib/isOdd');
+import {atk} from 'advanced-testing-kit';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import {isOdd} from '../lib/isOdd';
 
 index();
 function index() {

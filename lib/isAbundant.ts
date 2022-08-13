@@ -1,5 +1,5 @@
-const EnhancedNumber = require("../classes/enhancedNumber");
-const getAliquotSum = require("./getAliquotSum");
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {getAliquotSum} from "./getAliquotSum";
 
 // https://en.wikipedia.org/wiki/Abundant_number
 export function isAbundant(inputN: number | EnhancedNumber): boolean {

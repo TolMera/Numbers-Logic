@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const getCountDivisors = require('../lib/getCountDivisors');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
+import {atk} from 'advanced-testing-kit';
+import {getCountDivisors} from '../lib/getCountDivisors';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
 
 index();
 process.exit();

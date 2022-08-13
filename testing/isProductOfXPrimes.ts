@@ -1,6 +1,6 @@
-const atk = require('advanced-testing-kit');
-const generators = require('../node_modules/advanced-testing-kit/lib/numberGenerators')
-const isProductOfXPrimes = require('../lib/isProductOfXPrimes');
+import {atk} from 'advanced-testing-kit';
+import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import {isProductOfXPrimes} from '../lib/isProductOfXPrimes';
 
 index();
 function index() {

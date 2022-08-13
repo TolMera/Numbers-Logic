@@ -7,13 +7,13 @@ let mobius = require('./lib/mobius');
 let mobiusRange = require('./lib/mobiusRange');
 const P_number_theory = TP_number_theory;
 
-const P_numbers = require('numbers');
+import {P_numbers} from 'numbers';
 
-// const P_mathTools = require('math-tools');
-// const P_numberjs = require('number.js');
+// import {P_mathTools} from 'math-tools';
+// import {P_numberjs} from 'number.js';
 
 const happyOrSad = {isHappy: require('./lib/isHappy'), isSad: require('./lib/isSad')}
-const sieve = require('./lib/sieve');
+import {sieve} from './lib/sieve';
 
 module.exports = {
     /*

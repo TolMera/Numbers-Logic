@@ -1,6 +1,6 @@
 import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import { EnhancedNumber } from '../classes/enhancedNumber';
-// const isSmooth = require('./isSmooth');
+// import {isSmooth} from './isSmooth';
 import { isRough } from './isRough';
 
 export function isKRough(n, k) {
