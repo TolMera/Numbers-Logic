@@ -2,8 +2,8 @@ const EnhancedNumber = require("../classes/enhancedNumber");
 const getAliquotSum = require("./getAliquotSum");
 
 // https://en.wikipedia.org/wiki/Abundant_number
-export function isAbundant(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isAbundant(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isAbundant !== undefined) {
         return n.isAbundant;
     }

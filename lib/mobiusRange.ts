@@ -1,5 +1,3 @@
-'use strict';
-
 // This is part of number-theory NPM package - Their license applies
 /**
  * Compute the Mobius function
@@ -8,9 +6,9 @@
  * @module number-theory
  * @author Ricky Reusser
  */
-const { miller } = require('number-theory').miller;
+import { miller } from 'number-theory';
 
-function mobiusRange(n1, n2, primalityTest) {
+export function mobiusRange(n1: number, n2: number, primalityTest: (n: number) => boolean = miller): number[] {
   const n = n2 - n1;
   const A = new Array(n);
 
@@ -75,5 +73,3 @@ function mobiusRange(n1, n2, primalityTest) {
 
   return A;
 }
-
-module.exports = mobiusRange;

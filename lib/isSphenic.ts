@@ -1,10 +1,10 @@
-// const divisors = require('./divisors');
-const factorsOf = require('./factorsOf');
-const getCountDivisors = require('./getCountDivisors');
+import type { EnhancedNumberType } from "../classes/enhancedNumber";
+import { EnhancedNumber } from "../classes/enhancedNumber";
+import { factorsOf } from './factorsOf';
+import { getCountDivisors } from './getCountDivisors';
 
-function isSphenic(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function isSphenic(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isSphenic) {
         return n.isSphenic;
     }
@@ -27,5 +27,3 @@ function isSphenic(n) {
     n.isSphenic = false;
     return n.isSphenic;
 };
-
-module.exports = isSphenic;

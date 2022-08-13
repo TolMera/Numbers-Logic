@@ -1,5 +1,5 @@
-'use strict';
-const factorsOf = require('./factorsOf');
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {factorsOf} from './factorsOf';
 
 /**
  * Compute the Mobius function
@@ -8,9 +8,8 @@ const factorsOf = require('./factorsOf');
  * @module number-theory
  * @author Ricky Reusser
  */
-function mobius(n) {
-  const EnhancedNumber = require("../classes/enhancedNumber");
-  n = EnhancedNumber(n);
+export function mobius(n: number | EnhancedNumber): number {
+  n = new EnhancedNumber(n);
   if (n._mobius) {
       return n.mobius;
   }
@@ -22,13 +21,7 @@ function mobius(n) {
 
   // Factor the absolute value so that negative numbers are
   // permissible:
-  let factors;
-  if (n.number > 0) {
-    factors = factorsOf(n);
-  }
-  else {
-    factors = factorsOf(Math.abs(n));
-  }
+  let factors = factorsOf(Math.abs(n));
 
   // Return zero if any factor has power > 1:
   if (factors.find(record => record.power > 1)) {
@@ -45,5 +38,3 @@ function mobius(n) {
   n.mobius = 1;
   return n.mobius;
 }
-
-module.exports = mobius;

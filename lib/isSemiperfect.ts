@@ -1,16 +1,17 @@
-const isAbundant = require('./isAbundant');
-const isPerfect = require('./isPerfect');
-const isPowerOf2 = require('./isPowerOf2');
-const isPractical = require("./isPractical");
-const semiperfectTest = require('./semiperfectTest');
-const getAliquotSum = require('./getAliquotSum');
+import { EnhancedNumberType } from '../classes/EnhancedNumberType';
+import { EnhancedNumber } from "../classes/enhancedNumber";
+import { isAbundant } from './isAbundant';
+import { isPerfect } from './isPerfect';
+import { isPowerOf2 } from './isPowerOf2';
+import { isPractical } from "./isPractical";
+import { semiperfectTest } from './semiperfectTest';
+import { getAliquotSum } from './getAliquotSum';
 
 /* Anything containing isSemiperfect has an extreme computation time */
-function isSemiperfect(n) {
+export function isSemiperfect(n: number | EnhancedNumber) {
     console.warn("Any function using isSemiperfect is likely to lag significantly");
 
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+    n = new EnhancedNumber(n);
     if (n._isSemiperfect) {
         return n.isSemiperfect;
     }
@@ -38,5 +39,3 @@ function isSemiperfect(n) {
     n.isSemiperfect = false;
     return n.isSemiperfect;
 };
-
-module.exports = isSemiperfect;

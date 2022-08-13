@@ -9,12 +9,13 @@ As such, I'm writing this note, if anyone takes a shot at it.
 Good luck
 */
 
+import { EnhancedNumber } from "../classes/enhancedNumber";
+
 // This one is too complicated for me to follow.  It needs a better explanation
-function isSubsetSum(set, n, sum) {
+export function isSubsetSum(set, n, sum) {
     console.warn("Any function using isSubsetSum is likely to lag significantly");
 
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+    n = new EnhancedNumber(n);
 
     // The value of subset[i][j] will be true if
     // there is a subset of set[0..j-1] with sum
@@ -45,5 +46,3 @@ function isSubsetSum(set, n, sum) {
     }
     return subset[n.number][sum];
 }
-
-module.exports = isSubsetSum;

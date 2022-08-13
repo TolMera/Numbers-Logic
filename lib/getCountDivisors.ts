@@ -4,7 +4,7 @@ import {factorsOf} from './factorsOf';
 
 // Insperation derived from:
 // https://www2.math.upenn.edu/~deturck/m170/wk2/numdivisors.html
-export function getCountDivisors(n: number | EnhancedNumberType): number {
+export function getCountDivisors(n: number | EnhancedNumber): number {
     n = new EnhancedNumber(n);
     if (n._getCountDivisors !== undefined) {
         return n.getCountDivisors;

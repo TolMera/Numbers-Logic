@@ -5,8 +5,15 @@ import { isPowerOf2 } from './isPowerOf2';
 import { isEven } from './isEven';
 
 // https://en.wikipedia.org/wiki/Polite_number
-export function getPoliteness(n: number | EnhancedNumberType): number {
-    n = new EnhancedNumber(n);
+/**
+ * Returns the politeness of a number.
+ * @param {Number} inputN The number to get the politeness of.
+ * @return {Number} The politeness of the number.
+ * @module numbers-logic
+ * @author Bjorn Macintosh <tolmera@tolmera.com> (http://tolmera.com)
+ */
+export function getPoliteness(inputN: number | EnhancedNumber): number {
+    const n = new EnhancedNumber(inputN);
     if (n._getPoliteness !== undefined) {
         return n.getPoliteness;
     }

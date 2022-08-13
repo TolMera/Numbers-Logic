@@ -1,10 +1,10 @@
-const divisors = require('./divisors');
-const getAliquotSum = require('./getAliquotSum');
-const sum = require('./sum');
+import { EnhancedNumber } from "../classes/enhancedNumber";
+import { divisors } from './divisors';
+import { getAliquotSum } from './getAliquotSum';
+import { sum } from './sum';
 
-function semiperfectTest(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function semiperfectTest(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._semiperfectTest) {
         return n.semiperfectTest;
     }
@@ -109,5 +109,3 @@ function jumpToWrongDiv_1stJump(n, divs) {
 
     return false;
 }
-
-module.exports = semiperfectTest;

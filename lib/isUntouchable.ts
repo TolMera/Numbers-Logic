@@ -1,9 +1,8 @@
-const divisors = require('./divisors')
-const getAliquotSum = require('./getAliquotSum');
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {getAliquotSum} from './getAliquotSum';
 
-function isUntouchable(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function isUntouchable(n) {
+    n = new EnhancedNumber(n);
     if (n._isUntouchable) {
         return n.isUntouchable;
     }
@@ -21,5 +20,3 @@ function isUntouchable(n) {
     n.isUntouchable = true;
     return n.isUntouchable;
 };
-
-module.exports = isUntouchable;

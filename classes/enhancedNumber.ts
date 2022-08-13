@@ -16,52 +16,91 @@ import { isEvil } from '../lib/isEvil';
 import { isHappy } from '../lib/isHappy';
 import { isImpolite } from '../lib/isImpolite';
 import { isMersennePrime } from '../lib/isMersennePrime';
-import { isMoreRound } from '../lib/isMoreRound';
 import { isNatural } from '../lib/isNatural';
 import { isOdd } from '../lib/isOdd';
 import { isOdious } from '../lib/isOdious';
 import { isPerfect } from '../lib/isPerfect';
 import { isPolite } from '../lib/isPolite';
 import { isPowerOf2 } from '../lib/isPowerOf2';
-import { isPowerSmooth } from '../lib/isPowerSmooth';
 import { isPractical } from '../lib/isPractical';
 import { isPrime } from '../lib/isPrime';
 import { isPrimePower } from '../lib/isPrimePower';
-import { isProductOfXPrimes } from '../lib/isProductOfXPrimes';
 import { isPronic } from '../lib/isPronic';
 import { isSad } from '../lib/isSad';
 import { isSafePrime } from '../lib/isSafePrime';
 import { isSelf } from '../lib/isSelf';
 import { isSelfPrime } from '../lib/isSelfPrime';
 import { isSemiperfect } from '../lib/isSemiperfect';
-import { isSmooth } from '../lib/isSmooth';
 import { isSophieGermainPrime } from '../lib/isSophieGermainPrime';
 import { isSphenic } from '../lib/isSphenic';
 import { isStar } from '../lib/isStar';
-import { isSubsetSum } from '../lib/isSubsetSum';
 import { isTetrahedral } from '../lib/isTetrahedral';
 import { isUntouchable } from '../lib/isUntouchable';
 import { isUnusual } from '../lib/isUnusual';
 import { isWeird } from '../lib/isWeird';
 import { isWhole } from '../lib/isWhole';
-import { logX } from '../lib/logX';
 import { mobius } from '../lib/mobius';
-import { mobiusRange } from '../lib/mobiusRange';
 import { semiperfectTest } from '../lib/semiperfectTest';
 import { sieve } from '../lib/sieve';
-import { sum } from '../lib/sum';
 
 export interface EnhancedNumberType {
     readonly number: number;
-    divisors: number;
-    factorsOf: number[];
-    getAliquotSum: unknown;
-    getCenteredHexagonal: unknown;
-    getCountDivisors: unknown;
-    getIntRoot: number | false;
-    getPoliteness: unknown;
-    getStar: unknown;
-    getTetrahedral: unknown;
+    _number: number;
+    _divisors: number[];
+    _getStar: number;
+    _isEvil: boolean;
+    _isOdd: boolean;
+    _isPrime: boolean;
+    _isSafePrime: boolean;
+    _isStar: boolean;
+    _factorsOf: {prime: number, power: number}[];
+    _getTetrahedral: number;
+    _isHappy: boolean;
+    _isOdious: boolean;
+    _isPrimePower: boolean;
+    _isSelf: boolean;
+    _mobius: number;
+    _getAliquotSum: number;
+    _hasIntRoot: boolean;
+    _isImpolite: boolean;
+    _isPerfect: boolean;
+    _isSelfPrime: boolean;
+    _isTetrahedral: boolean;
+    _getCenteredHexagonal: number;
+    _isAbundant: boolean;
+    _isKRough: boolean;
+    _isPolite: boolean;
+    _isPronic: boolean;
+    _isSemiperfect: boolean;
+    _isUntouchable: boolean;
+    _getCountDivisors: number;
+    _isArithmetic: boolean;
+    _isMersennePrime: boolean;
+    _isPowerOf2: boolean;
+    _isUnusual: boolean;
+    _semiperfectTest: boolean;
+    _getIntRoot: number | boolean;
+    _isRound: boolean;
+    _isSophieGermainPrime: boolean;
+    _isWeird: boolean;
+    _sieve: number[];
+    _getPoliteness: number;
+    _isNatural: boolean;
+    _isPractical: boolean;
+    _isSad: boolean;
+    _isSphenic: boolean;
+    _isWhole: boolean;
+
+    // Getters and Setters
+    divisors: number[];
+    factorsOf: {prime: number, power: number}[];
+    getAliquotSum: number;
+    getCenteredHexagonal: number;
+    getCountDivisors: number;
+    getIntRoot: number | boolean;
+    getPoliteness: number;
+    getStar: number;
+    getTetrahedral: number;
     hasIntRoot: boolean;
     isAbundant: boolean;
     isArithmetic: boolean;
@@ -72,18 +111,15 @@ export interface EnhancedNumberType {
     isImpolite: boolean;
     isKRough: boolean;
     isMersennePrime: boolean;
-    isMoreRound: boolean;
     isNatural: boolean;
     isOdd: boolean;
     isOdious: boolean;
     isPerfect: boolean;
     isPolite: boolean;
     isPowerOf2: boolean;
-    isPowerSmooth: boolean;
     isPractical: boolean;
     isPrime: boolean;
     isPrimePower: boolean;
-    isProductOfXPrimes: boolean;
     isPronic: boolean;
     isRough: boolean;
     isRound: boolean;
@@ -92,33 +128,36 @@ export interface EnhancedNumberType {
     isSelf: boolean;
     isSelfPrime: boolean;
     isSemiperfect: boolean;
-    isSmooth: boolean;
     isSophieGermainPrime: boolean;
     isSphenic: boolean;
     isStar: boolean;
-    isSubsetSum: boolean;
     isTetrahedral: boolean;
     isUntouchable: boolean;
     isUnusual: boolean;
     isWeird: boolean;
     isWhole: boolean;
-    logX: unknown;
-    mobius: unknown;
-    mobiusRange: unknown;
-    semiperfectTest: unknown;
+    mobius: number;
+    semiperfectTest: boolean;
     sieve: number[];
-    sum: number;
+
+    // Functions
+    toString: () => string;
+    toNumber: () => number;
+}
+
+export function unknownIsEnhancedNumberType(n: unknown): n is EnhancedNumberType {
+    return typeof n === 'object' && n !== null && 'number' in n;
 }
 
 export class EnhancedNumber implements EnhancedNumberType {
-    private _number: number;
+    _number: number;
 
-    constructor(n: number | EnhancedNumberType) {
-        if (n instanceof EnhancedNumber) {
+    constructor(n: number | EnhancedNumber) {
+        if (unknownIsEnhancedNumberType(n)) {
             return n;
         }
         else if (instantiatedNumbers[n.toString()] !== undefined) {
-            return instantiatedNumbers[n.toString()] as EnhancedNumberType;
+            return instantiatedNumbers[n.toString()];
         }
         this._number = n;
         instantiatedNumbers[n.toString()] = this;
@@ -130,17 +169,17 @@ export class EnhancedNumber implements EnhancedNumberType {
     }
 
     toNumber(): number {
-        return this.number.toNumber();
+        return this.number;
     }
 
-    set number(v: never) {
+    set number(v: number) {
         throw "base value of EnhancedNumber can not be changed, please instantiate a new instance of EnhancedNumber";
     }
     get number(): number {
         return this._number;
     }
 
-    private _divisors: number[];
+    _divisors: number[];
     set divisors(v: number[]) {
         this._divisors = v;
     }
@@ -151,7 +190,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._divisors;
     }
 
-    private _getStar: number;
+    _getStar: number;
     set getStar(v: number) {
         this._getStar = v;
     }
@@ -162,7 +201,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._getStar;
     }
 
-    private _isEvil: boolean;
+    _isEvil: boolean;
     set isEvil(v: boolean) {
         this._isEvil = v;
     }
@@ -173,7 +212,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isEvil;
     }
 
-    private _isOdd: boolean;
+    _isOdd: boolean;
     set isOdd(v: boolean) {
         this._isOdd = v;
     }
@@ -184,7 +223,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isOdd;
     }
 
-    private _isPrime: boolean;
+    _isPrime: boolean;
     set isPrime(v: boolean) {
         this._isPrime = v;
     }
@@ -195,7 +234,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPrime;
     }
 
-    private _isSafePrime: boolean;
+    _isSafePrime: boolean;
     set isSafePrime(v: boolean) {
         this._isSafePrime = v;
     }
@@ -206,7 +245,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSafePrime;
     }
 
-    private _isStar: boolean;
+    _isStar: boolean;
     set isStar(v: boolean) {
         this._isStar = v;
     }
@@ -217,29 +256,18 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isStar;
     }
 
-    private _logX: unknown;
-    set logX(v) {
-        this._logX = v;
-    }
-    get logX() {
-        if (this._logX === undefined) {
-            this._logX = logX(this);
-        }
-        return this._logX;
-    }
-
-    private _factorsOf: number[];
-    set factorsOf(v: number[]) {
+    _factorsOf: {prime: number, power: number}[];
+    set factorsOf(v: {prime: number, power: number}[]) {
         this._factorsOf = v;
     }
-    get factorsOf(): number[] {
+    get factorsOf(): {prime: number, power: number}[] {
         if (this._factorsOf === undefined) {
             this._factorsOf = factorsOf(this);
         }
         return this._factorsOf;
     }
 
-    private _getTetrahedral: number;
+    _getTetrahedral: number;
     set getTetrahedral(v:number) {
         this._getTetrahedral = v;
     }
@@ -250,7 +278,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._getTetrahedral;
     }
 
-    private _isHappy: boolean;
+    _isHappy: boolean;
     set isHappy(v: boolean) {
         this._isHappy = v;
     }
@@ -261,7 +289,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isHappy;
     }
 
-    private _isOdious: boolean;
+    _isOdious: boolean;
     set isOdious(v: boolean) {
         this._isOdious = v;
     }
@@ -272,7 +300,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isOdious;
     }
 
-    private _isPrimePower: boolean;
+    _isPrimePower: boolean;
     set isPrimePower(v: boolean) {
         this._isPrimePower = v;
     }
@@ -283,7 +311,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPrimePower;
     }
 
-    private _isSelf: boolean;
+    _isSelf: boolean;
     set isSelf(v: boolean) {
         this._isSelf = v;
     }
@@ -294,18 +322,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSelf;
     }
 
-    private _isSubsetSum: boolean;
-    set isSubsetSum(v: boolean) {
-        this._isSubsetSum = v;
-    }
-    get isSubsetSum():boolean {
-        if (this._isSubsetSum === undefined) {
-            this._isSubsetSum = isSubsetSum(this);
-        }
-        return this._isSubsetSum;
-    }
-
-    private _mobius: unknown;
+    _mobius: number;
     set mobius(v) {
         this._mobius = v;
     }
@@ -316,7 +333,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._mobius;
     }
 
-    private _getAliquotSum: unknown;
+    _getAliquotSum: number;
     set getAliquotSum(v) {
         this._getAliquotSum = v;
     }
@@ -327,7 +344,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._getAliquotSum;
     }
 
-    private _hasIntRoot: boolean;
+    _hasIntRoot: boolean;
     set hasIntRoot(v: boolean) {
         this._hasIntRoot = v;
     }
@@ -338,7 +355,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._hasIntRoot;
     }
 
-    private _isImpolite: boolean;
+    _isImpolite: boolean;
     set isImpolite(v: boolean) {
         this._isImpolite = v;
     }
@@ -349,7 +366,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isImpolite;
     }
 
-    private _isPerfect: boolean;
+    _isPerfect: boolean;
     set isPerfect(v: boolean) {
         this._isPerfect = v;
     }
@@ -360,18 +377,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPerfect;
     }
 
-    private _isProductOfXPrimes: boolean;
-    set isProductOfXPrimes(v):boolean {
-        this._isProductOfXPrimes = v;
-    }
-    get isProductOfXPrimes():boolean {
-        if (this._isProductOfXPrimes === undefined) {
-            this._isProductOfXPrimes = isProductOfXPrimes(this);
-        }
-        return this._isProductOfXPrimes;
-    }
-
-    private _isSelfPrime: boolean;
+    _isSelfPrime: boolean;
     set isSelfPrime(v: boolean) {
         this._isSelfPrime = v;
     }
@@ -382,7 +388,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSelfPrime;
     }
 
-    private _isTetrahedral: boolean;
+    _isTetrahedral: boolean;
     set isTetrahedral(v: boolean) {
         this._isTetrahedral = v;
     }
@@ -393,29 +399,18 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isTetrahedral;
     }
 
-    private _mobiusRange: unknown;
-    set mobiusRange(v) {
-        this._mobiusRange = v;
-    }
-    get mobiusRange() {
-        if (this._mobiusRange === undefined) {
-            this._mobiusRange = mobiusRange(this);
-        }
-        return this._mobiusRange;
-    }
-
-    private _getCenteredHexagonal: unknown;
-    set getCenteredHexagonal(v) {
+    _getCenteredHexagonal: number;
+    set getCenteredHexagonal(v: number) {
         this._getCenteredHexagonal = v;
     }
-    get getCenteredHexagonal() {
+    get getCenteredHexagonal():number {
         if (this._getCenteredHexagonal === undefined) {
             this._getCenteredHexagonal = getCenteredHexagonal(this);
         }
         return this._getCenteredHexagonal;
     }
 
-    private _isAbundant: boolean;
+    _isAbundant: boolean;
     set isAbundant(v: boolean) {
         this._isAbundant = v;
     }
@@ -426,15 +421,21 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isAbundant;
     }
 
-    private _isKRough: unknown;
+    _isKRough: boolean;
     set isKRough(v: boolean) {
         throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
     }
-    get isKRough() {
+    get isKRough(): boolean {
         throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
     }
+    set isRough(v: boolean) {
+        this._isKRough = v;
+    }
+    get isRough():boolean {
+        return this._isKRough;
+    }
 
-    private _isPolite: boolean;
+    _isPolite: boolean;
     set isPolite(v: boolean) {
         this._isPolite = v;
     }
@@ -445,7 +446,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPolite;
     }
 
-    private _isPronic: boolean;
+    _isPronic: boolean;
     set isPronic(v: boolean) {
         this._isPronic = v;
     }
@@ -456,7 +457,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPronic;
     }
 
-    private _isSemiperfect: boolean;
+    _isSemiperfect: boolean;
     set isSemiperfect(v: boolean) {
         this._isSemiperfect = v;
     }
@@ -467,7 +468,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSemiperfect;
     }
 
-    private _isUntouchable: boolean;
+    _isUntouchable: boolean;
     set isUntouchable(v: boolean) {
         this._isUntouchable = v;
     }
@@ -478,8 +479,8 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isUntouchable;
     }
 
-    private _getCountDivisors: number;
-    set getCountDivisors(v):number {
+    _getCountDivisors: number;
+    set getCountDivisors(v:number) {
         this._getCountDivisors = v;
     }
     get getCountDivisors():number {
@@ -489,7 +490,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._getCountDivisors;
     }
 
-    private _isArithmetic: boolean;
+    _isArithmetic: boolean;
     set isArithmetic(v: boolean) {
         this._isArithmetic = v;
     }
@@ -500,7 +501,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isArithmetic;
     }
 
-    private _isMersennePrime: boolean;
+    _isMersennePrime: boolean;
     set isMersennePrime(v: boolean) {
         this._isMersennePrime = v;
     }
@@ -511,7 +512,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isMersennePrime;
     }
 
-    private _isPowerOf2: boolean;
+    _isPowerOf2: boolean;
     set isPowerOf2(v: boolean) {
         this._isPowerOf2 = v;
     }
@@ -522,26 +523,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPowerOf2;
     }
 
-    private _isKRough: boolean;
-    set isRough(v: boolean) {
-        this._isKRough = v;
-    }
-    get isRough():boolean {
-        return this._isKRough;
-    }
-
-    private _isSmooth: boolean;
-    set isSmooth(v: boolean) {
-        this._isSmooth = v;
-    }
-    get isSmooth():boolean {
-        if (this._isSmooth === undefined) {
-            this._isSmooth = isSmooth(this);
-        }
-        return this._isSmooth;
-    }
-
-    private _isUnusual: boolean;
+    _isUnusual: boolean;
     set isUnusual(v: boolean) {
         this._isUnusual = v;
     }
@@ -552,7 +534,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isUnusual;
     }
 
-    private _semiperfectTest: boolean;
+    _semiperfectTest: boolean;
     set semiperfectTest(v: boolean) {
         this._semiperfectTest = v;
     }
@@ -563,18 +545,18 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._semiperfectTest;
     }
 
-    private _getIntRoot: number;
-    set getIntRoot(v): number {
+    _getIntRoot: number | boolean;
+    set getIntRoot(v: number | boolean) {
         this._getIntRoot = v;
     }
-    get getIntRoot():number {
+    get getIntRoot():number | boolean {
         if (this._getIntRoot === undefined) {
             this._getIntRoot = getIntRoot(this);
         }
         return this._getIntRoot;
     }
 
-    private isCenteredHexagonal: boolean;
+    _isCenteredHexagonal: boolean;
     set isCenteredHexagonal(v: boolean) {
         this._isCenteredHexagonal = v;
     }
@@ -585,29 +567,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isCenteredHexagonal;
     }
 
-    private _isMoreRound: boolean;
-    set isMoreRound(v: boolean) {
-        this._isMoreRound = v;
-    }
-    get isMoreRound():boolean {
-        if (this._isMoreRound === undefined) {
-            this._isMoreRound = isMoreRound(this);
-        }
-        return this._isMoreRound;
-    }
-
-    private _isPowerSmooth: boolean;
-    set isPowerSmooth(v: boolean) {
-        this._isPowerSmooth = v;
-    }
-    get isPowerSmooth():boolean {
-        if (this._isPowerSmooth === undefined) {
-            this._isPowerSmooth = isPowerSmooth(this);
-        }
-        return this._isPowerSmooth;
-    }
-
-    private _isRound: boolean;
+    _isRound: boolean;
     set isRound(v: boolean) {
         throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
     }
@@ -615,7 +575,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
     }
 
-    private _isSophieGermainPrime: boolean;
+    _isSophieGermainPrime: boolean;
     set isSophieGermainPrime(v: boolean) {
         this._isSophieGermainPrime = v;
     }
@@ -626,7 +586,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSophieGermainPrime;
     }
 
-    private _isWeird: boolean;
+    _isWeird: boolean;
     set isWeird(v: boolean) {
         this._isWeird = v;
     }
@@ -637,7 +597,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isWeird;
     }
 
-    private _sieve: number[];
+    _sieve: number[];
     set sieve(v:number[]) {
         this._sieve = v;
     }
@@ -648,7 +608,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._sieve;
     }
 
-    private _getPoliteness: number;
+    _getPoliteness: number;
     set getPoliteness(v: number) {
         this._getPoliteness = v;
     }
@@ -659,7 +619,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._getPoliteness;
     }
 
-    private isEven: boolean;
+    _isEven: boolean;
     set isEven(v: boolean) {
         this._isEven = v;
     }
@@ -670,7 +630,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isEven;
     }
 
-    private _isNatural: boolean;
+    _isNatural: boolean;
     set isNatural(v: boolean) {
         this._isNatural = v;
     }
@@ -681,7 +641,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isNatural;
     }
 
-    private _isPractical: boolean;
+    _isPractical: boolean;
     set isPractical(v: boolean) {
         this._isPractical = v;
     }
@@ -692,7 +652,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isPractical;
     }
 
-    private _isSad: boolean;
+    _isSad: boolean;
     set isSad(v: boolean) {
         this._isSad = v;
     }
@@ -703,7 +663,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSad;
     }
 
-    private _isSphenic: boolean;
+    _isSphenic: boolean;
     set isSphenic(v: boolean) {
         this._isSphenic = v;
     }
@@ -714,7 +674,7 @@ export class EnhancedNumber implements EnhancedNumberType {
         return this._isSphenic;
     }
 
-    private _isWhole: boolean;
+    _isWhole: boolean;
     set isWhole(v: boolean) {
         this._isWhole = v;
     }
@@ -724,18 +684,6 @@ export class EnhancedNumber implements EnhancedNumberType {
         }
         return this._isWhole;
     }
-
-    // This does not make sense, why would sum be a property of the enhanced number type?  The sum of the number is the number itself.
-    private _sum: number;
-    set sum(v: number) {
-        this._sum = v;
-    }
-    get sum():number {
-        if (this._sum === undefined) {
-            this._sum = sum(this);
-        }
-        return this._sum;
-    }
 }
 
-export const instantiatedNumbers: { [k: string]: EnhancedNumberType | undefined } = {};
+export const instantiatedNumbers: { [k: string]: EnhancedNumber } = {};

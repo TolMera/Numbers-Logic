@@ -3,7 +3,7 @@ import { EnhancedNumber } from '../classes/enhancedNumber';
 import { factorsOf } from './factorsOf';
 import { getCountDivisors } from './getCountDivisors';
 
-export function divisors(n: number | EnhancedNumberType): number[] {
+export function divisors(n: number | EnhancedNumber): number[] {
     n = new EnhancedNumber(n);
     if (n._divisors !== undefined) {
         return n.divisors;

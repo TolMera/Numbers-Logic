@@ -1,7 +1,6 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import { EnhancedNumber } from "../classes/enhancedNumber";
 
-export function getTetrahedral(n: number | EnhancedNumberType): number {
+export function getTetrahedral(n: number | EnhancedNumber): number {
     n = new EnhancedNumber(n);
     if (n._getTetrahedral !== undefined) {
         return n.getTetrahedral;

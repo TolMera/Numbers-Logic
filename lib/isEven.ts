@@ -1,8 +1,8 @@
 import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 
-export function isEven(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isEven(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isEven !== undefined) {
         return n.isEven;
     }

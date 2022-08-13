@@ -1,13 +1,14 @@
-const EnhancedNumber = require('../classes/enhancedNumber');
+import {EnhancedNumber} from '../classes/enhancedNumber';
+
 /**
  * Sieves primes from 1 to the given number.
- * @param {Number} n Upper bound for the sieve.
+ * @param {Number} inputN The maximum number to sieve.
  * @return {Array} A list of primes between 2 and n.
  * @module numbers-logic
  * @author Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://tolmera.com)
  */
-function sieve(n: number | EnhancedNumberType): number[] {
-    n = EnhancedNumber(n);
+export function sieve(inputN: number | EnhancedNumber): number[] {
+    const n = new EnhancedNumber(inputN);
     if (n.sieve) {
         return n.sieve;
     }
@@ -34,5 +35,3 @@ function sieve(n: number | EnhancedNumberType): number[] {
     n.sieve = primes;
     return n.sieve;
 }
-
-module.exports = sieve;

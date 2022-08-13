@@ -3,8 +3,8 @@ import {EnhancedNumber} from "../classes/enhancedNumber";
 import {divisors} from './divisors';
 import {sum} from './sum';
 
-export function isArithmetic(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isArithmetic(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isArithmetic !== undefined) {
         return n.isArithmetic;
     }

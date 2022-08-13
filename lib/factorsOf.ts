@@ -2,8 +2,8 @@ import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {sieve} from './sieve';
 
-export function factorsOf(n: number | EnhancedNumberType): number[] {
-    n = new EnhancedNumber(n);
+export function factorsOf(inputN: number | EnhancedNumber): {prime: number, power: number}[] {
+    const n = new EnhancedNumber(inputN);
     if (n._factorsOf !== undefined) {
         return n.factorsOf;
     }
@@ -11,7 +11,7 @@ export function factorsOf(n: number | EnhancedNumberType): number[] {
     let mutableN: number = Math.abs(n.number);
     const primesToN = sieve(mutableN);
     
-    const factors: number[] = [];
+    const factors: {prime: number, power: number}[] = [];
     for (
         let k = 0;
         k < primesToN.length && mutableN > 1;
@@ -35,7 +35,7 @@ export function factorsOf(n: number | EnhancedNumberType): number[] {
     }
 
     if (n.number < 0) {
-        const negatives: number[] = [];
+        const negatives: {prime: number, power: number}[] = [];
         for (const factor of factors) {
             negatives.push({ ...factor });
             negatives[negatives.length - 1].prime *= -1;

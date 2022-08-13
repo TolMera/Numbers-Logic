@@ -1,7 +1,7 @@
 import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 
-export function isRound(n: number | EnhancedNumberType, base: number = 10) {
+export function isRound(n: number | EnhancedNumber, base: number = 10) {
     n = new EnhancedNumber(n);
     if (n._isRound?.[base] !== undefined) {
         return n._isRound[base];

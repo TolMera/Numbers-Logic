@@ -1,8 +1,8 @@
-const isNatural = require("./isNatural");
+import { EnhancedNumber } from "../classes/enhancedNumber";
+import { isNatural } from "./isNatural";
 
-function isWhole(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function isWhole(n) {
+    n = new EnhancedNumber(n);
     if (n._isWhole) {
         return n.isWhole;
     }
@@ -14,5 +14,3 @@ function isWhole(n) {
     n.isWhole = false;
     return n.isWhole;
 };
-
-module.exports = isWhole;

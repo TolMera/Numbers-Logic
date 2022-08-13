@@ -1,8 +1,9 @@
-const isPrime = require("./isPrime");
-const isSelf = require("./isSelf");
+import type {EnhancedNumberType} from '../classes/EnhancedNumberType';
+import {EnhancedNumber} from '../classes/EnhancedNumber';
+import {isSelf} from "./isSelf";
+import {isPrime} from "./isPrime";
 
-function isSelfPrime(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
+export function isSelfPrime(n: number | EnhancedNumber): boolean {
     n = EnhancedNumber(n);
     if (n._isSelfPrime) {
         return n.isSelfPrime;
@@ -15,5 +16,3 @@ function isSelfPrime(n) {
     n.isSelfPrime = false;
     return n.isSelfPrime;
 };
-
-module.exports = isSelfPrime;

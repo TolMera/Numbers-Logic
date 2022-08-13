@@ -5,8 +5,8 @@ import {divisors} from './divisors';
 import {isPowerOf2} from './isPowerOf2';
 import {isSubsetSum} from "./isSubsetSum";
 
-export function isPractical(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isPractical(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isPractical !== undefined) {
         return n.isPractical;
     }

@@ -1,8 +1,8 @@
-const factorsOf = require('./factorsOf');
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {factorsOf} from './factorsOf';
 
-function isUnusual(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+export function isUnusual(n) {
+    n = new EnhancedNumber(n);
     if (n._isUnusual) {
         return n.isUnusual;
     }
@@ -14,5 +14,3 @@ function isUnusual(n) {
     n.isUnusual = false;
     return n.isUnusual;
 };
-
-module.exports = isUnusual;

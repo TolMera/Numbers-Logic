@@ -3,7 +3,7 @@ import {EnhancedNumber} from '../classes/enhancedNumber';
 import isPrime from "./isPrime";
 
 // https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes
-export function isSafePrime(n: number | EnhancedNumberType) {
+export function isSafePrime(n: number | EnhancedNumber) {
     n = new EnhancedNumber(n);
     if (n._isSafePrime !== undefined) {
         return n.isSafePrime;

@@ -9,8 +9,8 @@ import {sieve} from "./sieve";
 // A prime power pn is an n-almost prime.
 // It is not known whether a prime power pn can be an amicable number.
 // If there is such a number, then pn must be greater than 101500 and n must be greater than 1400. 
-export function isPrimePower(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isPrimePower(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isPrimePower !== undefined) {
         return n.isPrimePower;
     }

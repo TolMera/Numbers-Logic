@@ -1,9 +1,5 @@
-const isRough = require("./isRough");
+import {isRough} from "./isRough";
 
-// const factorsOf = require("./factorsOf");
-
-const isSmooth = (n, k) => {
+export function isSmooth(n: number, k: number): boolean {
     return !isRough(n, k);
 };
-
-module.exports = isSmooth;

@@ -2,8 +2,8 @@ import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {isOdd} from "./isOdd";
 
-export function isEvil(n: number | EnhancedNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isEvil(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isEvil !== undefined) {
         return n.isEvil;
     }

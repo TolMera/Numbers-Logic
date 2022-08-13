@@ -1,4 +1,4 @@
-function positiveOrNegativeSequence(n, nth, c) {
+export function positiveOrNegativeSequence(n: number, nth: number, c: number): boolean | number {
     if (n < 0) {
         if (n === nth) {
             return true;
@@ -19,5 +19,3 @@ function positiveOrNegativeSequence(n, nth, c) {
     }
     return c;
 }
-
-module.exports = positiveOrNegativeSequence;

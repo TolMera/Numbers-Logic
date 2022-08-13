@@ -1,9 +1,10 @@
-const getStar = require("./getStar");
-const positiveOrNegativeSequence = require("./positiveOrNegativeSequence");
+import {EnhancedNumber} from "../classes/enhancedNumber";
+import {getStar} from "./getStar";
+import {positiveOrNegativeSequence} from "./positiveOrNegativeSequence";
 
-function isStar(n) {
-    const EnhancedNumber = require("../classes/enhancedNumber");
-    n = EnhancedNumber(n);
+
+export function isStar(n: number | EnhancedNumber): boolean {
+    n = new EnhancedNumber(n);
     if (n._isStar) {
         return n.isStar;
     }
@@ -18,5 +19,3 @@ function isStar(n) {
         }
     }
 }
-
-module.exports = isStar;

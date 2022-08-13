@@ -1,7 +1,6 @@
-import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import { EnhancedNumber } from '../classes/enhancedNumber';
 
-export function getIntRoot(n: number | EnhancedNumberType): number | false {
+export function getIntRoot(n: number | EnhancedNumber): number | boolean {
     n = new EnhancedNumber(n);
     if (n._getIntRoot !== undefined) {
         return n.getIntRoot;

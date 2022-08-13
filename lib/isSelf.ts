@@ -1,9 +1,8 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
+import { EnhancedNumber, EnhancedNumberType } from '../classes/enhancedNumber';
 
 // for (let x = 0; x < 100; x++) { if (isSelf(x)) console.log(x); }
-export function isSelf(n: number, base: number = 10) {
-    n = new EnhancedNumber(n);
+export function isSelf(inputN: number | EnhancedNumber, base: number = 10) {
+    const n = new EnhancedNumber(inputN);
 
     /*
     Nope, I don't get it.
@@ -56,7 +55,7 @@ export function isSelf(n: number, base: number = 10) {
         let sum = 0;
         while (n != 0) {
             sum = sum + n % 10;
-            n = parseInt(n / 10);
+            n = parseInt(String(n / 10));
         }
         return sum;
     }
