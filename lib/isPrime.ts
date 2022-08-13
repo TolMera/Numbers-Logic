@@ -1,9 +1,8 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
+import { EnhancedNumber } from '../classes/enhancedNumber';
 import { factorsOf } from "./factorsOf";
 
-export function isPrime(n: number| EnhanceNumberType): boolean {
-    n = new EnhancedNumber(n);
+export function isPrime(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isPrime !== undefined) {
         return n.isPrime;
     }

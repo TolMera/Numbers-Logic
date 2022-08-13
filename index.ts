@@ -2,20 +2,56 @@
     Number Theory has not been updated on NPM since 2016, however there are more recent changes on github.
     I've copied a few files that have been updated on github, and put them in here.
 */
-let TP_number_theory = require('number-theory');
-let mobius = require('./lib/mobius');
-let mobiusRange = require('./lib/mobiusRange');
+import * as TP_number_theory from 'number-theory';
+import { mobius } from './lib/mobius';
+import { mobiusRange } from './lib/mobiusRange';
 const P_number_theory = TP_number_theory;
-
-import {P_numbers} from 'numbers';
-
-// import {P_mathTools} from 'math-tools';
-// import {P_numberjs} from 'number.js';
-
-const happyOrSad = {isHappy: require('./lib/isHappy'), isSad: require('./lib/isSad')}
+import * as P_numbers from 'numbers';
+import { isHappy } from './lib/isHappy';
+import { isSad } from './lib/isSad';
+import { getCenteredHexagonal } from './lib/getCenteredHexagonal';
+import { getStar } from './lib/getStar';
+import { getTetrahedral } from './lib/getTetrahedral';
+import { isMersennePrime } from './lib/isMersennePrime';
+import { isPrimePower } from './lib/isPrimePower';
+import { isProductOfXPrimes } from './lib/isProductOfXPrimes';
+import { isSafePrime } from './lib/isSafePrime';
+import { isSelfPrime } from './lib/isSelfPrime';
+import { isSophieGermainPrime } from './lib/isSophieGermainPrime';
+import { isCenteredHexagonal } from './lib/isCenteredHexagonal';
+import { isStar } from './lib/isStar';
+import { isTetrahedral } from './lib/isTetrahedral';
+import { hasIntRoot } from './lib/hasIntRoot';
+import { isArithmetic } from './lib/isArithmetic';
+import { isEvil } from './lib/isEvil';
+import { isSmooth as isFriable } from './lib/isSmooth';
+import { isKRough } from './lib/isKRough';
+import { isNatural } from './lib/isNatural';
+import { isOdious } from './lib/isOdious';
+import { isPractical as isPanarithmic } from './lib/isPractical';
+import { isPolite } from './lib/isPolite';
+import { isImpolite } from './lib/isImpolite';
+import { isPowerOf2 } from './lib/isPowerOf2';
+import { isPowerSmooth } from './lib/isPowerSmooth';
+import { isPractical } from './lib/isPractical';
+import { isPronic } from './lib/isPronic';
+import { isPronic as isRectangular } from './lib/isPronic';
+import { isRough } from './lib/isRough';
+import { isRound } from './lib/isRound';
+import { isSelf } from './lib/isSelf';
+import { isSemiperfect } from './lib/isSemiperfect';
+import { isSmooth } from './lib/isSmooth';
+import { isSphenic } from './lib/isSphenic';
+import { isUntouchable } from './lib/isUntouchable';
+import { isUnusual } from './lib/isUnusual';
+import { isWeird } from './lib/isWeird';
+import { isPrime } from './lib/isPrime';
+import { isMoreRound } from './lib/isMoreRound';
+import { getPoliteness } from './lib/getPoliteness';
+import { divisors } from './lib/divisors';
 import {sieve} from './lib/sieve';
 
-module.exports = {
+export const index = {
     /*
     Things I would like the package to support
 
@@ -28,49 +64,49 @@ module.exports = {
     */
 
     // Mine
-    getCenteredHexagonal: require('./lib/getCenteredHexagonal'),
-    getStar: require('./lib/getStar'),
-    getTetrahedral: require('./lib/getTetrahedral'),
+    getCenteredHexagonal,
+    getStar,
+    getTetrahedral,
     bools: {
-        isMersennePrime: require('./lib/isMersennePrime'),
-        isPrimePower: require('./lib/isPrimePower'),
-        isProductOfXPrimes: require('./lib/isProductOfXPrimes'),
-        isSafePrime: require('./lib/isSafePrime'),
-        isSelfPrime: require('./lib/isSelfPrime'),
-        isSophieGermainPrime: require('./lib/isSophieGermainPrime'),
+        isMersennePrime,
+        isPrimePower,
+        isProductOfXPrimes,
+        isSafePrime,
+        isSelfPrime,
+        isSophieGermainPrime,
 
-        isCenteredHexagonal: require('./lib/isCenteredHexagonal'),
-        isStar: require('./lib/isStar'),
-        isTetrahedral: require('./lib/isTetrahedral'),
+        isCenteredHexagonal,
+        isStar,
+        isTetrahedral,
 
-        hasIntRoot: require('./lib/hasIntRoot'),
-        isArithmetic: require('./lib/isArithmetic'),
-        isEvil: require('./lib/isEvil'),
-        isFriable: require('./lib/isSmooth'),
-        isKRough: require('./lib/isKRough'),
-        isNatural: require('./lib/isNatural'),
-        isOdious: require('./lib/isOdious'),
-        isPanarithmic: require('./lib/isPractical'),
-        isPolite: require('./lib/isPolite'),
-        isImpolite: require('./lib/isImpolite'),
-        isPowerOf2: require('./lib/isPowerOf2'),
-        isPowerSmooth: require('./lib/isPowerSmooth'),
+        hasIntRoot,
+        isArithmetic,
+        isEvil,
+        isFriable,
+        isKRough,
+        isNatural,
+        isOdious,
+        isPanarithmic,
+        isPolite,
+        isImpolite,
+        isPowerOf2,
+        isPowerSmooth,
         // TODO: Create function for ultrafriable - https://en.wikipedia.org/wiki/Smooth_number#Powersmooth_numbers
-        isPractical: require('./lib/isPractical'),
-        isPronic: require('./lib/isPronic'),
-        isRectangular: require('./lib/isPronic'),
-        isRough: require('./lib/isRough'),
-        isRound: require('./lib/isRound'),
-        isSelf: require('./lib/isSelf'),
-        isSemiperfect: require('./lib/isSemiperfect'),
-        isSmooth: require('./lib/isSmooth'),
-        isSphenic: require('./lib/isSphenic'),
-        isUntouchable: require('./lib/isUntouchable'),
-        isUnusual: require('./lib/isUnusual'),
-        isWeird: require('./lib/isWeird'),
+        isPractical,
+        isPronic,
+        isRectangular,
+        isRough,
+        isRound,
+        isSelf,
+        isSemiperfect,
+        isSmooth,
+        isSphenic,
+        isUntouchable,
+        isUnusual,
+        isWeird,
 
-        isHappy: happyOrSad.isHappy,
-        isSad: happyOrSad.isSad,
+        isHappy,
+        isSad,
 
         isAbundant: P_number_theory.isAbundant,
         isDeficient: P_number_theory.isDeficient,
@@ -79,7 +115,7 @@ module.exports = {
         isOctagonal: P_number_theory.isOctagonal,
         isPentagonal: P_number_theory.isPentagonal,
         isPerfect: P_number_theory.isPerfect,
-        isPrime: require('./lib/isPrime'),
+        isPrime,
         isProbablyPrime: P_number_theory.isProbablyPrime,
         isSquare: P_number_theory.isSquare,
         isTriangular: P_number_theory.isTriangular,
@@ -94,15 +130,15 @@ module.exports = {
     },
 
     comparison: {
-        isMoreRound: require('./lib/isMoreRound'),
+        isMoreRound,
     },
 
     mobius,
     mobiusRange,
-    getPoliteness: require('./lib/getPoliteness'),
+    getPoliteness,
 
     // - from P_number_theory
-    divisors: require('./lib/divisors'),
+    divisors,
     eulerPhi: P_number_theory.eulerPhi,
     factor: P_number_theory.factor,
     findDivisor: P_number_theory.findDivisor,
@@ -116,7 +152,7 @@ module.exports = {
     isOctagonal: P_number_theory.isOctagonal,
     isPentagonal: P_number_theory.isPentagonal,
     isPerfect: P_number_theory.isPerfect,
-    isPrime: require('./lib/isPrime'),
+    isPrime,
     isProbablyPrime: P_number_theory.isProbablyPrime,
     isSquare: P_number_theory.isSquare,
     isTriangular: P_number_theory.isTriangular,
@@ -263,8 +299,6 @@ module.exports = {
     adaptiveSimpson: P_numbers.calculus.adaptiveSimpson,
     addition: P_numbers.matrix.addition,
     affine: P_numbers.matrix.affine,
-    bates: P_numbers.random.bates,
-    bates: P_numbers.random.distribution.bates,
     binomial: P_numbers.basic.binomial,
     boxMuller: P_numbers.random.distribution.boxMuller,
     boxMullerTransform: P_numbers.random.boxMullerTransform,
@@ -290,8 +324,6 @@ module.exports = {
     getPrimePower: P_numbers.prime.getPrimePower,
     identity: P_numbers.matrix.identity,
     inverse: P_numbers.matrix.inverse,
-    irwinHall: P_numbers.random.distribution.irwinHall,
-    irwinHall: P_numbers.random.irwinHall,
     irwinHallNormal: P_numbers.random.distribution.irwinHallNormal,
     isColumnDD: P_numbers.matrix.isColumnDD,
     isInt: P_numbers.basic.isInt,
@@ -321,10 +353,8 @@ module.exports = {
     numbersEqual: P_numbers.basic.numbersEqual,
     permutation: P_numbers.basic.permutation,
     pointDiff: P_numbers.calculus.pointDiff,
-    // powerMod: P_numbers.basic.powerMod,
     product: P_numbers.basic.product,
     quantile: P_numbers.statistic.quantile,
-    random: P_numbers.basic.random,
     range: P_numbers.basic.range,
     reorderCols: P_numbers.matrix.reorderCols,
     reorderRows: P_numbers.matrix.reorderRows,
@@ -349,8 +379,6 @@ module.exports = {
     square: P_numbers.basic.square,
     standardDev: P_numbers.statistic.standardDev,
     StirlingGamma: P_numbers.calculus.StirlingGamma,
-    subtraction: P_numbers.basic.subtraction,
-    subtraction: P_numbers.matrix.subtraction,
     sum: P_numbers.basic.sum,
     transpose: P_numbers.matrix.transpose,
     vectorNorm: P_numbers.matrix.vectorNorm,

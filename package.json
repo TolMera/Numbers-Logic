@@ -11,7 +11,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "for file in ./testing/*.js; do echo $file & time node $file; done;"
+    "run": "ts-node index.ts",
+    "test": "for file in ./testing/*.js; do echo $file & time ts-node $file; done;"
   },
   "keywords": [
     "number",

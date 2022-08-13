@@ -1,4 +1,3 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {isOdd} from './isOdd';
 
