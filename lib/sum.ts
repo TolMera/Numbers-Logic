@@ -1,9 +1,9 @@
-import { EnhancedNumber, unknownIsEnhancedNumberType } from "../classes/enhancedNumber";
+import { EnhancedNumber, unknownIsEnhancedNumber } from "../classes/enhancedNumber";
 
 export function sum(itterable: number[] | EnhancedNumber[] | Set<number>): number {
     let sum = 0;
     for (let value of itterable) {
-        if (unknownIsEnhancedNumberType(value)) {
+        if (unknownIsEnhancedNumber(value)) {
             sum += value.number;
         }
         else if (typeof(value) === 'number') {
