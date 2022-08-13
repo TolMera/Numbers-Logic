@@ -56,19 +56,17 @@ function index() {
         ],
         inputs: [
             // All numbers in base 4 are happy numbers
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }, {
-                value: 4
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }]
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }, {
+            //     value: 4
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }]
         ]
     });
     test();
 }
-
-

@@ -18,19 +18,18 @@ function index() {
             [[11.11], false],
         ],
         inputs: [
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }],
-            [{
-                type:Number,
-                generator: generators.randomFloat,
-            }]
-
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }],
+            // [{
+            //     type:Number,
+            //     generator: generators.randomFloat,
+            // }]
         ]
     });
     test();

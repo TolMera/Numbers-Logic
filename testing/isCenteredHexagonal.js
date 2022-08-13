@@ -20,14 +20,14 @@ function index() {
             [[2432701], true],
         ],
         inputs: [
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }]
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }]
         ]
     });
     test();

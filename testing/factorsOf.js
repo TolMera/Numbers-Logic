@@ -14,14 +14,14 @@ function index() {
             [[-900], [{ power: 2, prime: 2, }, { power: 2, prime: 3, }, { power: 2, prime: 5, }, { power: 2, prime: -2, }, { power: 2, prime: -3, }, { power: 2, prime: -5, },]],
         ],
         inputs: [
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }]
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }]
         ]
     });
     test();

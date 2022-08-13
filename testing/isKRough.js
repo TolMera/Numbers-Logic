@@ -15,14 +15,14 @@ function index() {
             [[-900, 2], false], [[-900, 3], false], [[-900, 4], false], [[-900, 5], false], [[-900, 6], false], [[-900, 7], false],
         ],
         inputs: [
-            [{
-                type: Number,
-                generator: generators.safePositiveInteger,
-            }],
-            [{
-                type: Number,
-                generator: generators.safeNegativeInteger,
-            }]
+            // [{
+            //     type: Number,
+            //     generator: generators.safePositiveInteger,
+            // }],
+            // [{
+            //     type: Number,
+            //     generator: generators.safeNegativeInteger,
+            // }]
         ]
     });
     test();
