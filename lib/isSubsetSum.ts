@@ -12,10 +12,10 @@ Good luck
 import { EnhancedNumber } from "../classes/enhancedNumber";
 
 // This one is too complicated for me to follow.  It needs a better explanation
-export function isSubsetSum(set, n, sum) {
+export function isSubsetSum(set: number[], inputN: number | EnhancedNumber, sum: number): boolean {
     console.warn("Any function using isSubsetSum is likely to lag significantly");
 
-    n = new EnhancedNumber(n);
+    const n = new EnhancedNumber(inputN);
 
     // The value of subset[i][j] will be true if
     // there is a subset of set[0..j-1] with sum

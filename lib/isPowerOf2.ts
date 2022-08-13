@@ -1,10 +1,9 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 
 export function isPowerOf2 (inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPowerOf2 !== undefined) {
-        return n.isPowerOf2;
+        return n.isPowerOf2 as boolean;
     }
 
     if (n.number === 0 || n.number === 1) {

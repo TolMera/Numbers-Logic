@@ -1,4 +1,3 @@
-import { EnhancedNumberType } from '../classes/EnhancedNumberType';
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { isAbundant } from './isAbundant';
 import { isPerfect } from './isPerfect';
@@ -8,12 +7,12 @@ import { semiperfectTest } from './semiperfectTest';
 import { getAliquotSum } from './getAliquotSum';
 
 /* Anything containing isSemiperfect has an extreme computation time */
-export function isSemiperfect(n: number | EnhancedNumber) {
+export function isSemiperfect(n: number | EnhancedNumber): boolean {
     console.warn("Any function using isSemiperfect is likely to lag significantly");
 
     n = new EnhancedNumber(n);
     if (n._isSemiperfect) {
-        return n.isSemiperfect;
+        return n.isSemiperfect as boolean;
     }
 
     if (n.number <= 1) {

@@ -1,4 +1,3 @@
-import type { EnhancedNumberType } from "../classes/enhancedNumber";
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { factorsOf } from './factorsOf';
 import { getCountDivisors } from './getCountDivisors';
@@ -6,7 +5,7 @@ import { getCountDivisors } from './getCountDivisors';
 export function isSphenic(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isSphenic) {
-        return n.isSphenic;
+        return n.isSphenic as boolean;
     }
 
     if (n.number <= 0) {

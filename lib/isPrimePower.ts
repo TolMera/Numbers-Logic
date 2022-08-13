@@ -1,7 +1,6 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
-import {logX} from "./logX";
-import {sieve} from "./sieve";
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import { logX } from "./logX";
+import { sieve } from "./sieve";
 
 // https://en.wikipedia.org/wiki/Prime_power
 // Every prime power (except powers of 2) has a primitive root
@@ -12,7 +11,7 @@ import {sieve} from "./sieve";
 export function isPrimePower(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPrimePower !== undefined) {
-        return n.isPrimePower;
+        return n.isPrimePower as boolean;
     }
 
     if (n.number <= 1) {
@@ -21,11 +20,11 @@ export function isPrimePower(inputN: number | EnhancedNumber): boolean {
     }
 
     let theSieve = sieve(n);
-    if (theSieve.includes(n)) {
+    if (theSieve.includes(n.number)) {
         n.isPrimePower = true;
         return n.isPrimePower;
     }
-    theSieve = theSieve.filter(v => v <= Math.sqrt(n));
+    theSieve = theSieve.filter(v => v <= Math.sqrt(n.number));
 
     let x = 1;
     while (theSieve.length > 0) {

@@ -1,13 +1,13 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { isNatural } from "./isNatural";
 
-export function isWhole(n) {
+export function isWhole(n: number | EnhancedNumber) {
     n = new EnhancedNumber(n);
     if (n._isWhole) {
         return n.isWhole;
     }
 
-    if (n > 0) {
+    if (n.number > 0) {
         n.isWhole = isNatural(n);
         return n.isWhole;
     }

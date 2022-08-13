@@ -1,4 +1,3 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber'
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {factorsOf} from './factorsOf';
 
@@ -7,7 +6,7 @@ import {factorsOf} from './factorsOf';
 export function getCountDivisors(n: number | EnhancedNumber): number {
     n = new EnhancedNumber(n);
     if (n._getCountDivisors !== undefined) {
-        return n.getCountDivisors;
+        return n.getCountDivisors as number;
     }
 
     let factors = factorsOf(Math.abs(n.number));

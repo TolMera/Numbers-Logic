@@ -1,12 +1,11 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
-import isPrime from "./isPrime";
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import { isPrime } from "./isPrime";
 
 // https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes
-export function isSafePrime(n: number | EnhancedNumber) {
+export function isSafePrime(n: number | EnhancedNumber): boolean {
     n = new EnhancedNumber(n);
     if (n._isSafePrime !== undefined) {
-        return n.isSafePrime;
+        return n.isSafePrime as boolean;
     }
 
     if (isPrime(n) && isPrime((n.number / 2) - 1)) {

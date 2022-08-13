@@ -45,104 +45,101 @@ import { sieve } from '../lib/sieve';
 
 export interface EnhancedNumberInterface {
     readonly number: number;
-    _number: number;
-    _divisors: number[];
-    _getStar: number;
-    _isEvil: boolean;
-    _isOdd: boolean;
-    _isPrime: boolean;
-    _isSafePrime: boolean;
-    _isStar: boolean;
-    _factorsOf: { prime: number, power: number }[];
-    _getTetrahedral: number;
-    _isHappy: boolean;
-    _isOdious: boolean;
-    _isPrimePower: boolean;
-    _isSelf: boolean;
-    _mobius: number;
-    _getAliquotSum: number;
-    _hasIntRoot: boolean;
-    _isImpolite: boolean;
-    _isPerfect: boolean;
-    _isSelfPrime: boolean;
-    _isTetrahedral: boolean;
-    _getCenteredHexagonal: number;
-    _isAbundant: boolean;
-    _isKRough: boolean;
-    _isPolite: boolean;
-    _isPronic: boolean;
-    _isSemiperfect: boolean;
-    _isUntouchable: boolean;
-    _getCountDivisors: number;
-    _isArithmetic: boolean;
-    _isMersennePrime: boolean;
-    _isPowerOf2: boolean;
-    _isUnusual: boolean;
-    _semiperfectTest: boolean;
-    _getIntRoot: number | boolean;
-    _isRound: boolean;
-    _isSophieGermainPrime: boolean;
-    _isWeird: boolean;
-    _sieve: number[];
-    _getPoliteness: number;
-    _isNatural: boolean;
-    _isPractical: boolean;
-    _isSad: boolean;
-    _isSphenic: boolean;
-    _isWhole: boolean;
+    _number: number | undefined;
+    _divisors: number[] | undefined;
+    _getStar: number | undefined;
+    _isEvil: boolean | undefined;
+    _isOdd: boolean | undefined;
+    _isPrime: boolean | undefined;
+    _isSafePrime: boolean | undefined;
+    _isStar: boolean | undefined;
+    _factorsOf: { prime: number, power: number }[] | undefined;
+    _getTetrahedral: number | undefined;
+    _isHappy: boolean | undefined;
+    _isOdious: boolean | undefined;
+    _isPrimePower: boolean | undefined;
+    _isSelf: boolean | undefined;
+    _mobius: number | undefined;
+    _getAliquotSum: number | undefined;
+    _hasIntRoot: boolean | undefined;
+    _isImpolite: boolean | undefined;
+    _isPerfect: boolean | undefined;
+    _isSelfPrime: boolean | undefined;
+    _isTetrahedral: boolean | undefined;
+    _getCenteredHexagonal: number | undefined;
+    _isAbundant: boolean | undefined;
+    _isPolite: boolean | undefined;
+    _isPronic: boolean | undefined;
+    _isSemiperfect: boolean | undefined;
+    _isUntouchable: boolean | undefined;
+    _getCountDivisors: number | undefined;
+    _isArithmetic: boolean | undefined;
+    _isMersennePrime: boolean | undefined;
+    _isPowerOf2: boolean | undefined;
+    _isUnusual: boolean | undefined;
+    _semiperfectTest: boolean | undefined;
+    _getIntRoot: number | boolean | undefined;
+    _isRound: boolean | undefined;
+    _isSophieGermainPrime: boolean | undefined;
+    _isWeird: boolean | undefined;
+    _sieve: number[] | undefined;
+    _getPoliteness: number | undefined;
+    _isNatural: boolean | undefined;
+    _isPractical: boolean | undefined;
+    _isSad: boolean | undefined;
+    _isSphenic: boolean | undefined;
+    _isWhole: boolean | undefined;
 
     // Getters and Setters
-    divisors: number[];
-    factorsOf: { prime: number, power: number }[];
-    getAliquotSum: number;
-    getCenteredHexagonal: number;
-    getCountDivisors: number;
-    getIntRoot: number | boolean;
-    getPoliteness: number;
-    getStar: number;
-    getTetrahedral: number;
-    hasIntRoot: boolean;
-    isAbundant: boolean;
-    isArithmetic: boolean;
-    isCenteredHexagonal: boolean;
-    isEven: boolean;
-    isEvil: boolean;
-    isHappy: boolean;
-    isImpolite: boolean;
-    isKRough: boolean;
-    isMersennePrime: boolean;
-    isNatural: boolean;
-    isOdd: boolean;
-    isOdious: boolean;
-    isPerfect: boolean;
-    isPolite: boolean;
-    isPowerOf2: boolean;
-    isPractical: boolean;
-    isPrime: boolean;
-    isPrimePower: boolean;
-    isPronic: boolean;
-    isRough: boolean;
-    isRound: boolean;
-    isSad: boolean;
-    isSafePrime: boolean;
-    isSelf: boolean;
-    isSelfPrime: boolean;
-    isSemiperfect: boolean;
-    isSophieGermainPrime: boolean;
-    isSphenic: boolean;
-    isStar: boolean;
-    isTetrahedral: boolean;
-    isUntouchable: boolean;
-    isUnusual: boolean;
-    isWeird: boolean;
-    isWhole: boolean;
-    mobius: number;
-    semiperfectTest: boolean;
-    sieve: number[];
+    divisors: number[] | undefined;
+    factorsOf: { prime: number, power: number }[] | undefined;
+    getAliquotSum: number | undefined;
+    getCenteredHexagonal: number | undefined;
+    getCountDivisors: number | undefined;
+    getIntRoot: number | boolean | undefined;
+    getPoliteness: number | undefined;
+    getStar: number | undefined;
+    getTetrahedral: number | undefined;
+    hasIntRoot: boolean | undefined;
+    isAbundant: boolean | undefined;
+    isArithmetic: boolean | undefined;
+    isCenteredHexagonal: boolean | undefined;
+    isEven: boolean | undefined;
+    isEvil: boolean | undefined;
+    isHappy: boolean | undefined;
+    isImpolite: boolean | undefined;
+    isMersennePrime: boolean | undefined;
+    isNatural: boolean | undefined;
+    isOdd: boolean | undefined;
+    isOdious: boolean | undefined;
+    isPerfect: boolean | undefined;
+    isPolite: boolean | undefined;
+    isPowerOf2: boolean | undefined;
+    isPractical: boolean | undefined;
+    isPrime: boolean | undefined;
+    isPrimePower: boolean | undefined;
+    isPronic: boolean | undefined;
+    isRound: boolean | undefined;
+    isSad: boolean | undefined;
+    isSafePrime: boolean | undefined;
+    isSelf: boolean | undefined;
+    isSelfPrime: boolean | undefined;
+    isSemiperfect: boolean | undefined;
+    isSophieGermainPrime: boolean | undefined;
+    isSphenic: boolean | undefined;
+    isStar: boolean | undefined;
+    isTetrahedral: boolean | undefined;
+    isUntouchable: boolean | undefined;
+    isUnusual: boolean | undefined;
+    isWeird: boolean | undefined;
+    isWhole: boolean | undefined;
+    mobius: number | undefined;
+    semiperfectTest: boolean | undefined;
+    sieve: number[] | undefined;
 
     // Functions
-    toString: () => string;
-    toNumber: () => number;
+    toString: () => string | undefined;
+    toNumber: () => number | undefined;
 }
 
 export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
@@ -150,53 +147,54 @@ export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
 }
 
 export class EnhancedNumber implements EnhancedNumberInterface {
-    _number: number;
-    _divisors: number[];
-    _getStar: number;
-    _isEvil: boolean;
-    _isOdd: boolean;
-    _isPrime: boolean;
-    _isSafePrime: boolean;
-    _isStar: boolean;
-    _factorsOf: { prime: number, power: number }[];
-    _getTetrahedral: number;
-    _isHappy: boolean;
-    _isOdious: boolean;
-    _isPrimePower: boolean;
-    _isSelf: boolean;
-    _mobius: number;
-    _getAliquotSum: number;
-    _hasIntRoot: boolean;
-    _isImpolite: boolean;
-    _isPerfect: boolean;
-    _isSelfPrime: boolean;
-    _isTetrahedral: boolean;
-    _getCenteredHexagonal: number;
-    _isAbundant: boolean;
-    _isKRough: boolean;
-    _isPolite: boolean;
-    _isPronic: boolean;
-    _isSemiperfect: boolean;
-    _isUntouchable: boolean;
-    _getCountDivisors: number;
-    _isArithmetic: boolean;
-    _isMersennePrime: boolean;
-    _isPowerOf2: boolean;
-    _isUnusual: boolean;
-    _semiperfectTest: boolean;
-    _getIntRoot: number | boolean;
-    _isCenteredHexagonal: boolean;
-    _isRound: boolean;
-    _isSophieGermainPrime: boolean;
-    _isWeird: boolean;
-    _sieve: number[];
-    _getPoliteness: number;
-    _isEven: boolean;
-    _isNatural: boolean;
-    _isPractical: boolean;
-    _isSad: boolean;
-    _isSphenic: boolean;
-    _isWhole: boolean;
+    _divisors: number[] | undefined = undefined;
+    _getStar: number | undefined = undefined;
+    _isEvil: boolean | undefined = undefined;
+    _isOdd: boolean | undefined = undefined;
+    _isPrime: boolean | undefined = undefined;
+    _isSafePrime: boolean | undefined = undefined;
+    _isStar: boolean | undefined = undefined;
+    _factorsOf: { prime: number, power: number }[] | undefined = undefined;
+    _getTetrahedral: number | undefined = undefined;
+    _isHappy: boolean | undefined = undefined;
+    _isOdious: boolean | undefined = undefined;
+    _isPrimePower: boolean | undefined = undefined;
+    _isSelf: boolean | undefined = undefined;
+    _mobius: number | undefined = undefined;
+    _getAliquotSum: number | undefined = undefined;
+    _hasIntRoot: boolean | undefined = undefined;
+    _isImpolite: boolean | undefined = undefined;
+    _isPerfect: boolean | undefined = undefined;
+    _isSelfPrime: boolean | undefined = undefined;
+    _isTetrahedral: boolean | undefined = undefined;
+    _getCenteredHexagonal: number | undefined = undefined;
+    _isAbundant: boolean | undefined = undefined;
+    _isPolite: boolean | undefined = undefined;
+    _isPronic: boolean | undefined = undefined;
+    _isSemiperfect: boolean | undefined = undefined;
+    _isUntouchable: boolean | undefined = undefined;
+    _getCountDivisors: number | undefined = undefined;
+    _isArithmetic: boolean | undefined = undefined;
+    _isMersennePrime: boolean | undefined = undefined;
+    _isPowerOf2: boolean | undefined = undefined;
+    _isUnusual: boolean | undefined = undefined;
+    _semiperfectTest: boolean | undefined = undefined;
+    _getIntRoot: number | boolean | undefined = undefined;
+    _isCenteredHexagonal: boolean | undefined = undefined;
+    _isRound: boolean | undefined = undefined;
+    _isSophieGermainPrime: boolean | undefined = undefined;
+    _isWeird: boolean | undefined = undefined;
+    _sieve: number[] | undefined = undefined;
+    _getPoliteness: number | undefined = undefined;
+    _isEven: boolean | undefined = undefined;
+    _isNatural: boolean | undefined = undefined;
+    _isPractical: boolean | undefined = undefined;
+    _isSad: boolean | undefined = undefined;
+    _isSphenic: boolean | undefined = undefined;
+    _isWhole: boolean | undefined = undefined;
+
+    // this should not need to be set - it should only be set in the constructor
+    _number: number = 0;
 
     constructor(n: number | EnhancedNumber) {
         if (unknownIsEnhancedNumber(n)) {
@@ -211,152 +209,147 @@ export class EnhancedNumber implements EnhancedNumberInterface {
         return this;
     }
 
-    toString(): string { return this.number.toString(); }
+    toString(): string | undefined { return this.number !== undefined ? this.number.toString() : undefined; }
 
-    toNumber(): number { return this.number; }
+    toNumber(): number | undefined { return this.number; }
 
     set number(v: number) { throw "base value of EnhancedNumber can not be changed, please instantiate a new instance of EnhancedNumber"; }
     get number(): number { return this._number; }
 
-    set divisors(v: number[]) { this._divisors = v; }
-    get divisors(): number[] { return this._divisors ? this._divisors : this._divisors = divisors(this); }
+    set divisors(v: number[] | undefined) { this._divisors = v; }
+    get divisors(): number[] | undefined { return this._divisors !== undefined ? this._divisors : this._divisors = divisors(this); }
 
-    set getStar(v: number) { this._getStar = v; }
-    get getStar(): number { return this._getStar ? this._getStar : this._getStar = getStar(this); }
+    set getStar(v: number | undefined) { this._getStar = v; }
+    get getStar(): number | undefined { return this._getStar !== undefined ? this._getStar : this._getStar = getStar(this); }
 
-    set isEvil(v: boolean) { this._isEvil = v; }
-    get isEvil(): boolean { return this._isEvil ? this._isEvil : this._isEvil = isEvil(this); }
+    set isEvil(v: boolean | undefined) { this._isEvil = v; }
+    get isEvil(): boolean | undefined { return this._isEvil !== undefined ? this._isEvil : this._isEvil = isEvil(this); }
 
-    set isOdd(v: boolean) { this._isOdd = v; }
-    get isOdd(): boolean { return this._isOdd ? this._isOdd : this._isOdd = isOdd(this); }
+    set isOdd(v: boolean | undefined) { this._isOdd = v; }
+    get isOdd(): boolean | undefined { return this._isOdd !== undefined ? this._isOdd : this._isOdd = isOdd(this); }
 
-    set isPrime(v: boolean) { this._isPrime = v; }
-    get isPrime(): boolean { return this._isPrime ? this._isPrime : this._isPrime = isPrime(this); }
+    set isPrime(v: boolean | undefined) { this._isPrime = v; }
+    get isPrime(): boolean | undefined { return this._isPrime !== undefined ? this._isPrime : this._isPrime = isPrime(this); }
 
-    set isSafePrime(v: boolean) { this._isSafePrime = v; }
-    get isSafePrime(): boolean { return this._isSafePrime ? this._isSafePrime : this._isSafePrime = isSafePrime(this); }
+    set isSafePrime(v: boolean | undefined) { this._isSafePrime = v; }
+    get isSafePrime(): boolean | undefined { return this._isSafePrime !== undefined ? this._isSafePrime : this._isSafePrime = isSafePrime(this); }
 
-    set isStar(v: boolean) { this._isStar = v; }
-    get isStar(): boolean { return this._isStar ? this._isStar : this._isStar = isStar(this); }
+    set isStar(v: boolean | undefined) { this._isStar = v; }
+    get isStar(): boolean | undefined { return this._isStar !== undefined ? this._isStar : this._isStar = isStar(this); }
 
     set factorsOf(v: { prime: number, power: number }[]) { this._factorsOf = v; }
-    get factorsOf(): { prime: number, power: number }[] { return this._factorsOf ? this._factorsOf : this._factorsOf = factorsOf(this); }
+    get factorsOf(): { prime: number, power: number }[] { return this._factorsOf !== undefined ? this._factorsOf : this._factorsOf = factorsOf(this); }
 
-    set getTetrahedral(v: number) { this._getTetrahedral = v; }
-    get getTetrahedral(): number { return this._getTetrahedral ? this._getTetrahedral : this._getTetrahedral = getTetrahedral(this); }
+    set getTetrahedral(v: number | undefined) { this._getTetrahedral = v; }
+    get getTetrahedral(): number | undefined { return this._getTetrahedral !== undefined ? this._getTetrahedral : this._getTetrahedral = getTetrahedral(this); }
 
-    set isHappy(v: boolean) { this._isHappy = v; }
-    get isHappy(): boolean { return this._isHappy ? this._isHappy : this._isHappy = isHappy(this); }
+    set isHappy(v: boolean | undefined) { this._isHappy = v; }
+    get isHappy(): boolean | undefined { return this._isHappy !== undefined ? this._isHappy : this._isHappy = isHappy(this); }
 
-    set isOdious(v: boolean) { this._isOdious = v; }
-    get isOdious(): boolean { return this._isOdious ? this._isOdious : this._isOdious = isOdious(this); }
+    set isOdious(v: boolean | undefined) { this._isOdious = v; }
+    get isOdious(): boolean | undefined { return this._isOdious !== undefined ? this._isOdious : this._isOdious = isOdious(this); }
 
-    set isPrimePower(v: boolean) { this._isPrimePower = v; }
-    get isPrimePower(): boolean { return this._isPrimePower ? this._isPrimePower : this._isPrimePower = isPrimePower(this); }
+    set isPrimePower(v: boolean | undefined) { this._isPrimePower = v; }
+    get isPrimePower(): boolean | undefined { return this._isPrimePower !== undefined ? this._isPrimePower : this._isPrimePower = isPrimePower(this); }
 
-    set isSelf(v: boolean) { this._isSelf = v; }
-    get isSelf(): boolean { return this._isSelf ? this._isSelf : this._isSelf = isSelf(this); }
+    set isSelf(v: boolean | undefined) { this._isSelf = v; }
+    get isSelf(): boolean | undefined { return this._isSelf !== undefined ? this._isSelf : this._isSelf = isSelf(this); }
 
     set mobius(v) { this._mobius = v; }
-    get mobius() { return this._mobius ? this._mobius : this._mobius = mobius(this); }
+    get mobius() { return this._mobius !== undefined ? this._mobius : this._mobius = mobius(this); }
 
     set getAliquotSum(v) { this._getAliquotSum = v; }
-    get getAliquotSum() { return this._getAliquotSum ? this._getAliquotSum : this._getAliquotSum = getAliquotSum(this); }
+    get getAliquotSum() { return this._getAliquotSum !== undefined ? this._getAliquotSum : this._getAliquotSum = getAliquotSum(this); }
 
-    set hasIntRoot(v: boolean) { this._hasIntRoot = v; }
-    get hasIntRoot(): boolean { return this._hasIntRoot ? this._hasIntRoot : this._hasIntRoot = hasIntRoot(this); }
+    set hasIntRoot(v: boolean | undefined) { this._hasIntRoot = v; }
+    get hasIntRoot(): boolean | undefined { return this._hasIntRoot !== undefined ? this._hasIntRoot : this._hasIntRoot = hasIntRoot(this); }
 
-    set isImpolite(v: boolean) { this._isImpolite = v; }
-    get isImpolite(): boolean { return this._isImpolite ? this._isImpolite : this._isImpolite = isImpolite(this); }
+    set isImpolite(v: boolean | undefined) { this._isImpolite = v; }
+    get isImpolite(): boolean | undefined { return this._isImpolite !== undefined ? this._isImpolite : this._isImpolite = isImpolite(this); }
 
-    set isPerfect(v: boolean) { this._isPerfect = v; }
-    get isPerfect(): boolean { return this._isPerfect ? this._isPerfect : this._isPerfect = isPerfect(this); }
+    set isPerfect(v: boolean | undefined) { this._isPerfect = v; }
+    get isPerfect(): boolean | undefined { return this._isPerfect !== undefined ? this._isPerfect : this._isPerfect = isPerfect(this); }
 
-    set isSelfPrime(v: boolean) { this._isSelfPrime = v; }
-    get isSelfPrime(): boolean { return this._isSelfPrime ? this._isSelfPrime : this._isSelfPrime = isSelfPrime(this); }
+    set isSelfPrime(v: boolean | undefined) { this._isSelfPrime = v; }
+    get isSelfPrime(): boolean | undefined { return this._isSelfPrime !== undefined ? this._isSelfPrime : this._isSelfPrime = isSelfPrime(this); }
 
-    set isTetrahedral(v: boolean) { this._isTetrahedral = v; }
-    get isTetrahedral(): boolean { return this._isTetrahedral ? this._isTetrahedral : this._isTetrahedral = isTetrahedral(this); }
+    set isTetrahedral(v: boolean | undefined) { this._isTetrahedral = v; }
+    get isTetrahedral(): boolean | undefined { return this._isTetrahedral !== undefined ? this._isTetrahedral : this._isTetrahedral = isTetrahedral(this); }
 
-    set getCenteredHexagonal(v: number) { this._getCenteredHexagonal = v; }
-    get getCenteredHexagonal(): number { return this._getCenteredHexagonal ? this._getCenteredHexagonal : this._getCenteredHexagonal = getCenteredHexagonal(this); }
+    set getCenteredHexagonal(v: number | undefined) { this._getCenteredHexagonal = v; }
+    get getCenteredHexagonal(): number | undefined { return this._getCenteredHexagonal !== undefined ? this._getCenteredHexagonal : this._getCenteredHexagonal = getCenteredHexagonal(this); }
 
-    set isAbundant(v: boolean) { this._isAbundant = v; }
-    get isAbundant(): boolean { return this._isAbundant ? this._isAbundant : this._isAbundant = isAbundant(this); }
+    set isAbundant(v: boolean | undefined) { this._isAbundant = v; }
+    get isAbundant(): boolean | undefined { return this._isAbundant !== undefined ? this._isAbundant : this._isAbundant = isAbundant(this); }
 
-    set isKRough(v: boolean) { throw "Search code for: b521f257-c885-5b59-9852-0c5324408822"; }
-    get isKRough(): boolean { throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b"; }
-    set isRough(v: boolean) { this._isKRough = v; }
-    get isRough(): boolean { return this._isKRough; }
+    set isPolite(v: boolean | undefined) { this._isPolite = v; }
+    get isPolite(): boolean | undefined { return this._isPolite !== undefined ? this._isPolite : this._isPolite = isPolite(this); }
 
-    set isPolite(v: boolean) { this._isPolite = v; }
-    get isPolite(): boolean { return this._isPolite ? this._isPolite : this._isPolite = isPolite(this); }
+    set isPronic(v: boolean | undefined) { this._isPronic = v; }
+    get isPronic(): boolean | undefined { return this._isPronic !== undefined ? this._isPronic : this._isPronic = isPronic(this); }
 
-    set isPronic(v: boolean) { this._isPronic = v; }
-    get isPronic(): boolean { return this._isPronic ? this._isPronic : this._isPronic = isPronic(this); }
+    set isSemiperfect(v: boolean | undefined) { this._isSemiperfect = v; }
+    get isSemiperfect(): boolean | undefined { return this._isSemiperfect !== undefined ? this._isSemiperfect : this._isSemiperfect = isSemiperfect(this); }
 
-    set isSemiperfect(v: boolean) { this._isSemiperfect = v; }
-    get isSemiperfect(): boolean { return this._isSemiperfect ? this._isSemiperfect : this._isSemiperfect = isSemiperfect(this); }
+    set isUntouchable(v: boolean | undefined) { this._isUntouchable = v; }
+    get isUntouchable(): boolean | undefined { return this._isUntouchable !== undefined ? this._isUntouchable : this._isUntouchable = isUntouchable(this); }
 
-    set isUntouchable(v: boolean) { this._isUntouchable = v; }
-    get isUntouchable(): boolean { return this._isUntouchable ? this._isUntouchable : this._isUntouchable = isUntouchable(this); }
+    set getCountDivisors(v: number | undefined) { this._getCountDivisors = v; }
+    get getCountDivisors(): number | undefined { return this._getCountDivisors !== undefined ? this._getCountDivisors : this._getCountDivisors = getCountDivisors(this); }
 
-    set getCountDivisors(v: number) { this._getCountDivisors = v; }
-    get getCountDivisors(): number { return this._getCountDivisors ? this._getCountDivisors : this._getCountDivisors = getCountDivisors(this); }
+    set isArithmetic(v: boolean | undefined) { this._isArithmetic = v; }
+    get isArithmetic(): boolean | undefined { return this._isArithmetic !== undefined ? this._isArithmetic : this._isArithmetic = isArithmetic(this); }
 
-    set isArithmetic(v: boolean) { this._isArithmetic = v; }
-    get isArithmetic(): boolean { return this._isArithmetic ? this._isArithmetic : this._isArithmetic = isArithmetic(this); }
+    set isMersennePrime(v: boolean | undefined) { this._isMersennePrime = v; }
+    get isMersennePrime(): boolean | undefined { return this._isMersennePrime !== undefined ? this._isMersennePrime : this._isMersennePrime = isMersennePrime(this); }
 
-    set isMersennePrime(v: boolean) { this._isMersennePrime = v; }
-    get isMersennePrime(): boolean { return this._isMersennePrime ? this._isMersennePrime : this._isMersennePrime = isMersennePrime(this); }
+    set isPowerOf2(v: boolean | undefined) { this._isPowerOf2 = v; }
+    get isPowerOf2(): boolean | undefined { return this._isPowerOf2 !== undefined ? this._isPowerOf2 : this._isPowerOf2 = isPowerOf2(this); }
 
-    set isPowerOf2(v: boolean) { this._isPowerOf2 = v; }
-    get isPowerOf2(): boolean { return this._isPowerOf2 ? this._isPowerOf2 : this._isPowerOf2 = isPowerOf2(this); }
+    set isUnusual(v: boolean | undefined) { this._isUnusual = v; }
+    get isUnusual(): boolean | undefined { return this._isUnusual !== undefined ? this._isUnusual : this._isUnusual = isUnusual(this); }
 
-    set isUnusual(v: boolean) { this._isUnusual = v; }
-    get isUnusual(): boolean { return this._isUnusual ? this._isUnusual : this._isUnusual = isUnusual(this); }
-
-    set semiperfectTest(v: boolean) { this._semiperfectTest = v; }
-    get semiperfectTest(): boolean { return this._semiperfectTest ? this._semiperfectTest : this._semiperfectTest = semiperfectTest(this); }
+    set semiperfectTest(v: boolean | undefined) { this._semiperfectTest = v; }
+    get semiperfectTest(): boolean | undefined { return this._semiperfectTest !== undefined ? this._semiperfectTest : this._semiperfectTest = semiperfectTest(this); }
 
     set getIntRoot(v: number | boolean) { this._getIntRoot = v; }
-    get getIntRoot(): number | boolean { return this._getIntRoot ? this._getIntRoot : this._getIntRoot = getIntRoot(this); }
+    get getIntRoot(): number | boolean { return this._getIntRoot !== undefined ? this._getIntRoot : this._getIntRoot = getIntRoot(this); }
 
-    set isCenteredHexagonal(v: boolean) { this._isCenteredHexagonal = v; }
-    get isCenteredHexagonal(): boolean { return this._isCenteredHexagonal ? this._isCenteredHexagonal : this._isCenteredHexagonal = isCenteredHexagonal(this); }
+    set isCenteredHexagonal(v: boolean | undefined) { this._isCenteredHexagonal = v; }
+    get isCenteredHexagonal(): boolean | undefined { return this._isCenteredHexagonal !== undefined ? this._isCenteredHexagonal : this._isCenteredHexagonal = isCenteredHexagonal(this); }
 
-    set isRound(v: boolean) { throw "Search code for: b521f257-c885-5b59-9852-0c5324408822"; }
-    get isRound(): boolean { throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b"; }
+    set isRound(v: boolean | undefined) { throw "Search code for: b521f257-c885-5b59-9852-0c5324408822"; }
+    get isRound(): boolean | undefined { throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b"; }
 
-    set isSophieGermainPrime(v: boolean) { this._isSophieGermainPrime = v; }
-    get isSophieGermainPrime(): boolean { return this._isSophieGermainPrime ? this._isSophieGermainPrime : this._isSophieGermainPrime = isSophieGermainPrime(this); }
+    set isSophieGermainPrime(v: boolean | undefined) { this._isSophieGermainPrime = v; }
+    get isSophieGermainPrime(): boolean | undefined { return this._isSophieGermainPrime !== undefined ? this._isSophieGermainPrime : this._isSophieGermainPrime = isSophieGermainPrime(this); }
 
-    set isWeird(v: boolean) { this._isWeird = v; }
-    get isWeird(): boolean { return this._isWeird ? this._isWeird : this._isWeird = isWeird(this); }
+    set isWeird(v: boolean | undefined) { this._isWeird = v; }
+    get isWeird(): boolean | undefined { return this._isWeird !== undefined ? this._isWeird : this._isWeird = isWeird(this); }
 
-    set sieve(v: number[]) { this._sieve = v; }
-    get sieve(): number[] { return this._sieve ? this._sieve : this._sieve = sieve(this); }
+    set sieve(v: number[] | undefined) { this._sieve = v; }
+    get sieve(): number[] | undefined { return this._sieve !== undefined ? this._sieve : this._sieve = sieve(this); }
 
-    set getPoliteness(v: number) { this._getPoliteness = v; }
-    get getPoliteness(): number { return this._getPoliteness ? this._getPoliteness : this._getPoliteness = getPoliteness(this); }
+    set getPoliteness(v: number | undefined) { this._getPoliteness = v; }
+    get getPoliteness(): number | undefined { return this._getPoliteness !== undefined ? this._getPoliteness : this._getPoliteness = getPoliteness(this); }
 
-    set isEven(v: boolean) { this._isEven = v; }
-    get isEven(): boolean { return this._isEven ? this._isEven : this._isEven = isEven(this); }
+    set isEven(v: boolean | undefined) { this._isEven = v; }
+    get isEven(): boolean | undefined { return this._isEven !== undefined ? this._isEven : this._isEven = isEven(this); }
 
-    set isNatural(v: boolean) { this._isNatural = v; }
-    get isNatural(): boolean { return this._isNatural ? this._isNatural : this._isNatural = isNatural(this); }
+    set isNatural(v: boolean | undefined) { this._isNatural = v; }
+    get isNatural(): boolean | undefined { return this._isNatural !== undefined ? this._isNatural : this._isNatural = isNatural(this); }
 
-    set isPractical(v: boolean) { this._isPractical = v; }
-    get isPractical(): boolean { return this._isPractical ? this._isPractical : this._isPractical = isPractical(this); }
+    set isPractical(v: boolean | undefined) { this._isPractical = v; }
+    get isPractical(): boolean | undefined { return this._isPractical !== undefined ? this._isPractical : this._isPractical = isPractical(this); }
 
-    set isSad(v: boolean) { this._isSad = v; }
-    get isSad(): boolean { return this._isSad ? this._isSad : this._isSad = isSad(this); }
+    set isSad(v: boolean | undefined) { this._isSad = v; }
+    get isSad(): boolean | undefined { return this._isSad !== undefined ? this._isSad : this._isSad = isSad(this); }
 
-    set isSphenic(v: boolean) { this._isSphenic = v; }
-    get isSphenic(): boolean { return this._isSphenic ? this._isSphenic : this._isSphenic = isSphenic(this); }
+    set isSphenic(v: boolean | undefined) { this._isSphenic = v; }
+    get isSphenic(): boolean | undefined { return this._isSphenic !== undefined ? this._isSphenic : this._isSphenic = isSphenic(this); }
 
-    set isWhole(v: boolean) { this._isWhole = v; }
-    get isWhole(): boolean { return this._isWhole ? this._isWhole : this._isWhole = isWhole(this); }
+    set isWhole(v: boolean | undefined) { this._isWhole = v; }
+    get isWhole(): boolean | undefined { return this._isWhole !== undefined ? this._isWhole : this._isWhole = isWhole(this); }
 }
 
 export const instantiatedNumbers: { [k: string]: EnhancedNumber } = {};

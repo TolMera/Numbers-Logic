@@ -1,23 +1,20 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from "../classes/enhancedNumber";
 import {getCenteredHexagonal} from "./getCenteredHexagonal";
 import {positiveOrNegativeSequence} from "./positiveOrNegativeSequence";
 
-export function isCenteredHexagonal(n) {
+export function isCenteredHexagonal(n: number | EnhancedNumber): boolean {
     n = new EnhancedNumber(n);
     if (n._isCenteredHexagonal !== undefined) {
-        return n.isCenteredHexagonal;
+        return n.isCenteredHexagonal as boolean;
     }
 
-    let c = 1;
+    let c: number | boolean = 1;
     while (true) {
-        let nth = getCenteredHexagonal(c);
-        c = positiveOrNegativeSequence(n.number, nth, c);
-        if (c === true || c === false) {
-            n.isCenteredHexagonal = c;
+        let nth = getCenteredHexagonal(c as number);
+        c = positiveOrNegativeSequence(n.number, nth, c as number);
+        if ((c as any) instanceof Boolean) {
+            n.isCenteredHexagonal = c as boolean;
             return n.isCenteredHexagonal;
         }
     }
 }
-
-module.exports = isCenteredHexagonal;

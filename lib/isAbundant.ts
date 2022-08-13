@@ -5,7 +5,7 @@ import {getAliquotSum} from "./getAliquotSum";
 export function isAbundant(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isAbundant !== undefined) {
-        return n.isAbundant;
+        return n.isAbundant as boolean;
     }
 
     // The smallest odd abundant number is 945.

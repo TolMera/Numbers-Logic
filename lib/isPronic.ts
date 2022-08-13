@@ -4,7 +4,7 @@ import {isOdd} from './isOdd';
 export function isPronic(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPronic !== undefined) {
-        return n.isPronic;
+        return n.isPronic as boolean;
     }
 
     if (isOdd(n.number)) {

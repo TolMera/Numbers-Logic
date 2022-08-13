@@ -6,7 +6,7 @@ import { sum } from './sum';
 export function semiperfectTest(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._semiperfectTest) {
-        return n.semiperfectTest;
+        return n.semiperfectTest as boolean;
     }
 
     let { difference, diffDivs, divs } = prepareNumberspace(n);
@@ -26,7 +26,7 @@ export function semiperfectTest(inputN: number | EnhancedNumber): boolean {
     return false;
 }
 
-function prepareNumberspace(n) {
+function prepareNumberspace(n: EnhancedNumber): { difference: number, diffDivs: number[], divs: number[] } {
     let difference = getAliquotSum(n) - n.number;
 
     let divs = divisors(n);
@@ -39,14 +39,14 @@ function prepareNumberspace(n) {
     return { difference, diffDivs, divs };
 }
 
-function reduceDivs(divs, difference) {
-    let number = sum(divs.filter(v => (v > difference)));
-    divs = divs.filter(v => !(v > difference));
+function reduceDivs(divs: number[], difference: number): number[] {
+    let number = sum(divs.filter((v: number) => (v > difference)));
+    divs = divs.filter((v: number) => !(v > difference));
     divs.push(number);
     return divs;
 }
 
-function pattern1(n, divs) {
+function pattern1(n: number, divs: number[]): boolean {
     let num = 0;
     for (const div of divs) {
         if (num + div < n) {
@@ -60,10 +60,10 @@ function pattern1(n, divs) {
     return false;
 }
 
-function jumpFromWrongDiv_1stJump(n, divs) {
+function jumpFromWrongDiv_1stJump(n: number, divs: number[]) {
     while (sum(divs) >= n) {
         let num = 0;
-        let jump = false;
+        let jump: boolean|number = false;
         for (const div of divs) {
             if (num + div < n) {
                 num += div;
@@ -76,16 +76,16 @@ function jumpFromWrongDiv_1stJump(n, divs) {
             }
         }
 
-        divs = divs.filter((v) => v !== jump);
+        divs = divs.filter((v: boolean | number) => v !== jump);
     }
 
     return false;
 }
 
-function jumpToWrongDiv_1stJump(n, divs) {
+function jumpToWrongDiv_1stJump(n: number, divs: number[]): boolean {
     while (sum(divs) >= n) {
         let num = 0;
-        let jump = false;
+        let jump: boolean | number = false;
         for (const div of divs) {
             if (num + div < n) {
                 num += div;
@@ -101,7 +101,7 @@ function jumpToWrongDiv_1stJump(n, divs) {
             }
         }
 
-        divs = divs.filter((v) => v !== jump);
+        divs = divs.filter((v: number) => v !== jump);
         if (jump === true) {
             break;
         }

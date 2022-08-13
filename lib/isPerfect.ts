@@ -3,7 +3,6 @@
  * @module numbers-logic
  * @author Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://www.tolmera.com)
  */
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber'; 
 import {divisors} from './divisors';
 import {sum} from './sum';
@@ -11,7 +10,7 @@ import {sum} from './sum';
 export function isPerfect(inputN: number | EnhancedNumber):boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPerfect !== undefined) {
-        return n.isPerfect;
+        return n.isPerfect as boolean;
     }
 
     if (n.number === 1) {

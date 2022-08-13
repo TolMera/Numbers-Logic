@@ -1,28 +1,27 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
-import {sum} from './sum';
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import { sum } from './sum';
 
-export function isHappy(n, base = 10) {
+export function isHappy(n: number | EnhancedNumber, base = 10) {
     n = new EnhancedNumber(n);
     if (n._isHappy !== undefined) {
         return n.isHappy;
     }
 
-    number = Math.abs(n.number);
+    let num = Math.abs(n.number);
 
-    const theList = [];
+    const theList: number[] = [];
     while (true) {
-        number = sum(
-            Array.from(number.toString(base))
-                .map(number => Math.pow(parseInt(number, base), 2))
+        num = sum(
+            Array.from(num.toString(base))
+                .map(num => Math.pow(parseInt(num, base), 2))
         );
-        if (theList.includes(number)) {
+        if (theList.includes(num)) {
             n.isHappy = false;
             return n.isHappy;
         }
-        theList.push(number);
+        theList.push(num);
 
-        if (number === 1) {
+        if (num === 1) {
             n.isHappy = true;
             return n.isHappy;
         }

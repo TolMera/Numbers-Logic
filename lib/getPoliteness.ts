@@ -1,4 +1,3 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 
 import { isPowerOf2 } from './isPowerOf2';
@@ -15,7 +14,7 @@ import { isEven } from './isEven';
 export function getPoliteness(inputN: number | EnhancedNumber): number {
     const n = new EnhancedNumber(inputN);
     if (n._getPoliteness !== undefined) {
-        return n.getPoliteness;
+        return n.getPoliteness as number;
     }
 
     if (isPowerOf2(n)) {

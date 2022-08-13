@@ -1,7 +1,7 @@
-import { EnhancedNumber, EnhancedNumberType } from '../classes/enhancedNumber';
+import { EnhancedNumber } from '../classes/enhancedNumber';
 
 // for (let x = 0; x < 100; x++) { if (isSelf(x)) console.log(x); }
-export function isSelf(inputN: number | EnhancedNumber, base: number = 10) {
+export function isSelf(inputN: number | EnhancedNumber, base: number = 10): boolean {
     const n = new EnhancedNumber(inputN);
 
     /*

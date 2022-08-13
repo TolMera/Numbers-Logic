@@ -1,12 +1,11 @@
-import type {EnhancedNumberType} from '../classes/EnhancedNumberType';
-import {EnhancedNumber} from '../classes/EnhancedNumber';
-import {isSelf} from "./isSelf";
-import {isPrime} from "./isPrime";
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import { isSelf } from "./isSelf";
+import { isPrime } from "./isPrime";
 
-export function isSelfPrime(n: number | EnhancedNumber): boolean {
-    n = EnhancedNumber(n);
+export function isSelfPrime(inputN: number | EnhancedNumber): boolean {
+    const n = new EnhancedNumber(inputN);
     if (n._isSelfPrime) {
-        return n.isSelfPrime;
+        return n.isSelfPrime as boolean;
     }
 
     if (isPrime(n) && isSelf(n)) {

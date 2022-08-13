@@ -1,6 +1,5 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
-import isPowerOf2 from "./isPowerOf2";
+import { isPowerOf2 } from "./isPowerOf2";
 
 // https://en.wikipedia.org/wiki/Polite_number
 export function isPolite(n: number | EnhancedNumber) {

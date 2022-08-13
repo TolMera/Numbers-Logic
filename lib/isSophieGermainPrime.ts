@@ -1,4 +1,3 @@
-import { EnhancedNumberType } from "../classes/enhancedNumber";
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { isPrime } from "./isPrime";
 
@@ -6,7 +5,7 @@ import { isPrime } from "./isPrime";
 export function isSophieGermainPrime(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isSophieGermainPrime) {
-        return n.isSophieGermainPrime;
+        return n.isSophieGermainPrime as boolean;
     }
 
     if (isPrime(n) && isPrime(2 * n.number + 1)) {

@@ -1,5 +1,6 @@
-import isEven from "./isEven";
+import { EnhancedNumber, unknownIsEnhancedNumber } from "../classes/enhancedNumber";
+import { isEven } from "./isEven";
 
 export function isOdd(n: number | EnhancedNumber) {
-    return !isEven(n);
+    return unknownIsEnhancedNumber(n) ? !isEven(n.number) : !isEven(n);
 };

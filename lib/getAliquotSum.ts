@@ -1,4 +1,3 @@
-import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import { EnhancedNumber } from '../classes/enhancedNumber';
 import { divisors } from './divisors';
 import { sum } from './sum';

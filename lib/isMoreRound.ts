@@ -1,4 +1,4 @@
-export function isMoreRound(n1, n2, base1 = 10, base2 = 10) {
+export function isMoreRound(n1: number, n2: number, base1: number = 10, base2: number = 10) {
     const n1InBase = Math.abs(Number(n1)).toString(base1);
     const n2InBase = Math.abs(Number(n2)).toString(base2);
     const n1string = Array.from(n1InBase).reverse();
@@ -14,7 +14,6 @@ export function isMoreRound(n1, n2, base1 = 10, base2 = 10) {
         if (n1string[c] === '1' && n2string[c] === '0') {
             return -1;
         }
-        throw "Error contact publisher - search for: f8395aec-9b9d-48de-b2d3-9e1978b34cb4"
     }
 
     return 0;

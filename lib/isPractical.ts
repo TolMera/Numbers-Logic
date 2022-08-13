@@ -1,4 +1,3 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {isPerfect} from './isPerfect';
 import {divisors} from './divisors';
@@ -8,16 +7,16 @@ import {isSubsetSum} from "./isSubsetSum";
 export function isPractical(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPractical !== undefined) {
-        return n.isPractical;
+        return n.isPractical as boolean;
     }
 
-    if (n === 0) {
+    if (n.number === 0) {
         n.isPractical = false;
-        return n.isPractical;
+        return n.isPractical as boolean;
     }
-    if (n === 1 || n === 2) {
+    if (n.number === 1 || n.number === 2) {
         n.isPractical = true;
-        return n.isPractical;
+        return n.isPractical as boolean;
     }
 
     // Every power of two is also a practical number
@@ -32,7 +31,7 @@ export function isPractical(inputN: number | EnhancedNumber): boolean {
         return n.isPractical;
     }
 
-    if (n % 4 === 0 || n % 6 === 0) {
+    if (n.number % 4 === 0 || n.number % 6 === 0) {
         // Every practical number is divisible by 4 or 6 (or both).
         const divs = divisors(n);
         for (let i = 1; i < n.number; i++) {

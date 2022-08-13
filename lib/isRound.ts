@@ -1,17 +1,11 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 
-export function isRound(n: number | EnhancedNumber, base: number = 10) {
-    n = new EnhancedNumber(n);
-    if (n._isRound?.[base] !== undefined) {
-        return n._isRound[base];
-    }
+export function isRound(inputN: number | EnhancedNumber, base: number = 10) {
+    const n = new EnhancedNumber(inputN);
 
     const numberInBase = Number(n.number).toString(base);
     if (Array.from(numberInBase).reverse()[0] === "0") {
-        n._isRound[base] = true;
-        return n._isRound[base];
+        return true;
     }
-    n._isRound[base] = false;
-    return n._isRound[base];
+    return false;
 };

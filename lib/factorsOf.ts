@@ -1,4 +1,3 @@
-import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {sieve} from './sieve';
 

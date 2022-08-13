@@ -1,15 +1,14 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
-import {EnhancedNumber} from '../classes/enhancedNumber';
-import {isOdd} from "./isOdd";
+import { EnhancedNumber } from '../classes/enhancedNumber';
+import { isOdd } from "./isOdd";
 
 export function isEvil(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isEvil !== undefined) {
-        return n.isEvil;
+        return n.isEvil as boolean;
     }
 
     let bits = 0;
-    for (const bit of parseInt(n.number).toString(2)) {
+    for (const bit of parseInt(String(n.number)).toString(2)) {
         if (bit === "1") {
             bits++;
         }

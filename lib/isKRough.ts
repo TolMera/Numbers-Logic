@@ -1,36 +1,27 @@
-import type { EnhancedNumberType } from '../classes/enhancedNumber';
 import { EnhancedNumber } from '../classes/enhancedNumber';
-// import {isSmooth} from './isSmooth';
-import { isRough } from './isRough';
+import { factorsOf } from './factorsOf';
+import {isOdd} from './isOdd';
 
-export function isKRough(n, k) {
-    n = new EnhancedNumber(n);
-    if (n._isKRough?.[k] !== undefined) {
-        return n._isKRough[k];
-    }
+export function isKRough(inputN: number | EnhancedNumber, k: number): boolean {
+    const n = new EnhancedNumber(inputN);
 
     if (n.number < 0) {
-        n._isKRough[k] = false;
-        return n._isKRough[k];
+        return false;
     }
 
     // Every positive integer is 2-rough, since all its prime factors, being prime numbers, exceed 1.
     if (k === 2) {
-        n._isKRough[k] = true;
-        return n._isKRough[k];
+        return true;
     }
 
     // Every odd positive integer is 3-rough.
-    if (isOdd(n) && k === 3) {
-        n._isKRough[k] = true;
-        return n._isKRough[k];
+    if (isOdd(n.number) && k === 3) {
+        return true;
     }
 
     const primeFactors = factorsOf(n);
     if (primeFactors.filter((value) => value.prime < k).length === 0) {
-        n._isKRough[k] = true;
-        return n._isKRough[k];
+        return true;
     }
-    n._isKRough[k] = false;
-    return n._isKRough[k];
+    return false;
 };

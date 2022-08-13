@@ -8,8 +8,8 @@ import {factorsOf} from './factorsOf';
  * @module number-theory
  * @author Ricky Reusser
  */
-export function mobius(n: number | EnhancedNumber): number {
-  n = new EnhancedNumber(n);
+export function mobius(inputN: number | EnhancedNumber): number {
+  const n = new EnhancedNumber(inputN);
   if (n._mobius) {
       return n.mobius;
   }
@@ -21,7 +21,7 @@ export function mobius(n: number | EnhancedNumber): number {
 
   // Factor the absolute value so that negative numbers are
   // permissible:
-  let factors = factorsOf(Math.abs(n));
+  let factors = factorsOf(Math.abs(n.number));
 
   // Return zero if any factor has power > 1:
   if (factors.find(record => record.power > 1)) {
@@ -29,7 +29,7 @@ export function mobius(n: number | EnhancedNumber): number {
     return n.mobius;
   }
 
-  if (factors.length & 0b1 === 1) {
+  if ((factors.length & 0b1) === 1) {
     // return -1 if odd
     n.mobius = -1;
     return n.mobius;

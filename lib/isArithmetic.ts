@@ -1,4 +1,3 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from "../classes/enhancedNumber";
 import {divisors} from './divisors';
 import {sum} from './sum';
@@ -6,14 +5,14 @@ import {sum} from './sum';
 export function isArithmetic(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isArithmetic !== undefined) {
-        return n.isArithmetic;
+        return n.isArithmetic as boolean;
     }
 
-    if (n === 0) {
+    if (n.number === 0) {
         n.isArithmetic = false;
         return n.isArithmetic;
     }
-    if (n === 1 || n < 0) {
+    if (n.number === 1 || n.number < 0) {
         n.isArithmetic = true;
         return n.isArithmetic;
     }

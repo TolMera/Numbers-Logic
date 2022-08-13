@@ -1,9 +1,8 @@
-import type {EnhancedNumberType} from '../classes/enhancedNumber';
 import {EnhancedNumber} from '../classes/enhancedNumber';
 import {isPolite} from './isPolite';
 
-export function isImpolite(n) {
-    n = new EnhancedNumber(n);
+export function isImpolite(inputN: number | EnhancedNumber) {
+    const n = new EnhancedNumber(inputN);
     if (n._isImpolite !== undefined) {
         return n.isImpolite;
     }

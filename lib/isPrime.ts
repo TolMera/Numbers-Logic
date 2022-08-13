@@ -4,7 +4,7 @@ import { factorsOf } from "./factorsOf";
 export function isPrime(inputN: number | EnhancedNumber): boolean {
     const n = new EnhancedNumber(inputN);
     if (n._isPrime !== undefined) {
-        return n.isPrime;
+        return n.isPrime as boolean;
     }
 
     const factors = factorsOf(n);
