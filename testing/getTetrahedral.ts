@@ -1,5 +1,5 @@
 import {atk} from 'advanced-testing-kit';
-import {generators} from '../node_modules/advanced-testing-kit/lib/numberGenerators';
+import * as generators from 'advanced-testing-kit/lib/numberGenerators';
 import {getTetrahedral} from '../lib/getTetrahedral';
 
 index();
