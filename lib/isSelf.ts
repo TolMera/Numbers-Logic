@@ -1,10 +1,13 @@
-import { EnhancedNumber } from '../classes/enhancedNumber';
+import { EnhancedNumber } from "../classes/enhancedNumber";
 
 // for (let x = 0; x < 100; x++) { if (isSelf(x)) console.log(x); }
-export function isSelf(inputN: number | EnhancedNumber, base: number = 10): boolean {
-    const n = new EnhancedNumber(inputN);
+export function isSelf(
+	inputN: number | EnhancedNumber,
+	base: number = 10
+): boolean {
+	const n = new EnhancedNumber(inputN);
 
-    /*
+	/*
     Nope, I don't get it.
     if (n === 0) return false;
     // I think 1 is always a self number in any base
@@ -50,19 +53,18 @@ export function isSelf(inputN: number | EnhancedNumber, base: number = 10): bool
     }
     return false;
     */
-    //    I don't like that this is base 10 only
-    function getSum(n: number): number {
-        let sum = 0;
-        while (n != 0) {
-            sum = sum + n % 10;
-            n = parseInt(String(n / 10));
-        }
-        return sum;
-    }
+	//    I don't like that this is base 10 only
+	function getSum(n: number): number {
+		let sum = 0;
+		while (n != 0) {
+			sum = sum + (n % 10);
+			n = parseInt(String(n / 10));
+		}
+		return sum;
+	}
 
-    for (let m = 1; m <= n.number; m++) {
-        if (m + getSum(m) === n.number)
-            return false;
-    }
-    return true;
-};
+	for (let m = 1; m <= n.number; m++) {
+		if (m + getSum(m) === n.number) return false;
+	}
+	return true;
+}
