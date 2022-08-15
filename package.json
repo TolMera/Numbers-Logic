@@ -19,7 +19,7 @@
 		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs",
 		"compile": "tsc",
 		"start": "ts-node index.ts",
-		"test": "for file in ./testing/*; do echo $file & time ts-node $file; done;"
+		"test": "for file in ./testing/*; do echo $file && time ts-node $file || exit 1; done;"
 	},
 	"keywords": [
 		"number",
