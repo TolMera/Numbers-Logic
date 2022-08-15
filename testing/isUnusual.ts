@@ -1,5 +1,8 @@
 import { atk } from "advanced-testing-kit";
-import * as generators from "advanced-testing-kit/lib/numberGenerators";
+import {
+	safePositiveInteger,
+	safeNegativeInteger,
+} from "advanced-testing-kit/lib/numberGenerators";
 import { isUnusual } from "../lib/isUnusual";
 
 index();
@@ -27,13 +30,13 @@ function index() {
 			[
 				{
 					type: Number,
-					generator: generators.safePositiveInteger,
+					generator: safePositiveInteger,
 				},
 			],
 			[
 				{
 					type: Number,
-					generator: generators.safeNegativeInteger,
+					generator: safeNegativeInteger,
 				},
 			],
 		],

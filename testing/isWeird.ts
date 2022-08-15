@@ -1,5 +1,4 @@
 import { atk } from "advanced-testing-kit";
-import * as generators from "advanced-testing-kit/lib/numberGenerators";
 import { isWeird } from "../lib/isWeird";
 
 index();
