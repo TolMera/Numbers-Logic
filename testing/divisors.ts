@@ -1,6 +1,6 @@
 import { atk } from "advanced-testing-kit";
 import { divisors } from "../lib/divisors";
-import * as generators from "advanced-testing-kit/lib/numberGenerators";
+// import * as generators from "advanced-testing-kit/lib/numberGenerators";
 
 index();
 process.exit();
