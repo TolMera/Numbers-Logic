@@ -4,6 +4,7 @@ import { isOdd } from "./isOdd";
 
 export function isKRough(inputN: number | EnhancedNumber, k: number): boolean {
 	const n = new EnhancedNumber(inputN);
+	console.log(n.number);
 
 	if (n.number < 0) {
 		return false;
@@ -19,9 +20,16 @@ export function isKRough(inputN: number | EnhancedNumber, k: number): boolean {
 		return true;
 	}
 
-	const primeFactors = factorsOf(n);
-	if (primeFactors.filter((value) => value.prime < k).length === 0) {
-		return true;
+	/**
+	 * There are two definitions of KRough numbers, one where all the primes of a number are GREATER than K
+	 * And another where all the primes are EQUAL TO or GREATER than K.
+	 *
+	 * the second definition is the one we are using.
+	 * To switch this, change the value of below.
+	 */
+	// if (factorsOf(n).filter((v) => v.prime <= k).length > 0) {
+	if (factorsOf(n).filter((v) => v.prime < k).length > 0) {
+		return false;
 	}
-	return false;
+	return true;
 }

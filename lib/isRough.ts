@@ -1,2 +1,1 @@
-import { isKRough as x } from "./isKRough";
-export const isRough = x;
+export { isKRough as isRough } from "./isKRough";

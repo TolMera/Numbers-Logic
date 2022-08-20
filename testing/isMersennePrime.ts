@@ -1,4 +1,4 @@
-import { atk } from "advanced-testing-kit";
+import * as atk from "advanced-testing-kit";
 import { isMersennePrime } from "../lib/isMersennePrime";
 import * as generators from "advanced-testing-kit/lib/numberGenerators";
 

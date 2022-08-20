@@ -8,6 +8,5 @@ export function isPolite(n: number | EnhancedNumber) {
 		return n.isPolite;
 	}
 
-	n.isPolite = isPowerOf2(n);
-	return n.isPolite;
+	return (n.isPolite = !isPowerOf2(n));
 }

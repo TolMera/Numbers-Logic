@@ -91,55 +91,55 @@ export interface EnhancedNumberInterface {
 	_isWhole: boolean | undefined;
 
 	// Getters and Setters
-	divisors: number[] | undefined;
-	factorsOf: { prime: number; power: number }[] | undefined;
-	getAliquotSum: number | undefined;
-	getCenteredHexagonal: number | undefined;
-	getCountDivisors: number | undefined;
-	getIntRoot: number | boolean | undefined;
-	getPoliteness: number | undefined;
-	getStar: number | undefined;
-	getTetrahedral: number | undefined;
-	hasIntRoot: boolean | undefined;
-	isAbundant: boolean | undefined;
-	isArithmetic: boolean | undefined;
-	isCenteredHexagonal: boolean | undefined;
-	isEven: boolean | undefined;
-	isEvil: boolean | undefined;
-	isHappy: boolean | undefined;
-	isImpolite: boolean | undefined;
-	isMersennePrime: boolean | undefined;
-	isNatural: boolean | undefined;
-	isOdd: boolean | undefined;
-	isOdious: boolean | undefined;
-	isPerfect: boolean | undefined;
-	isPolite: boolean | undefined;
-	isPowerOf2: boolean | undefined;
-	isPractical: boolean | undefined;
-	isPrime: boolean | undefined;
-	isPrimePower: boolean | undefined;
-	isPronic: boolean | undefined;
-	isRound: boolean | undefined;
-	isSad: boolean | undefined;
-	isSafePrime: boolean | undefined;
-	isSelf: boolean | undefined;
-	isSelfPrime: boolean | undefined;
-	isSemiperfect: boolean | undefined;
-	isSophieGermainPrime: boolean | undefined;
-	isSphenic: boolean | undefined;
-	isStar: boolean | undefined;
-	isTetrahedral: boolean | undefined;
-	isUntouchable: boolean | undefined;
-	isUnusual: boolean | undefined;
-	isWeird: boolean | undefined;
-	isWhole: boolean | undefined;
-	mobius: number | undefined;
-	semiperfectTest: boolean | undefined;
-	sieve: number[] | undefined;
+	divisors: number[];
+	factorsOf: { prime: number; power: number }[];
+	getAliquotSum: number;
+	getCenteredHexagonal: number;
+	getCountDivisors: number;
+	getIntRoot: number | boolean;
+	getPoliteness: number;
+	getStar: number;
+	getTetrahedral: number;
+	hasIntRoot: boolean;
+	isAbundant: boolean;
+	isArithmetic: boolean;
+	isCenteredHexagonal: boolean;
+	isEven: boolean;
+	isEvil: boolean;
+	isHappy: boolean;
+	isImpolite: boolean;
+	isMersennePrime: boolean;
+	isNatural: boolean;
+	isOdd: boolean;
+	isOdious: boolean;
+	isPerfect: boolean;
+	isPolite: boolean;
+	isPowerOf2: boolean;
+	isPractical: boolean;
+	isPrime: boolean;
+	isPrimePower: boolean;
+	isPronic: boolean;
+	isRound: boolean;
+	isSad: boolean;
+	isSafePrime: boolean;
+	isSelf: boolean;
+	isSelfPrime: boolean;
+	isSemiperfect: boolean;
+	isSophieGermainPrime: boolean;
+	isSphenic: boolean;
+	isStar: boolean;
+	isTetrahedral: boolean;
+	isUntouchable: boolean;
+	isUnusual: boolean;
+	isWeird: boolean;
+	isWhole: boolean;
+	mobius: number;
+	semiperfectTest: boolean;
+	sieve: number[];
 
 	// Functions
-	toString: () => string | undefined;
-	toNumber: () => number | undefined;
+	toString: () => string;
+	toNumber: () => number;
 }
 
 export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
@@ -208,11 +208,11 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 		return this;
 	}
 
-	toString(): string | undefined {
-		return this.number !== undefined ? this.number.toString() : undefined;
+	toString(): string {
+		return this.number.toString();
 	}
 
-	toNumber(): number | undefined {
+	toNumber(): number {
 		return this.number;
 	}
 
@@ -223,64 +223,64 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 		return this._number;
 	}
 
-	set divisors(v: number[] | undefined) {
+	set divisors(v: number[]) {
 		this._divisors = v;
 	}
-	get divisors(): number[] | undefined {
+	get divisors(): number[] {
 		return this._divisors !== undefined
 			? this._divisors
 			: (this._divisors = divisors(this));
 	}
 
-	set getStar(v: number | undefined) {
+	set getStar(v: number) {
 		this._getStar = v;
 	}
-	get getStar(): number | undefined {
+	get getStar(): number {
 		return this._getStar !== undefined
 			? this._getStar
 			: (this._getStar = getStar(this));
 	}
 
-	set isEvil(v: boolean | undefined) {
+	set isEvil(v: boolean) {
 		this._isEvil = v;
 	}
-	get isEvil(): boolean | undefined {
+	get isEvil(): boolean {
 		return this._isEvil !== undefined
 			? this._isEvil
 			: (this._isEvil = isEvil(this));
 	}
 
-	set isOdd(v: boolean | undefined) {
+	set isOdd(v: boolean) {
 		this._isOdd = v;
 	}
-	get isOdd(): boolean | undefined {
+	get isOdd(): boolean {
 		return this._isOdd !== undefined
 			? this._isOdd
 			: (this._isOdd = isOdd(this));
 	}
 
-	set isPrime(v: boolean | undefined) {
+	set isPrime(v: boolean) {
 		this._isPrime = v;
 	}
-	get isPrime(): boolean | undefined {
+	get isPrime(): boolean {
 		return this._isPrime !== undefined
 			? this._isPrime
 			: (this._isPrime = isPrime(this));
 	}
 
-	set isSafePrime(v: boolean | undefined) {
+	set isSafePrime(v: boolean) {
 		this._isSafePrime = v;
 	}
-	get isSafePrime(): boolean | undefined {
+	get isSafePrime(): boolean {
 		return this._isSafePrime !== undefined
 			? this._isSafePrime
 			: (this._isSafePrime = isSafePrime(this));
 	}
 
-	set isStar(v: boolean | undefined) {
+	set isStar(v: boolean) {
 		this._isStar = v;
 	}
-	get isStar(): boolean | undefined {
+	get isStar(): boolean {
 		return this._isStar !== undefined
 			? this._isStar
 			: (this._isStar = isStar(this));
@@ -295,46 +295,46 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 			: (this._factorsOf = factorsOf(this));
 	}
 
-	set getTetrahedral(v: number | undefined) {
+	set getTetrahedral(v: number) {
 		this._getTetrahedral = v;
 	}
-	get getTetrahedral(): number | undefined {
+	get getTetrahedral(): number {
 		return this._getTetrahedral !== undefined
 			? this._getTetrahedral
 			: (this._getTetrahedral = getTetrahedral(this));
 	}
 
-	set isHappy(v: boolean | undefined) {
+	set isHappy(v: boolean) {
 		this._isHappy = v;
 	}
-	get isHappy(): boolean | undefined {
+	get isHappy(): boolean {
 		return this._isHappy !== undefined
 			? this._isHappy
 			: (this._isHappy = isHappy(this));
 	}
 
-	set isOdious(v: boolean | undefined) {
+	set isOdious(v: boolean) {
 		this._isOdious = v;
 	}
-	get isOdious(): boolean | undefined {
+	get isOdious(): boolean {
 		return this._isOdious !== undefined
 			? this._isOdious
 			: (this._isOdious = isOdious(this));
 	}
 
-	set isPrimePower(v: boolean | undefined) {
+	set isPrimePower(v: boolean) {
 		this._isPrimePower = v;
 	}
-	get isPrimePower(): boolean | undefined {
+	get isPrimePower(): boolean {
 		return this._isPrimePower !== undefined
 			? this._isPrimePower
 			: (this._isPrimePower = isPrimePower(this));
 	}
 
-	set isSelf(v: boolean | undefined) {
+	set isSelf(v: boolean) {
 		this._isSelf = v;
 	}
-	get isSelf(): boolean | undefined {
+	get isSelf(): boolean {
 		return this._isSelf !== undefined
 			? this._isSelf
 			: (this._isSelf = isSelf(this));
@@ -358,154 +358,154 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 			: (this._getAliquotSum = getAliquotSum(this));
 	}
 
-	set hasIntRoot(v: boolean | undefined) {
+	set hasIntRoot(v: boolean) {
 		this._hasIntRoot = v;
 	}
-	get hasIntRoot(): boolean | undefined {
+	get hasIntRoot(): boolean {
 		return this._hasIntRoot !== undefined
 			? this._hasIntRoot
 			: (this._hasIntRoot = hasIntRoot(this));
 	}
 
-	set isImpolite(v: boolean | undefined) {
+	set isImpolite(v: boolean) {
 		this._isImpolite = v;
 	}
-	get isImpolite(): boolean | undefined {
+	get isImpolite(): boolean {
 		return this._isImpolite !== undefined
 			? this._isImpolite
 			: (this._isImpolite = isImpolite(this));
 	}
 
-	set isPerfect(v: boolean | undefined) {
+	set isPerfect(v: boolean) {
 		this._isPerfect = v;
 	}
-	get isPerfect(): boolean | undefined {
+	get isPerfect(): boolean {
 		return this._isPerfect !== undefined
 			? this._isPerfect
 			: (this._isPerfect = isPerfect(this));
 	}
 
-	set isSelfPrime(v: boolean | undefined) {
+	set isSelfPrime(v: boolean) {
 		this._isSelfPrime = v;
 	}
-	get isSelfPrime(): boolean | undefined {
+	get isSelfPrime(): boolean {
 		return this._isSelfPrime !== undefined
 			? this._isSelfPrime
 			: (this._isSelfPrime = isSelfPrime(this));
 	}
 
-	set isTetrahedral(v: boolean | undefined) {
+	set isTetrahedral(v: boolean) {
 		this._isTetrahedral = v;
 	}
-	get isTetrahedral(): boolean | undefined {
+	get isTetrahedral(): boolean {
 		return this._isTetrahedral !== undefined
 			? this._isTetrahedral
 			: (this._isTetrahedral = isTetrahedral(this));
 	}
 
-	set getCenteredHexagonal(v: number | undefined) {
+	set getCenteredHexagonal(v: number) {
 		this._getCenteredHexagonal = v;
 	}
-	get getCenteredHexagonal(): number | undefined {
+	get getCenteredHexagonal(): number {
 		return this._getCenteredHexagonal !== undefined
 			? this._getCenteredHexagonal
 			: (this._getCenteredHexagonal = getCenteredHexagonal(this));
 	}
 
-	set isAbundant(v: boolean | undefined) {
+	set isAbundant(v: boolean) {
 		this._isAbundant = v;
 	}
-	get isAbundant(): boolean | undefined {
+	get isAbundant(): boolean {
 		return this._isAbundant !== undefined
 			? this._isAbundant
 			: (this._isAbundant = isAbundant(this));
 	}
 
-	set isPolite(v: boolean | undefined) {
+	set isPolite(v: boolean) {
 		this._isPolite = v;
 	}
-	get isPolite(): boolean | undefined {
+	get isPolite(): boolean {
 		return this._isPolite !== undefined
 			? this._isPolite
 			: (this._isPolite = isPolite(this));
 	}
 
-	set isPronic(v: boolean | undefined) {
+	set isPronic(v: boolean) {
 		this._isPronic = v;
 	}
-	get isPronic(): boolean | undefined {
+	get isPronic(): boolean {
 		return this._isPronic !== undefined
 			? this._isPronic
 			: (this._isPronic = isPronic(this));
 	}
 
-	set isSemiperfect(v: boolean | undefined) {
+	set isSemiperfect(v: boolean) {
 		this._isSemiperfect = v;
 	}
-	get isSemiperfect(): boolean | undefined {
+	get isSemiperfect(): boolean {
 		return this._isSemiperfect !== undefined
 			? this._isSemiperfect
 			: (this._isSemiperfect = isSemiperfect(this));
 	}
 
-	set isUntouchable(v: boolean | undefined) {
+	set isUntouchable(v: boolean) {
 		this._isUntouchable = v;
 	}
-	get isUntouchable(): boolean | undefined {
+	get isUntouchable(): boolean {
 		return this._isUntouchable !== undefined
 			? this._isUntouchable
 			: (this._isUntouchable = isUntouchable(this));
 	}
 
-	set getCountDivisors(v: number | undefined) {
+	set getCountDivisors(v: number) {
 		this._getCountDivisors = v;
 	}
-	get getCountDivisors(): number | undefined {
+	get getCountDivisors(): number {
 		return this._getCountDivisors !== undefined
 			? this._getCountDivisors
 			: (this._getCountDivisors = getCountDivisors(this));
 	}
 
-	set isArithmetic(v: boolean | undefined) {
+	set isArithmetic(v: boolean) {
 		this._isArithmetic = v;
 	}
-	get isArithmetic(): boolean | undefined {
+	get isArithmetic(): boolean {
 		return this._isArithmetic !== undefined
 			? this._isArithmetic
 			: (this._isArithmetic = isArithmetic(this));
 	}
 
-	set isMersennePrime(v: boolean | undefined) {
+	set isMersennePrime(v: boolean) {
 		this._isMersennePrime = v;
 	}
-	get isMersennePrime(): boolean | undefined {
+	get isMersennePrime(): boolean {
 		return this._isMersennePrime !== undefined
 			? this._isMersennePrime
 			: (this._isMersennePrime = isMersennePrime(this));
 	}
 
-	set isPowerOf2(v: boolean | undefined) {
+	set isPowerOf2(v: boolean) {
 		this._isPowerOf2 = v;
 	}
-	get isPowerOf2(): boolean | undefined {
+	get isPowerOf2(): boolean {
 		return this._isPowerOf2 !== undefined
 			? this._isPowerOf2
 			: (this._isPowerOf2 = isPowerOf2(this));
 	}
 
-	set isUnusual(v: boolean | undefined) {
+	set isUnusual(v: boolean) {
 		this._isUnusual = v;
 	}
-	get isUnusual(): boolean | undefined {
+	get isUnusual(): boolean {
 		return this._isUnusual !== undefined
 			? this._isUnusual
 			: (this._isUnusual = isUnusual(this));
 	}
 
-	set semiperfectTest(v: boolean | undefined) {
+	set semiperfectTest(v: boolean) {
 		this._semiperfectTest = v;
 	}
-	get semiperfectTest(): boolean | undefined {
+	get semiperfectTest(): boolean {
 		return this._semiperfectTest !== undefined
 			? this._semiperfectTest
 			: (this._semiperfectTest = semiperfectTest(this));
@@ -520,107 +520,107 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 			: (this._getIntRoot = getIntRoot(this));
 	}
 
-	set isCenteredHexagonal(v: boolean | undefined) {
+	set isCenteredHexagonal(v: boolean) {
 		this._isCenteredHexagonal = v;
 	}
-	get isCenteredHexagonal(): boolean | undefined {
+	get isCenteredHexagonal(): boolean {
 		return this._isCenteredHexagonal !== undefined
 			? this._isCenteredHexagonal
 			: (this._isCenteredHexagonal = isCenteredHexagonal(this));
 	}
 
-	set isRound(v: boolean | undefined) {
+	set isRound(v: boolean) {
 		throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
 	}
-	get isRound(): boolean | undefined {
+	get isRound(): boolean {
 		throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
 	}
 
-	set isSophieGermainPrime(v: boolean | undefined) {
+	set isSophieGermainPrime(v: boolean) {
 		this._isSophieGermainPrime = v;
 	}
-	get isSophieGermainPrime(): boolean | undefined {
+	get isSophieGermainPrime(): boolean {
 		return this._isSophieGermainPrime !== undefined
 			? this._isSophieGermainPrime
 			: (this._isSophieGermainPrime = isSophieGermainPrime(this));
 	}
 
-	set isWeird(v: boolean | undefined) {
+	set isWeird(v: boolean) {
 		this._isWeird = v;
 	}
-	get isWeird(): boolean | undefined {
+	get isWeird(): boolean {
 		return this._isWeird !== undefined
 			? this._isWeird
 			: (this._isWeird = isWeird(this));
 	}
 
-	set sieve(v: number[] | undefined) {
+	set sieve(v: number[]) {
 		this._sieve = v;
 	}
-	get sieve(): number[] | undefined {
+	get sieve(): number[] {
 		return this._sieve !== undefined
 			? this._sieve
 			: (this._sieve = sieve(this));
 	}
 
-	set getPoliteness(v: number | undefined) {
+	set getPoliteness(v: number) {
 		this._getPoliteness = v;
 	}
-	get getPoliteness(): number | undefined {
+	get getPoliteness(): number {
 		return this._getPoliteness !== undefined
 			? this._getPoliteness
 			: (this._getPoliteness = getPoliteness(this));
 	}
 
-	set isEven(v: boolean | undefined) {
+	set isEven(v: boolean) {
 		this._isEven = v;
 	}
-	get isEven(): boolean | undefined {
+	get isEven(): boolean {
 		return this._isEven !== undefined
 			? this._isEven
 			: (this._isEven = isEven(this));
 	}
 
-	set isNatural(v: boolean | undefined) {
+	set isNatural(v: boolean) {
 		this._isNatural = v;
 	}
-	get isNatural(): boolean | undefined {
+	get isNatural(): boolean {
 		return this._isNatural !== undefined
 			? this._isNatural
 			: (this._isNatural = isNatural(this));
 	}
 
-	set isPractical(v: boolean | undefined) {
+	set isPractical(v: boolean) {
 		this._isPractical = v;
 	}
-	get isPractical(): boolean | undefined {
+	get isPractical(): boolean {
 		return this._isPractical !== undefined
 			? this._isPractical
 			: (this._isPractical = isPractical(this));
 	}
 
-	set isSad(v: boolean | undefined) {
+	set isSad(v: boolean) {
 		this._isSad = v;
 	}
-	get isSad(): boolean | undefined {
+	get isSad(): boolean {
 		return this._isSad !== undefined
 			? this._isSad
 			: (this._isSad = isSad(this));
 	}
 
-	set isSphenic(v: boolean | undefined) {
+	set isSphenic(v: boolean) {
 		this._isSphenic = v;
 	}
-	get isSphenic(): boolean | undefined {
+	get isSphenic(): boolean {
 		return this._isSphenic !== undefined
 			? this._isSphenic
 			: (this._isSphenic = isSphenic(this));
 	}
 
-	set isWhole(v: boolean | undefined) {
+	set isWhole(v: boolean) {
 		this._isWhole = v;
 	}
-	get isWhole(): boolean | undefined {
+	get isWhole(): boolean {
 		return this._isWhole !== undefined
 			? this._isWhole
 			: (this._isWhole = isWhole(this));

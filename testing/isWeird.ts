@@ -1,4 +1,4 @@
-import { atk } from "advanced-testing-kit";
+import * as atk from "advanced-testing-kit";
 import { isWeird } from "../lib/isWeird";
 
 index();

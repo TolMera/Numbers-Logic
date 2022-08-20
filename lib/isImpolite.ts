@@ -1,5 +1,5 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
-import { isPolite } from "./isPolite";
+import { isPowerOf2 } from "./isPowerOf2";
 
 export function isImpolite(inputN: number | EnhancedNumber) {
 	const n = new EnhancedNumber(inputN);
@@ -7,6 +7,5 @@ export function isImpolite(inputN: number | EnhancedNumber) {
 		return n.isImpolite;
 	}
 
-	n.isImpolite = !isPolite(n);
-	return n.isImpolite;
+	return (n.isImpolite = isPowerOf2(n));
 }

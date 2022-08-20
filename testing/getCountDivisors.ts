@@ -1,4 +1,4 @@
-import { atk } from "advanced-testing-kit";
+import * as atk from "advanced-testing-kit";
 import { getCountDivisors } from "../lib/getCountDivisors";
 import * as generators from "advanced-testing-kit/lib/numberGenerators";
 

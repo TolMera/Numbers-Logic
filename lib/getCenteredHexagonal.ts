@@ -7,6 +7,9 @@ export function getCenteredHexagonal(inputN: number | EnhancedNumber): number {
 		return n.getCenteredHexagonal as number;
 	}
 
-	n.getCenteredHexagonal = 3 * n.number * (n.number - 1) + 1;
-	return n.getCenteredHexagonal;
+	if (n.number === 0) {
+		return (n.getCenteredHexagonal = 0);
+	}
+	return (n.getCenteredHexagonal =
+		3 * Math.abs(n.number) * (Math.abs(n.number) - 1) + 1);
 }

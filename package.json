@@ -14,13 +14,14 @@
 	],
 	"main": "index.js",
 	"scripts": {
-		"build": "npm run deleteBuild && npm run pretty && npm run compile",
+		"build": "npm run pretty && npm run compile",
 		"publish": "npm run build && npm run test && npm publish",
-		"deleteBuild": "rm -rf ./build",
+		"deleteBuild": "rm -rf ./build && rm .tsbuildinfo",
 		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs",
 		"compile": "tsc",
 		"start": "ts-node index.ts",
-		"test": "for file in ./build/testing/*.js; do echo $file && time node $file || exit 1; done;"
+		"runTest": "for file in ./build/testing/*.js; do echo $file && time node $file || exit 1; done;",
+		"test": "npm run build && npm run runTest"
 	},
 	"keywords": [
 		"number",
