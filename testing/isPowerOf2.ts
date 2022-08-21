@@ -1,10 +1,10 @@
 import * as atk from "advanced-testing-kit";
-import * as generators from "advanced-testing-kit/lib/numberGenerators";
-import { isPolite } from "../lib/isPolite";
+// import * as generators from "advanced-testing-kit/lib/numberGenerators";
+import { isPowerOf2 } from "../lib/isPowerOf2";
 
 index();
 function index() {
-	let test = atk.makeTests(isPolite, {
+	let test = atk.makeTests(isPowerOf2, {
 		returns: [
 			[[2], true],
 			[[10], false],
@@ -17,18 +17,18 @@ function index() {
 			[[149408], false],
 		],
 		inputs: [
-			[
-				{
-					type: Number,
-					generator: generators.safePositiveInteger,
-				},
-			],
-			[
-				{
-					type: Number,
-					generator: generators.safeNegativeInteger,
-				},
-			],
+			// [
+			// 	{
+			// 		type: Number,
+			// 		generator: generators.safePositiveInteger,
+			// 	},
+			// ],
+			// [
+			// 	{
+			// 		type: Number,
+			// 		generator: generators.safeNegativeInteger,
+			// 	},
+			// ],
 		],
 	});
 	test();

@@ -20,15 +20,13 @@ import { getCenteredHexagonal } from "./getCenteredHexagonal";
 export function isCenteredHexagonal(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isCenteredHexagonal !== undefined) {
-		return n.isCenteredHexagonal as boolean;
+		return n.isCenteredHexagonal;
 	}
 
-	let c: number = 1;
+	let c: number = 0;
 	let nth = getCenteredHexagonal(c);
-	while (Math.abs(n.number) < nth) {
-		nth = getCenteredHexagonal(c++);
-		console.log(Math.abs(n.number), c, nth);
+	while (Math.abs(n.number) > nth) {
+		nth = getCenteredHexagonal(++c);
 	}
-	n.isCenteredHexagonal = Math.abs(n.number) === nth;
-	return n.isCenteredHexagonal;
+	return (n.isCenteredHexagonal = Math.abs(n.number) === nth);
 }

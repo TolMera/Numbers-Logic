@@ -1,41 +1,27 @@
 import * as atk from "advanced-testing-kit";
 import { isWeird } from "../lib/isWeird";
 
-index();
-function index() {
-	let test = atk.makeTests(isWeird, {
-		returns: [
-			[[70], true],
-			[[70 + 1], false],
-			[[836], true],
-			[[836 + 1], false],
-			[[4030], true],
-			[[4030 + 1], false],
-			[[5830], true],
-			[[5830 + 1], false],
-			[[7192], true],
-			[[7192 + 1], false],
-			[[7912], true],
-			[[7912 + 1], false],
-			[[9272], true],
-			[[9272 + 1], false],
-			[[10792], true],
-			[[10792 + 1], false],
-			[[17272], true],
-			[[17272 + 1], false],
-			[[45356], true],
-			[[45356 + 1], false],
-		],
-		inputs: [
-			// [{
-			//     type: Number,
-			//     generator: generators.safePositiveInteger,
-			// }],
-			// [{
-			//     type: Number,
-			//     generator: generators.safeNegativeInteger,
-			// }]
-		],
-	});
-	test();
-}
+const areWeird = [
+	70, 836, 4030, 5830, 7192, 7912, 9272, 10430, 10570, 10792, 10990, 11410,
+	11690, 12110, 12530, 12670, 13370, 13510, 13790, 13930, 14770, 15610, 15890,
+	16030, 16310, 16730, 16870, 17272, 17570, 17990, 18410, 18830, 18970, 19390,
+	19670,
+];
+
+let test = atk.makeTests(isWeird, {
+	returns: [
+		...areWeird.map((v) => [[v], true]),
+		...areWeird.map((v) => [[v + 1], false]),
+	],
+	inputs: [
+		// [{
+		//     type: Number,
+		//     generator: generators.safePositiveInteger,
+		// }],
+		// [{
+		//     type: Number,
+		//     generator: generators.safeNegativeInteger,
+		// }]
+	],
+});
+test();

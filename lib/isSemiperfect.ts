@@ -8,10 +8,6 @@ import { getAliquotSum } from "./getAliquotSum";
 
 /* Anything containing isSemiperfect has an extreme computation time */
 export function isSemiperfect(n: number | EnhancedNumber): boolean {
-	console.warn(
-		"Any function using isSemiperfect is likely to lag significantly"
-	);
-
 	n = new EnhancedNumber(n);
 	if (n._isSemiperfect) {
 		return n.isSemiperfect as boolean;
@@ -34,6 +30,9 @@ export function isSemiperfect(n: number | EnhancedNumber): boolean {
 	}
 
 	if (isPerfect(n) || isAbundant(n)) {
+		console.warn(
+			"This is likely to lag significantly (3b302489-dbe4-505c-989e-d9b122eb2340)"
+		);
 		n.isSemiperfect = semiperfectTest(n);
 		return n.isSemiperfect;
 	}
