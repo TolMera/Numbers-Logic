@@ -1,3 +1,5 @@
+[![Node.js CI](https://github.com/TolMera/Numbers-Logic/actions/workflows/node.js.yml/badge.svg?branch=master)](https://github.com/TolMera/Numbers-Logic/actions/workflows/node.js.yml)
+
 # Numbers Logic
 
 Numbers logic - a set of number tools. Expanding on the work of several packages, for a list please see [Dependencies](https://www.npmjs.com/package/numbers-logic?activeTab=dependencies)

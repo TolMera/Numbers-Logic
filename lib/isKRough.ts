@@ -4,7 +4,6 @@ import { isOdd } from "./isOdd";
 
 export function isKRough(inputN: number | EnhancedNumber, k: number): boolean {
 	const n = new EnhancedNumber(inputN);
-	console.log(n.number);
 
 	if (n.number < 0) {
 		return false;
