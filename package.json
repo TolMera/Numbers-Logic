@@ -17,11 +17,13 @@
 		"build": "npm run pretty && npm run compile",
 		"publish": "npm run build && npm run test && npm publish",
 		"deleteBuild": "rm -rf ./build && rm .tsbuildinfo",
-		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs",
+		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs --cache --cache-strategy metadata --ignore-unknown --loglevel=warn",
 		"compile": "tsc",
 		"start": "ts-node index.ts",
 		"runTest": "for file in ./build/testing/*.js; do echo $file && time node $file || exit 1; done;",
-		"test": "npm run build && npm run runTest"
+		"runFile": "time node",
+		"test": "npm run build && npm run runTest",
+		"testOne": "npm run build && npm run runFile"
 	},
 	"keywords": [
 		"number",
