@@ -197,7 +197,7 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	_number: number = 0;
 
 	constructor(n: number | EnhancedNumber) {
-		if (!Number.isInteger(n)) {
+		if (!unknownIsEnhancedNumber(n) && !Number.isInteger(n)) {
 			throw new Error("EnhancedNumber can only be constructed from an integer");
 		}
 		
