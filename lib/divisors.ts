@@ -2,8 +2,8 @@ import { EnhancedNumber } from "../classes/enhancedNumber";
 import { factorsOf } from "./factorsOf";
 import { getCountDivisors } from "./getCountDivisors";
 
-export function divisors(n: number | EnhancedNumber): number[] {
-	n = new EnhancedNumber(n);
+export function divisors(inputN: number | EnhancedNumber): number[] {
+	const n = new EnhancedNumber(inputN);
 	if (n._divisors !== undefined) {
 		return n.divisors as number[];
 	}

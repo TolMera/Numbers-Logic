@@ -1,7 +1,7 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 
-export function getStar(n: number | EnhancedNumber): number {
-	n = new EnhancedNumber(n);
+export function getStar(inputN: number | EnhancedNumber): number {
+	const n = new EnhancedNumber(inputN);
 	if (n._getStar !== undefined) {
 		return n.getStar;
 	}

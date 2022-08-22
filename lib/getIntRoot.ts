@@ -1,7 +1,7 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 
-export function getIntRoot(n: number | EnhancedNumber): number | boolean {
-	n = new EnhancedNumber(n);
+export function getIntRoot(inputN: number | EnhancedNumber): number | boolean {
+	const n = new EnhancedNumber(inputN);
 	if (n._getIntRoot !== undefined) {
 		return n.getIntRoot;
 	}

@@ -2,8 +2,8 @@ import { EnhancedNumber } from "../classes/enhancedNumber";
 import { isPrime } from "./isPrime";
 
 // https://en.wikipedia.org/wiki/Safe_and_Sophie_Germain_primes
-export function isSafePrime(n: number | EnhancedNumber): boolean {
-	n = new EnhancedNumber(n);
+export function isSafePrime(inputN: number | EnhancedNumber): boolean {
+	const n = new EnhancedNumber(inputN);
 	if (n._isSafePrime !== undefined) {
 		return n.isSafePrime as boolean;
 	}
