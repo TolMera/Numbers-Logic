@@ -3,8 +3,8 @@ import { factorsOf } from "./factorsOf";
 
 // Insperation derived from:
 // https://www2.math.upenn.edu/~deturck/m170/wk2/numdivisors.html
-export function getCountDivisors(n: number | EnhancedNumber): number {
-	n = new EnhancedNumber(n);
+export function getCountDivisors(inputN: number | EnhancedNumber): number {
+	const n = new EnhancedNumber(inputN);
 	if (n._getCountDivisors !== undefined) {
 		return n.getCountDivisors as number;
 	}

@@ -1,8 +1,8 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { factorsOf } from "./factorsOf";
 
-export function isUnusual(n: number | EnhancedNumber): boolean {
-	n = new EnhancedNumber(n);
+export function isUnusual(inputN: number | EnhancedNumber): boolean {
+	const n = new EnhancedNumber(inputN);
 	if (n._isUnusual) {
 		return n.isUnusual as boolean;
 	}

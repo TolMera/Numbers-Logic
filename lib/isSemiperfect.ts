@@ -7,8 +7,8 @@ import { semiperfectTest } from "./semiperfectTest";
 import { getAliquotSum } from "./getAliquotSum";
 
 /* Anything containing isSemiperfect has an extreme computation time */
-export function isSemiperfect(n: number | EnhancedNumber): boolean {
-	n = new EnhancedNumber(n);
+export function isSemiperfect(inputN: number | EnhancedNumber): boolean {
+	const n = new EnhancedNumber(inputN);
 	if (n._isSemiperfect) {
 		return n.isSemiperfect as boolean;
 	}

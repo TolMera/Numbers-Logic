@@ -1,8 +1,8 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { isNatural } from "./isNatural";
 
-export function isWhole(n: number | EnhancedNumber) {
-	n = new EnhancedNumber(n);
+export function isWhole(inputN: number | EnhancedNumber) {
+	const n = new EnhancedNumber(inputN);
 	if (n._isWhole) {
 		return n.isWhole;
 	}
