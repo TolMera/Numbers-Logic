@@ -5,7 +5,7 @@ import { isPrime } from "./isPrime";
 export function isSafePrime(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isSafePrime !== undefined) {
-		return n.isSafePrime as boolean;
+		return n.isSafePrime;
 	}
 
 	if (isPrime(n) && isPrime(n.number / 2 - 1)) {
