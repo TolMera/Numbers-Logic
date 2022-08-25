@@ -17,8 +17,13 @@ export function isSubsetSum(
 	inputN: number | EnhancedNumber,
 	sum: number
 ): boolean {
-	console.warn(`${Date().toString()} Any function using isSubsetSum is likely to lag significantly`);
-	const progressIndicator = setInterval(process.stdout.write.bind(process.stdout, "."), 1000);
+	console.warn(
+		`${Date().toString()} Any function using isSubsetSum is likely to lag significantly`
+	);
+	const progressIndicator = setInterval(
+		process.stdout.write.bind(process.stdout, "."),
+		1000
+	);
 
 	const n = new EnhancedNumber(inputN);
 

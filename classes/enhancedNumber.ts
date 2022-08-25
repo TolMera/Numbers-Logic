@@ -60,7 +60,7 @@ export interface EnhancedNumberInterface {
 	_isAbundant: boolean | undefined;
 	_isArithmetic: boolean | undefined;
 	_isEvil: boolean | undefined;
-	_isHappy: {[k:string]: boolean | undefined};
+	_isHappy: { [k: string]: boolean | undefined };
 	_isImpolite: boolean | undefined;
 	_isMersennePrime: boolean | undefined;
 	_isNatural: boolean | undefined;
@@ -73,10 +73,10 @@ export interface EnhancedNumberInterface {
 	_isPrime: boolean | undefined;
 	_isPrimePower: boolean | undefined;
 	_isPronic: boolean | undefined;
-	_isRound: {[k:string]: boolean | undefined};
-	_isSad: {[k:string]: boolean | undefined};
+	_isRound: { [k: string]: boolean | undefined };
+	_isSad: { [k: string]: boolean | undefined };
 	_isSafePrime: boolean | undefined;
-	_isSelf: {[k:string]: boolean | undefined};
+	_isSelf: { [k: string]: boolean | undefined };
 	_isSelfPrime: boolean | undefined;
 	_isSemiperfect: boolean | undefined;
 	_isSophieGermainPrime: boolean | undefined;
@@ -164,7 +164,7 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	_isCenteredHexagonal: boolean | undefined = undefined;
 	_isEven: boolean | undefined = undefined;
 	_isEvil: boolean | undefined = undefined;
-	_isHappy: {[k:string]: boolean | undefined} = {};
+	_isHappy: { [k: string]: boolean | undefined } = {};
 	_isImpolite: boolean | undefined = undefined;
 	_isMersennePrime: boolean | undefined = undefined;
 	_isNatural: boolean | undefined = undefined;
@@ -177,10 +177,10 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	_isPrime: boolean | undefined = undefined;
 	_isPrimePower: boolean | undefined = undefined;
 	_isPronic: boolean | undefined = undefined;
-	_isRound: {[k:string]: boolean | undefined} = {};
-	_isSad: {[k:string]: boolean | undefined} = {};
+	_isRound: { [k: string]: boolean | undefined } = {};
+	_isSad: { [k: string]: boolean | undefined } = {};
 	_isSafePrime: boolean | undefined = undefined;
-	_isSelf: {[k:string]: boolean | undefined} = {};
+	_isSelf: { [k: string]: boolean | undefined } = {};
 	_isSelfPrime: boolean | undefined = undefined;
 	_isSemiperfect: boolean | undefined = undefined;
 	_isSophieGermainPrime: boolean | undefined = undefined;
@@ -632,14 +632,14 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 export const instantiatedNumbers: { [k: string]: EnhancedNumber } = {};
 export function backupComputations(inputN: number | EnhancedNumber): void {
 	const n = new EnhancedNumber(inputN);
-	const fs = require('fs');
+	const fs = require("fs");
 
-		const en = {
-			...instantiatedNumbers[n.number],
-			// Don't save the Sieve, it's too big, and since it exists on every number, it's wasteful.
-			"_sieve": undefined,
-		};
-		fs.appendFileSync('computedNumbers.json', `"${n}": ${JSON.stringify(en)},\n`)	
+	const en = {
+		...instantiatedNumbers[n.number],
+		// Don't save the Sieve, it's too big, and since it exists on every number, it's wasteful.
+		_sieve: undefined,
+	};
+	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
 }
 
 // export function restoreComputations(n: number): void {

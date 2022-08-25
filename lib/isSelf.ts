@@ -7,7 +7,7 @@ export function isSelf(
 ): boolean {
 	const n = new EnhancedNumber(inputN);
 
-    if (n._isSelf[base] !== undefined) {
+	if (n._isSelf[base] !== undefined) {
 		return n._isSelf[base] as boolean;
 	}
 
@@ -64,13 +64,13 @@ export function isSelf(
 			sum = sum + (n % 10);
 			n = parseInt(String(n / 10));
 		}
-        return sum;
+		return sum;
 	}
 
 	for (let m = 1; m <= n.number; m++) {
 		if (m + getSum(m) === n.number) {
-            return n._isSelf[base] = false;
-        }
+			return (n._isSelf[base] = false);
+		}
 	}
-    return n._isSelf[base] = true;
+	return (n._isSelf[base] = true);
 }

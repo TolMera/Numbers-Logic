@@ -1,9 +1,12 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { sum } from "./sum";
 
-export function isHappy(inputN: number | EnhancedNumber, base: number = 10): boolean {
+export function isHappy(
+	inputN: number | EnhancedNumber,
+	base: number = 10
+): boolean {
 	const n = new EnhancedNumber(inputN);
-	
+
 	if (n._isHappy[base] !== undefined) {
 		return n._isHappy[base] as boolean;
 	}

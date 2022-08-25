@@ -8,5 +8,5 @@ export function isSad(inputN: number | EnhancedNumber, base: number = 10) {
 		return n._isSad[base] as boolean;
 	}
 
-	return n._isSad[base] = !isHappy(n, base);
+	return (n._isSad[base] = !isHappy(n, base));
 }
