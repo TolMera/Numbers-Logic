@@ -44,51 +44,53 @@ import { semiperfectTest } from "../lib/semiperfectTest";
 import { sieve } from "../lib/sieve";
 
 export interface EnhancedNumberInterface {
+	[key: string]: any;
+
 	readonly number: number;
-	_number: number | undefined;
 	_divisors: number[] | undefined;
-	_getStar: number | undefined;
-	_isEvil: boolean | undefined;
-	_isOdd: boolean | undefined;
-	_isPrime: boolean | undefined;
-	_isSafePrime: boolean | undefined;
-	_isStar: boolean | undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined;
-	_getTetrahedral: number | undefined;
-	_isHappy: boolean | undefined;
-	_isOdious: boolean | undefined;
-	_isPrimePower: boolean | undefined;
-	_isSelf: boolean | undefined;
-	_mobius: number | undefined;
 	_getAliquotSum: number | undefined;
-	_hasIntRoot: boolean | undefined;
-	_isImpolite: boolean | undefined;
-	_isPerfect: boolean | undefined;
-	_isSelfPrime: boolean | undefined;
-	_isTetrahedral: boolean | undefined;
 	_getCenteredHexagonal: number | undefined;
-	_isAbundant: boolean | undefined;
-	_isPolite: boolean | undefined;
-	_isPronic: boolean | undefined;
-	_isSemiperfect: boolean | undefined;
-	_isUntouchable: boolean | undefined;
 	_getCountDivisors: number | undefined;
-	_isArithmetic: boolean | undefined;
-	_isMersennePrime: boolean | undefined;
-	_isPowerOf2: boolean | undefined;
-	_isUnusual: boolean | undefined;
-	_semiperfectTest: boolean | undefined;
 	_getIntRoot: number | boolean | undefined;
-	_isRound: boolean | undefined;
-	_isSophieGermainPrime: boolean | undefined;
-	_isWeird: boolean | undefined;
-	_sieve: number[] | undefined;
 	_getPoliteness: number | undefined;
+	_getStar: number | undefined;
+	_getTetrahedral: number | undefined;
+	_hasIntRoot: boolean | undefined;
+	_isAbundant: boolean | undefined;
+	_isArithmetic: boolean | undefined;
+	_isEvil: boolean | undefined;
+	_isHappy: { [k: string]: boolean | undefined };
+	_isImpolite: boolean | undefined;
+	_isMersennePrime: boolean | undefined;
 	_isNatural: boolean | undefined;
+	_isOdd: boolean | undefined;
+	_isOdious: boolean | undefined;
+	_isPerfect: boolean | undefined;
+	_isPolite: boolean | undefined;
+	_isPowerOf2: boolean | undefined;
 	_isPractical: boolean | undefined;
-	_isSad: boolean | undefined;
+	_isPrime: boolean | undefined;
+	_isPrimePower: boolean | undefined;
+	_isPronic: boolean | undefined;
+	_isRound: { [k: string]: boolean | undefined };
+	_isSad: { [k: string]: boolean | undefined };
+	_isSafePrime: boolean | undefined;
+	_isSelf: { [k: string]: boolean | undefined };
+	_isSelfPrime: boolean | undefined;
+	_isSemiperfect: boolean | undefined;
+	_isSophieGermainPrime: boolean | undefined;
 	_isSphenic: boolean | undefined;
+	_isStar: boolean | undefined;
+	_isTetrahedral: boolean | undefined;
+	_isUntouchable: boolean | undefined;
+	_isUnusual: boolean | undefined;
+	_isWeird: boolean | undefined;
 	_isWhole: boolean | undefined;
+	_mobius: number | undefined;
+	_number: number | undefined;
+	_semiperfectTest: boolean | undefined;
+	_sieve: number[] | undefined;
 
 	// Getters and Setters
 	divisors: number[];
@@ -148,50 +150,50 @@ export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
 
 export class EnhancedNumber implements EnhancedNumberInterface {
 	_divisors: number[] | undefined = undefined;
-	_getStar: number | undefined = undefined;
-	_isEvil: boolean | undefined = undefined;
-	_isOdd: boolean | undefined = undefined;
-	_isPrime: boolean | undefined = undefined;
-	_isSafePrime: boolean | undefined = undefined;
-	_isStar: boolean | undefined = undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined = undefined;
-	_getTetrahedral: number | undefined = undefined;
-	_isHappy: boolean | undefined = undefined;
-	_isOdious: boolean | undefined = undefined;
-	_isPrimePower: boolean | undefined = undefined;
-	_isSelf: boolean | undefined = undefined;
-	_mobius: number | undefined = undefined;
 	_getAliquotSum: number | undefined = undefined;
-	_hasIntRoot: boolean | undefined = undefined;
-	_isImpolite: boolean | undefined = undefined;
-	_isPerfect: boolean | undefined = undefined;
-	_isSelfPrime: boolean | undefined = undefined;
-	_isTetrahedral: boolean | undefined = undefined;
 	_getCenteredHexagonal: number | undefined = undefined;
-	_isAbundant: boolean | undefined = undefined;
-	_isPolite: boolean | undefined = undefined;
-	_isPronic: boolean | undefined = undefined;
-	_isSemiperfect: boolean | undefined = undefined;
-	_isUntouchable: boolean | undefined = undefined;
 	_getCountDivisors: number | undefined = undefined;
-	_isArithmetic: boolean | undefined = undefined;
-	_isMersennePrime: boolean | undefined = undefined;
-	_isPowerOf2: boolean | undefined = undefined;
-	_isUnusual: boolean | undefined = undefined;
-	_semiperfectTest: boolean | undefined = undefined;
 	_getIntRoot: number | boolean | undefined = undefined;
-	_isCenteredHexagonal: boolean | undefined = undefined;
-	_isRound: boolean | undefined = undefined;
-	_isSophieGermainPrime: boolean | undefined = undefined;
-	_isWeird: boolean | undefined = undefined;
-	_sieve: number[] | undefined = undefined;
 	_getPoliteness: number | undefined = undefined;
+	_getStar: number | undefined = undefined;
+	_getTetrahedral: number | undefined = undefined;
+	_hasIntRoot: boolean | undefined = undefined;
+	_isAbundant: boolean | undefined = undefined;
+	_isArithmetic: boolean | undefined = undefined;
+	_isCenteredHexagonal: boolean | undefined = undefined;
 	_isEven: boolean | undefined = undefined;
+	_isEvil: boolean | undefined = undefined;
+	_isHappy: { [k: string]: boolean | undefined } = {};
+	_isImpolite: boolean | undefined = undefined;
+	_isMersennePrime: boolean | undefined = undefined;
 	_isNatural: boolean | undefined = undefined;
+	_isOdd: boolean | undefined = undefined;
+	_isOdious: boolean | undefined = undefined;
+	_isPerfect: boolean | undefined = undefined;
+	_isPolite: boolean | undefined = undefined;
+	_isPowerOf2: boolean | undefined = undefined;
 	_isPractical: boolean | undefined = undefined;
-	_isSad: boolean | undefined = undefined;
+	_isPrime: boolean | undefined = undefined;
+	_isPrimePower: boolean | undefined = undefined;
+	_isPronic: boolean | undefined = undefined;
+	_isRound: { [k: string]: boolean | undefined } = {};
+	_isSad: { [k: string]: boolean | undefined } = {};
+	_isSafePrime: boolean | undefined = undefined;
+	_isSelf: { [k: string]: boolean | undefined } = {};
+	_isSelfPrime: boolean | undefined = undefined;
+	_isSemiperfect: boolean | undefined = undefined;
+	_isSophieGermainPrime: boolean | undefined = undefined;
 	_isSphenic: boolean | undefined = undefined;
+	_isStar: boolean | undefined = undefined;
+	_isTetrahedral: boolean | undefined = undefined;
+	_isUntouchable: boolean | undefined = undefined;
+	_isUnusual: boolean | undefined = undefined;
+	_isWeird: boolean | undefined = undefined;
 	_isWhole: boolean | undefined = undefined;
+	_mobius: number | undefined = undefined;
+	_semiperfectTest: boolean | undefined = undefined;
+	_sieve: number[] | undefined = undefined;
 
 	// this should not need to be set - it should only be set in the constructor
 	_number: number = 0;
@@ -305,12 +307,12 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 
 	set isHappy(v: boolean) {
-		this._isHappy = v;
+		throw "isHappy can not be set like this";
 	}
 	get isHappy(): boolean {
-		return this._isHappy !== undefined
-			? this._isHappy
-			: (this._isHappy = isHappy(this));
+		return this._isHappy?.[10] !== undefined
+			? this._isHappy[10]
+			: (this._isHappy[10] = isHappy(this, 10));
 	}
 
 	set isOdious(v: boolean) {
@@ -332,12 +334,12 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 
 	set isSelf(v: boolean) {
-		this._isSelf = v;
+		throw "isSelf can not be set like this";
 	}
 	get isSelf(): boolean {
-		return this._isSelf !== undefined
-			? this._isSelf
-			: (this._isSelf = isSelf(this));
+		return this._isSelf?.[10] !== undefined
+			? this._isSelf[10]
+			: (this._isSelf[10] = isSelf(this, 10));
 	}
 
 	set mobius(v) {
@@ -600,12 +602,12 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 
 	set isSad(v: boolean) {
-		this._isSad = v;
+		throw "isSad can not be set like this";
 	}
 	get isSad(): boolean {
-		return this._isSad !== undefined
-			? this._isSad
-			: (this._isSad = isSad(this));
+		return this._isSad?.[10] !== undefined
+			? this._isSad[10]
+			: (this._isSad[10] = isSad(this, 10));
 	}
 
 	set isSphenic(v: boolean) {
@@ -628,3 +630,26 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 }
 
 export const instantiatedNumbers: { [k: string]: EnhancedNumber } = {};
+export function backupComputations(inputN: number | EnhancedNumber): void {
+	const n = new EnhancedNumber(inputN);
+	const fs = require("fs");
+
+	const en = {
+		...instantiatedNumbers[n.number],
+		// Don't save the Sieve, it's too big, and since it exists on every number, it's wasteful.
+		_sieve: undefined,
+	};
+	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
+}
+
+// export function restoreComputations(n: number): void {
+// 	const fs = require('fs');
+// 	const computedNumbers = JSON.parse(fs.readFileSync('computedNumbers.json', 'utf8'));
+
+// 	for (const key in Object.keys(computedNumbers[n])) {
+// 		if (key[0] == "_" && computedNumbers[n][key] !== undefined) {
+// 			instantiatedNumbers[n][key] = computedNumbers[n][key];
+// 			n[key] = computedNumbers[n][key];
+// 		}
+// 	}
+// }

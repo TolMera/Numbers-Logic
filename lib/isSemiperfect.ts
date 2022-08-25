@@ -33,7 +33,12 @@ export function isSemiperfect(inputN: number | EnhancedNumber): boolean {
 		console.warn(
 			"This is likely to lag significantly (3b302489-dbe4-505c-989e-d9b122eb2340)"
 		);
+		const progressIndicator = setInterval(
+			process.stdout.write.bind(process.stdout, "."),
+			1000
+		);
 		n.isSemiperfect = semiperfectTest(n);
+		clearInterval(progressIndicator);
 		return n.isSemiperfect;
 	}
 	n.isSemiperfect = false;

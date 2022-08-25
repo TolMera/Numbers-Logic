@@ -1,13 +1,21 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
 import { sum } from "./sum";
 
-export function isHappy(inputN: number | EnhancedNumber, base = 10) {
+export function isHappy(
+	inputN: number | EnhancedNumber,
+	base: number = 10
+): boolean {
 	const n = new EnhancedNumber(inputN);
-	const theList: number[] = [];
+
+	if (n._isHappy[base] !== undefined) {
+		return n._isHappy[base] as boolean;
+	}
 
 	let num = Math.abs(n.number);
+	const theList: number[] = [];
 	while (true) {
 		if (theList.includes(num)) {
+			n._isHappy[base] = false;
 			return false;
 		}
 		theList.push(num);
@@ -20,6 +28,7 @@ export function isHappy(inputN: number | EnhancedNumber, base = 10) {
 		);
 
 		if (num === 1) {
+			n._isHappy[base] = true;
 			return true;
 		}
 	}
