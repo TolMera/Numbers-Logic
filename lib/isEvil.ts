@@ -4,7 +4,7 @@ import { isOdd } from "./isOdd";
 export function isEvil(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isEvil !== undefined) {
-		return n.isEvil as boolean;
+		return n.isEvil;
 	}
 
 	let bits = 0;
