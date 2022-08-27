@@ -11,7 +11,7 @@ import { sieve } from "./sieve";
 export function isPrimePower(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isPrimePower !== undefined) {
-		return n.isPrimePower as boolean;
+		return n.isPrimePower;
 	}
 
 	if (n.number <= 1) {

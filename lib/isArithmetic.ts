@@ -5,7 +5,7 @@ import { sum } from "./sum";
 export function isArithmetic(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isArithmetic !== undefined) {
-		return n.isArithmetic as boolean;
+		return n.isArithmetic;
 	}
 
 	if (n.number === 0) {

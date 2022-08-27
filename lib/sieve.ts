@@ -9,8 +9,8 @@ import { EnhancedNumber } from "../classes/enhancedNumber";
  */
 export function sieve(inputN: number | EnhancedNumber): number[] {
 	const n = new EnhancedNumber(inputN);
-	if (n._sieve) {
-		return n.sieve as number[];
+	if (n._sieve !== undefined) {
+		return n.sieve;
 	}
 
 	var primes: number[] = [2];

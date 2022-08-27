@@ -3,7 +3,7 @@ import { isNatural } from "./isNatural";
 
 export function isWhole(inputN: number | EnhancedNumber) {
 	const n = new EnhancedNumber(inputN);
-	if (n._isWhole) {
+	if (n._isWhole !== undefined) {
 		return n.isWhole;
 	}
 

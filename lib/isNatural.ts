@@ -6,7 +6,7 @@ import { EnhancedNumber } from "../classes/enhancedNumber";
 export function isNatural(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isNatural !== undefined) {
-		return n.isNatural as boolean;
+		return n.isNatural;
 	}
 
 	n.isNatural = Number.isInteger(n.number);

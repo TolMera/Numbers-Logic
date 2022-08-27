@@ -149,6 +149,7 @@ export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
 }
 
 export class EnhancedNumber implements EnhancedNumberInterface {
+	[key: string]: any;
 	_divisors: number[] | undefined = undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined = undefined;
 	_getAliquotSum: number | undefined = undefined;
@@ -635,21 +636,23 @@ export function backupComputations(inputN: number | EnhancedNumber): void {
 	const fs = require("fs");
 
 	const en = {
-		...instantiatedNumbers[n.number],
+		...n,
 		// Don't save the Sieve, it's too big, and since it exists on every number, it's wasteful.
 		_sieve: undefined,
 	};
 	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
 }
 
-// export function restoreComputations(n: number): void {
-// 	const fs = require('fs');
-// 	const computedNumbers = JSON.parse(fs.readFileSync('computedNumbers.json', 'utf8'));
+export function restoreComputations(inputN: number): void {
+	const n = new EnhancedNumber(inputN);
+	const fs = require("fs");
+	const computedNumbers = JSON.parse(
+		fs.readFileSync("computedNumbers.json", "utf8")
+	);
 
-// 	for (const key in Object.keys(computedNumbers[n])) {
-// 		if (key[0] == "_" && computedNumbers[n][key] !== undefined) {
-// 			instantiatedNumbers[n][key] = computedNumbers[n][key];
-// 			n[key] = computedNumbers[n][key];
-// 		}
-// 	}
-// }
+	for (const key of Object.keys(computedNumbers[inputN])) {
+		if (key[0] == "_" && computedNumbers[inputN][key] !== undefined) {
+			n[key] = computedNumbers[inputN][key];
+		}
+	}
+}

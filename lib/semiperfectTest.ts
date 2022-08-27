@@ -5,8 +5,8 @@ import { sum } from "./sum";
 
 export function semiperfectTest(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._semiperfectTest) {
-		return n.semiperfectTest as boolean;
+	if (n._semiperfectTest !== undefined) {
+		return n.semiperfectTest;
 	}
 
 	let { difference, diffDivs, divs } = prepareNumberspace(n);

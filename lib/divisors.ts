@@ -5,7 +5,7 @@ import { getCountDivisors } from "./getCountDivisors";
 export function divisors(inputN: number | EnhancedNumber): number[] {
 	const n = new EnhancedNumber(inputN);
 	if (n._divisors !== undefined) {
-		return n.divisors as number[];
+		return n.divisors;
 	}
 
 	const factors = factorsOf(Math.abs(n.number));
