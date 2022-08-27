@@ -1,3 +1,5 @@
+import fs from "fs";
+
 import { divisors } from "../lib/divisors";
 import { factorsOf } from "../lib/factorsOf";
 import { getAliquotSum } from "../lib/getAliquotSum";
@@ -641,16 +643,12 @@ export function backupComputations(inputN: number | EnhancedNumber): void {
 	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
 }
 
-export function restoreComputations(inputN: number): void {
-	const n = new EnhancedNumber(inputN);
-	const fs = require("fs");
-	const computedNumbers = JSON.parse(
-		fs.readFileSync("computedNumbers.json", "utf8")
-	);
+const computedNumbers = JSON.parse(fs.readFileSync("computedNumbers.json", "utf8")) || {};
 
+export function restoreComputations(inputN: number): void {
 	for (const key of Object.keys(computedNumbers[inputN])) {
 		if (key[0] == "_" && computedNumbers[inputN][key] !== undefined) {
-			n[key] = computedNumbers[inputN][key];
+			(new EnhancedNumber(inputN))[key] = computedNumbers[inputN][key];
 		}
 	}
 }
