@@ -47,6 +47,8 @@ import { semiperfectTest } from "../lib/semiperfectTest";
 import { sieve } from "../lib/sieve";
 
 export interface EnhancedNumberInterface {
+	[key: string]: any;
+
 	readonly number: number;
 	_containsXOnes: { [k: string]: boolean | undefined };
 	_divisors: number[] | undefined;
