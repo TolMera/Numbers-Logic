@@ -10,7 +10,7 @@ import { factorsOf } from "./factorsOf";
  */
 export function mobius(inputN: number | EnhancedNumber): number {
 	const n = new EnhancedNumber(inputN);
-	if (n._mobius) {
+	if (n._mobius !== undefined) {
 		return n.mobius;
 	}
 	// Handle zero (perhaps undefined in some sense, but this value

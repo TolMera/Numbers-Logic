@@ -3,8 +3,8 @@ import { EnhancedNumber } from "../classes/enhancedNumber";
 
 export function hasIntRoot(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._hasIntRoot) {
-		return n.hasIntRoot as boolean;
+	if (n._hasIntRoot !== undefined) {
+		return n.hasIntRoot;
 	}
 
 	for (let c = 2; c <= Math.sqrt(n.number); c++) {

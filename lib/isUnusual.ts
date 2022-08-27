@@ -3,8 +3,8 @@ import { factorsOf } from "./factorsOf";
 
 export function isUnusual(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._isUnusual) {
-		return n.isUnusual as boolean;
+	if (n._isUnusual !== undefined) {
+		return n.isUnusual;
 	}
 
 	let factors = factorsOf(n).pop();

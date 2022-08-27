@@ -4,8 +4,8 @@ import { getCountDivisors } from "./getCountDivisors";
 
 export function isSphenic(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._isSphenic) {
-		return n.isSphenic as boolean;
+	if (n._isSphenic !== undefined) {
+		return n.isSphenic;
 	}
 
 	if (n.number <= 0) {
