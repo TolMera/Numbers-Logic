@@ -643,12 +643,20 @@ export function backupComputations(inputN: number | EnhancedNumber): void {
 	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
 }
 
-const computedNumbers = JSON.parse(fs.readFileSync("computedNumbers.json", "utf8")) || {};
+let tempComputedNumbers;
+try {
+	tempComputedNumbers = JSON.parse(
+		fs.readFileSync("computedNumbers.json", "utf8")
+	);
+} catch (e) {
+	tempComputedNumbers = {};
+}
+const computedNumbers = tempComputedNumbers;
 
 export function restoreComputations(inputN: number): void {
 	for (const key of Object.keys(computedNumbers[inputN])) {
 		if (key[0] == "_" && computedNumbers[inputN][key] !== undefined) {
-			(new EnhancedNumber(inputN))[key] = computedNumbers[inputN][key];
+			new EnhancedNumber(inputN)[key] = computedNumbers[inputN][key];
 		}
 	}
 }
