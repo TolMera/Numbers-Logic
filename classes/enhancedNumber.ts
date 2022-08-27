@@ -44,8 +44,6 @@ import { semiperfectTest } from "../lib/semiperfectTest";
 import { sieve } from "../lib/sieve";
 
 export interface EnhancedNumberInterface {
-	[key: string]: any;
-
 	readonly number: number;
 	_divisors: number[] | undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined;
