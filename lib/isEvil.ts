@@ -7,12 +7,6 @@ export function isEvil(inputN: number | EnhancedNumber): boolean {
 		return n.isEvil;
 	}
 
-	let bits = 0;
-	for (const bit of parseInt(String(n.number)).toString(2)) {
-		if (bit === "1") {
-			bits++;
-		}
-	}
-	n.isEvil = bits > 0 && isEven(bits);
+	n.isEvil = isEven(n.number.toString(2).replace(/0/g, "").length);
 	return n.isEvil;
 }
