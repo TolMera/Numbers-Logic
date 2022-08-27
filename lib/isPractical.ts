@@ -7,16 +7,16 @@ import { isSubsetSum } from "./isSubsetSum";
 export function isPractical(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isPractical !== undefined) {
-		return n.isPractical as boolean;
+		return n.isPractical;
 	}
 
 	if (n.number === 0) {
 		n.isPractical = false;
-		return n.isPractical as boolean;
+		return n.isPractical;
 	}
 	if (n.number === 1 || n.number === 2) {
 		n.isPractical = true;
-		return n.isPractical as boolean;
+		return n.isPractical;
 	}
 
 	// Every power of two is also a practical number

@@ -1,5 +1,5 @@
 import { EnhancedNumber } from "../classes/enhancedNumber";
-import { isOdd } from "./isOdd";
+import { isEven } from "./isEven";
 
 export function isEvil(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
@@ -13,6 +13,6 @@ export function isEvil(inputN: number | EnhancedNumber): boolean {
 			bits++;
 		}
 	}
-	n.isEvil = bits > 0 && isOdd(bits);
+	n.isEvil = bits > 0 && isEven(bits);
 	return n.isEvil;
 }

@@ -19,7 +19,7 @@ export function isUntouchable(
 	maxMultipleOfN: number = 50
 ): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._isUntouchable) {
+	if (n._isUntouchable !== undefined) {
 		return n.isUntouchable;
 	}
 

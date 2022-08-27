@@ -4,8 +4,8 @@ import { isPrime } from "./isPrime";
 
 export function isSelfPrime(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
-	if (n._isSelfPrime) {
-		return n.isSelfPrime as boolean;
+	if (n._isSelfPrime !== undefined) {
+		return n.isSelfPrime;
 	}
 
 	if (isPrime(n) && isSelf(n)) {

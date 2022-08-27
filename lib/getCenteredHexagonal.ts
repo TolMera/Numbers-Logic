@@ -4,7 +4,7 @@ export function getCenteredHexagonal(inputN: number | EnhancedNumber): number {
 	const n = new EnhancedNumber(inputN);
 
 	if (n._getCenteredHexagonal !== undefined) {
-		return n.getCenteredHexagonal as number;
+		return n.getCenteredHexagonal;
 	}
 
 	if (n.number === 0) {

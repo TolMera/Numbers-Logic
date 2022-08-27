@@ -12,7 +12,7 @@ import { isSemiperfect } from "./isSemiperfect";
 export function isWeird(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 
-	if (n._isWeird) {
+	if (n._isWeird !== undefined) {
 		return n.isWeird;
 	}
 

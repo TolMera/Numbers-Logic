@@ -10,7 +10,7 @@ import { sum } from "./sum";
 export function isPerfect(inputN: number | EnhancedNumber): boolean {
 	const n = new EnhancedNumber(inputN);
 	if (n._isPerfect !== undefined) {
-		return n.isPerfect as boolean;
+		return n.isPerfect;
 	}
 
 	if (n.number === 1) {

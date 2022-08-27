@@ -14,7 +14,7 @@ import { isEven } from "./isEven";
 export function getPoliteness(inputN: number | EnhancedNumber): number {
 	const n = new EnhancedNumber(inputN);
 	if (n._getPoliteness !== undefined) {
-		return n.getPoliteness as number;
+		return n.getPoliteness;
 	}
 
 	if (isPowerOf2(n)) {
