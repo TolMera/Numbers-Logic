@@ -10,9 +10,7 @@ const evilNumbers = [
 ];
 
 let test = atk.makeTests(isEvil, {
-	returns: [
-		evilNumbers.map((n) => [n, true])
-	],
+	returns: [evilNumbers.map((n) => [n, true])],
 	inputs: [
 		// [{
 		//     type: Number,
