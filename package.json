@@ -3,7 +3,7 @@
 	"author": "Bjorn Macintosh <bjorn.macintosh@gmail.com> (http://tolmera.com)",
 	"license": "custom",
 	"description": "Tools used to understand or work with numbers in Node.JS, Javascript and derivatives. ",
-	"version": "1.4.5",
+	"version": "1.4.6",
 	"homepage": "https://github.com/TolMera/Numbers-Logic",
 	"repository": {
 		"type": "git",
@@ -18,7 +18,7 @@
 	"main": "./build/index.js",
 	"man": "./readme.md",
 	"scripts": {
-		"build": "npm run pretty && npm run compile",
+		"build": "npm run compile",
 		"deploy": "npm run build && npm run test && npm login && npm publish",
 		"deleteBuild": "rm -rf ./build && rm .tsbuildinfo",
 		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs --cache --cache-strategy metadata --ignore-unknown --loglevel=warn",
