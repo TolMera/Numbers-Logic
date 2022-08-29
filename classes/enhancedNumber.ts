@@ -30,6 +30,7 @@ import { isPractical } from "../lib/isPractical";
 import { isPrime } from "../lib/isPrime";
 import { isPrimePower } from "../lib/isPrimePower";
 import { isPronic } from "../lib/isPronic";
+import { isRound } from "../lib/isRound";
 import { isSad } from "../lib/isSad";
 import { isSafePrime } from "../lib/isSafePrime";
 import { isSelf } from "../lib/isSelf";
@@ -560,10 +561,12 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 
 	set isRound(v: boolean) {
-		throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
+		throw "isRound can not be set like this";
 	}
 	get isRound(): boolean {
-		throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
+		return this._isRound?.[10] !== undefined
+			? this._isRound[10]
+			: (this._isRound[10] = isRound(this, 10));
 	}
 
 	set isSophieGermainPrime(v: boolean) {
