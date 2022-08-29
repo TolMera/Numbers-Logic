@@ -1,5 +1,6 @@
 import fs from "fs";
 
+import { containsXOnes } from '../lib/containsXOnes';
 import { divisors } from "../lib/divisors";
 import { factorsOf } from "../lib/factorsOf";
 import { getAliquotSum } from "../lib/getAliquotSum";
@@ -46,7 +47,10 @@ import { semiperfectTest } from "../lib/semiperfectTest";
 import { sieve } from "../lib/sieve";
 
 export interface EnhancedNumberInterface {
+	[key: string]: any;
+
 	readonly number: number;
+	_containsXOnes: { [k: string]: boolean | undefined };
 	_divisors: number[] | undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined;
 	_getAliquotSum: number | undefined;
@@ -93,6 +97,7 @@ export interface EnhancedNumberInterface {
 	_sieve: number[] | undefined;
 
 	// Getters and Setters
+	containsXOnes: boolean;
 	divisors: number[];
 	factorsOf: { prime: number; power: number }[];
 	getAliquotSum: number;
@@ -150,6 +155,7 @@ export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
 
 export class EnhancedNumber implements EnhancedNumberInterface {
 	[key: string]: any;
+	_containsXOnes: { [k: string]: boolean | undefined } = {};
 	_divisors: number[] | undefined = undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined = undefined;
 	_getAliquotSum: number | undefined = undefined;
@@ -224,6 +230,15 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 	get number(): number {
 		return this._number;
+	}
+
+	set containsXOnes(v: boolean) {
+		throw "containsXOnes can not be set like this";
+	}
+	get containsXOnes(): boolean {
+		return this._containsXOnes?.[8] !== undefined
+			? this._containsXOnes[8]
+			: (this._containsXOnes[8] = containsXOnes(this, 8));
 	}
 
 	set divisors(v: number[]) {
