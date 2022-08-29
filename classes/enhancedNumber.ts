@@ -1,4 +1,8 @@
+import fs from "fs";
+
+import { containsXOnes } from '../lib/containsXOnes';
 import { divisors } from "../lib/divisors";
+import { factorial } from '../lib/factorial';
 import { factorsOf } from "../lib/factorsOf";
 import { getAliquotSum } from "../lib/getAliquotSum";
 import { getCenteredHexagonal } from "../lib/getCenteredHexagonal";
@@ -26,6 +30,7 @@ import { isPractical } from "../lib/isPractical";
 import { isPrime } from "../lib/isPrime";
 import { isPrimePower } from "../lib/isPrimePower";
 import { isPronic } from "../lib/isPronic";
+import { isRound } from "../lib/isRound";
 import { isSad } from "../lib/isSad";
 import { isSafePrime } from "../lib/isSafePrime";
 import { isSelf } from "../lib/isSelf";
@@ -44,10 +49,10 @@ import { semiperfectTest } from "../lib/semiperfectTest";
 import { sieve } from "../lib/sieve";
 
 export interface EnhancedNumberInterface {
-	[key: string]: any;
-
 	readonly number: number;
+	_containsXOnes: { [k: string]: boolean | undefined };
 	_divisors: number[] | undefined;
+	_factorial: number | undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined;
 	_getAliquotSum: number | undefined;
 	_getCenteredHexagonal: number | undefined;
@@ -93,7 +98,9 @@ export interface EnhancedNumberInterface {
 	_sieve: number[] | undefined;
 
 	// Getters and Setters
+	containsXOnes: boolean;
 	divisors: number[];
+	factorial: number;
 	factorsOf: { prime: number; power: number }[];
 	getAliquotSum: number;
 	getCenteredHexagonal: number;
@@ -150,7 +157,9 @@ export function unknownIsEnhancedNumber(n: unknown): n is EnhancedNumber {
 
 export class EnhancedNumber implements EnhancedNumberInterface {
 	[key: string]: any;
+	_containsXOnes: { [k: string]: boolean | undefined } = {};
 	_divisors: number[] | undefined = undefined;
+	_factorial: number | undefined = undefined;
 	_factorsOf: { prime: number; power: number }[] | undefined = undefined;
 	_getAliquotSum: number | undefined = undefined;
 	_getCenteredHexagonal: number | undefined = undefined;
@@ -226,6 +235,15 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 		return this._number;
 	}
 
+	set containsXOnes(v: boolean) {
+		throw "containsXOnes can not be set like this";
+	}
+	get containsXOnes(): boolean {
+		return this._containsXOnes?.[8] !== undefined
+			? this._containsXOnes[8]
+			: (this._containsXOnes[8] = containsXOnes(this, 8));
+	}
+
 	set divisors(v: number[]) {
 		this._divisors = v;
 	}
@@ -233,6 +251,16 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 		return this._divisors !== undefined
 			? this._divisors
 			: (this._divisors = divisors(this));
+	}
+
+
+	set factorial(v: number) {
+		this._factorial = v;
+	}
+	get factorial(): number {
+		return this._factorial !== undefined
+			? this._factorial
+			: (this._factorial = factorial(this));
 	}
 
 	set getStar(v: number) {
@@ -533,10 +561,12 @@ export class EnhancedNumber implements EnhancedNumberInterface {
 	}
 
 	set isRound(v: boolean) {
-		throw "Search code for: b521f257-c885-5b59-9852-0c5324408822";
+		throw "isRound can not be set like this";
 	}
 	get isRound(): boolean {
-		throw "Search code for: 5620059f-ad6f-5f43-88ad-7c1adbc23c8b";
+		return this._isRound?.[10] !== undefined
+			? this._isRound[10]
+			: (this._isRound[10] = isRound(this, 10));
 	}
 
 	set isSophieGermainPrime(v: boolean) {
@@ -643,16 +673,20 @@ export function backupComputations(inputN: number | EnhancedNumber): void {
 	fs.appendFileSync("computedNumbers.json", `"${n}": ${JSON.stringify(en)},\n`);
 }
 
-export function restoreComputations(inputN: number): void {
-	const n = new EnhancedNumber(inputN);
-	const fs = require("fs");
-	const computedNumbers = JSON.parse(
+let tempComputedNumbers;
+try {
+	tempComputedNumbers = JSON.parse(
 		fs.readFileSync("computedNumbers.json", "utf8")
 	);
+} catch (e) {
+	tempComputedNumbers = {};
+}
+const computedNumbers = tempComputedNumbers;
 
+export function restoreComputations(inputN: number): void {
 	for (const key of Object.keys(computedNumbers[inputN])) {
 		if (key[0] == "_" && computedNumbers[inputN][key] !== undefined) {
-			n[key] = computedNumbers[inputN][key];
+			new EnhancedNumber(inputN)[key] = computedNumbers[inputN][key];
 		}
 	}
 }
