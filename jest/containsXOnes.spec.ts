@@ -1,13 +1,11 @@
-import { EnhancedNumber } from "../classes/enhancedNumber";
+import { containsXOnes } from '../lib/containsXOnes';
 
 describe('containsXOnes', () => {
 	test('should return true for 7 and x=3', () => {
-		console.log((new EnhancedNumber(7)).containsXOnes);
-		expect((new EnhancedNumber(7)).containsXOnes).toEqual(3);
+		expect(containsXOnes(7, 3)).toBe(true);
 	});
 
 	test('should return false for 6 and x=3', () => {
-		console.log((new EnhancedNumber(6)).containsXOnes);
-		expect((new EnhancedNumber(6)).containsXOnes).toEqual(3);
+		expect(containsXOnes(6, 3)).toBe(false);
 	});
 });
