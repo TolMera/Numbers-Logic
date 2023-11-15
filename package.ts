@@ -31,7 +31,7 @@ const scripts = {
 
     "update:package": "ts-node package.ts",
     start: "ts-node ./build/index.js",
-    runTest: "for file in ./build/testing/*.ts; do echo $file && time ts-node $file || exit 1; done;",
+    runTest: "find ./build/testing -name '*.ts' -not -name '*.d.ts' | while read file; do echo $file && time ts-node $file || exit 1; done;",
     runFile: "time ts-node",
 
     build,
