@@ -18,7 +18,7 @@
 	"main": "./build/index.js",
 	"man": "./readme.md",
 	"scripts": {
-		"build": "npm run compile",
+		"build": "npm run pretty && npm run compile",
 		"deploy": "npm run build && npm run test && npm login && npm publish",
 		"deleteBuild": "rm -rf ./build && rm .tsbuildinfo",
 		"pretty": "node ./node_modules/prettier/bin-prettier.js --write . --use-tabs --cache --cache-strategy metadata --ignore-unknown --loglevel=warn",
